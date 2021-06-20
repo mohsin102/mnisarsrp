@@ -1,0 +1,68 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" controller="lgtTitleWorkTrackerAura">
+    
+    <aura:attribute name="recordId" type="string"/>
+	<aura:attribute name="sObjectName" type="string"/>
+    <aura:attribute name="data" type="Object"/>
+	<aura:attribute name="hasTrackerInProgress" type="Boolean" default="false"/>
+	<aura:attribute name="createTrackerTitle" type="String" default="Create new Title Work Tracker"/>
+
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="sortedBy" type="String" />
+    <aura:attribute name="sortedDirection" type="String"/>
+    <aura:attribute name="listlength" type="String" />
+	<aura:attribute name="isWaiting" type="Boolean" default="false"/>
+	<aura:attribute name="showButton" type="Boolean" default="false"/>
+	<aura:attribute name="buttonLabel" type="String" default=""/>
+	<aura:attribute name="buttonAction" type="String" default=""/>
+	<aura:attribute name="relatedObject" type="String" default=""/>
+	<aura:attribute name="cardLabel" type="String" default="Related List"/>
+	<aura:attribute name="activeSections" type="List"/>
+    <aura:attribute name="activeSectionsMessage" type="String" default="" />
+	<lightning:quickActionAPI aura:id="quickActionAPI" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:handler event="force:refreshView" action="{!c.refreshData}" />
+
+	<!--navigation service-->
+	<lightning:navigation aura:id="navService"/>
+	
+	<lightning:card>
+		<aura:set attribute="title">
+			
+			<h2>Title Work Tracking
+				<aura:if isTrue="{!v.data.length>0}"> 
+					<lightning:button variant="brand" label="New Title Tracker" title="{!v.createTrackerTitle}" onclick="{! c.createTitleTracker }" class="slds-float_right normalFont" disabled="{!v.hasTrackerInProgress}" />
+				</aura:if>
+			</h2>
+		</aura:set>	
+		<aura:if isTrue="{!v.isWaiting}">
+			<div>
+				<lightning:spinner alternativeText="Loading" size="large" />
+			</div>
+			<aura:set attribute="else"> 
+				<aura:if isTrue="{!v.data.length>0}">       
+					<div aura:id="tableDiv" id="srpDataTableDiv">
+						<lightning:accordion allowMultipleSectionsOpen="true" onsectiontoggle="{! c.handleSectionToggle }" activeSectionName="{! v.activeSections }" >
+							<aura:iteration items="{!v.data}" var="titleWorkTracker" indexVar="i">
+								<lightning:accordionSection name="{!titleWorkTracker.titleWorkTracker.Id}" label="{!titleWorkTracker.titleWorkTracker.Name}">
+									<div class=" slds-p-around_medium">
+										<c:titleWorkTrackingCard titleTrackingRecord="{!titleWorkTracker}" />
+									</div>
+								</lightning:accordionSection>
+							</aura:iteration>
+						</lightning:accordion>
+					</div>
+					<aura:set attribute="else">
+						<div class="slds-align_absolute-center">
+							<p class="slds-m-bottom_medium">Title has not been run yet.  Would you like to start?</p>
+							
+						</div>
+						<div class="slds-align_absolute-center">
+							<lightning:button variant="brand" label="Start running title for this area" title="Begin Title Work" onclick="{! c.createTitleTracker }" />
+						</div>
+					</aura:set>
+				</aura:if>
+			</aura:set>
+		</aura:if>
+	</lightning:card>
+	<div aura:id="modalArea" ></div>
+</aura:component>

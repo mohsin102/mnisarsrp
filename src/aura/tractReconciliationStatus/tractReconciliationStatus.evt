@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Event fired from tractReconciliationModal component to notify related components of status">
+    <aura:attribute name="status" type="String" />
+    <aura:attribute name="succeeded" type="Boolean" />
+</aura:event>

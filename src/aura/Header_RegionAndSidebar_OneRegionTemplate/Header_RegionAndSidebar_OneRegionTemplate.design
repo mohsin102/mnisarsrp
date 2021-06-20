@@ -1,0 +1,9 @@
+<design:component label="Header, Detail, Sidebar, and Lower Full Region">
+    <flexipage:template>
+        <flexipage:region name="header" defaultWidth="LARGE" />
+        <flexipage:region name="detail" defaultWidth="MEDIUM" />
+        <flexipage:region name="sidebar" defaultWidth="SMALL" />
+        <flexipage:region name="lowerRegion" defaultWidth="LARGE"/>
+        
+    </flexipage:template>
+</design:component>

@@ -1,0 +1,37 @@
+.THIS .slds-modal__content{
+    height:800px;
+}
+
+.THIS .slds-input__icon_left {
+    right:8px !important;
+    left: auto !important;
+}
+
+.THIS .fontMedium{
+    font-weight:400;
+}
+
+.THIS .smallerFont {
+    font-size:smaller;
+}
+
+.THIS .largeFont {
+    font-size:large;
+}
+
+.THIS .xxlargeFont {
+    font-size:xx-large;
+}
+
+.THIS .xlargeFont {
+    font-size:x-large;
+}
+
+
+.THIS .fontGrey {
+    color:rgb(221, 219, 218);
+}
+
+.THIS .fontBlack {
+    color:black;
+}

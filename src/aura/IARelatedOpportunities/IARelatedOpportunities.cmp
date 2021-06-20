@@ -1,0 +1,29 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" controller="IARelatedOpportunityAura">
+	<aura:attribute name="recordId" type="String"/>
+	<aura:attribute name="concatenatedRelatedTypes" type="String" required="True" default="Asset Acquisition, Asset Acquisition Override, Asset Sale, Asset Sale Override"/>
+	<aura:attribute name="relatedTypes" type="List" default ="['Asset Acquisition', 'Asset Acquisition Override', 'Asset Sale', 'Asset Sale Override']"/>
+	<aura:attribute name="activeSections" type="List" default="[]" />
+    <aura:attribute name="activeSectionsMessage" type="String" default="" />
+	
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:handler name="expandSection" event="c:evtAccordionSectionExpand" action="{!c.handleComponentEvent}"/>
+    <!-- Following section used for troubleshooting expanded sections.  Uncomment to display names of expanded sections-->
+	<!--<p>{! v.activeSectionsMessage }</p>-->
+
+    <lightning:accordion
+        allowMultipleSectionsOpen="true"
+        onsectiontoggle="{! c.handleSectionToggle }"
+        activeSectionName="{! v.activeSections }"
+    >
+		<aura:iteration items="{!v.relatedTypes}" var="item">
+			<lightning:card>
+				<lightning:accordionSection name="{!item}" label="{!item}">
+					<aura:set attribute="body">
+						<c:IARelatedOpportunity recordId = "{!v.recordId}" relatedType="{!item}"/>
+					</aura:set>
+				</lightning:accordionSection>
+			</lightning:card>
+		</aura:iteration>
+    </lightning:accordion>
+	
+</aura:component>

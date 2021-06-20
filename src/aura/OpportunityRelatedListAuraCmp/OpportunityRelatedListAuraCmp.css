@@ -1,0 +1,35 @@
+.THIS .nameButton {
+    height: 10px !important;
+    line-height: 1px !important;
+}
+
+.THIS.nameButton button{
+    height: 10px !important;
+    line-height: 1px !important;
+}
+
+.THIS .slds-button {
+    height: 10px !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: contents;
+}
+
+.THIS.slds-button {
+    height: 10px !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: contents;
+}
+
+.THIS .scrollerSize {
+    font-size:small;
+	height: 200px;
+    overflow: auto;
+}
+
+.THIS .maxHeight {
+    font-size:small;
+    height: 300px;
+    overflow: auto;
+}

@@ -1,0 +1,11 @@
+<design:component label="Land Grid Tract Related List">
+	<sfdc:objects>
+        <sfdc:object>LandGridTract__c</sfdc:object>
+    </sfdc:objects>
+    <design:attribute name="showButton" label="Show Button" description="Show a header button to display a custom modal" />
+    <design:attribute name="buttonLabel" label="Label for the button" />
+    <design:attribute name="customButtonAction" label="Custom Button Action" description="This should only be checked if custom action for the record type has been defined by developer in the component.  If checked, this will override Quick Action Name" />
+    <design:attribute name="buttonAction" label="Quick Action for Land Grid Tract available on the page and listed here with Action API Name "/>
+    <design:attribute name="relatedObject" label="Object API Name for the list of related Objects "/>
+    <design:attribute name="cardLabel" label="Header Label"/>
+</design:component>

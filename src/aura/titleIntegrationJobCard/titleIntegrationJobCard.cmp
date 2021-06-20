@@ -1,0 +1,73 @@
+<aura:component controller="titleWorkTrackingCardAura">
+	<aura:attribute name="tijRecord" type="TitleIntegrationJob__c"/>
+	
+	<lightning:navigation aura:id="navService"/>
+
+		<lightning:card class="slds-card_boundary">
+			<aura:set attribute="title">
+				<lightning:icon iconName="custom:custom67" size="small"/>
+				&nbsp;{! v.tijRecord.type__c }&nbsp;Title&nbsp;Integration&nbsp;Job&nbsp;
+				<div class="slds-float_right">
+					<lightning:buttonGroup>
+						<lightning:button label="Edit" onclick="{! c.goToJob }" title="Edit" />
+						<!--<lightning:button label="Update Notes" onclick="{! c.handleClick }" title="Update Notes" />
+						<lightning:button label="Start Reviewing" onclick="{! c.createTitleWorkJob }" title="Start Reviewing" disabled="{!!v.showReviewButton}" />
+						<lightning:button label="Start Integration" onclick="{! c.createTitleIntegrationJob }" title="Start Integration" />
+						<lightning:button label = "Mark Complete" onclick="{! c.completeTitleWorkJob }" title="Mark Complete" disabled="{!v.titleWorkJobRecord.titleWorkJob.status__c =='Complete'?true:false}" />-->
+					</lightning:buttonGroup>
+				</div>
+			</aura:set>
+			<div class="slds-grid slds-wrap">
+				<!-- 1st Row -->
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:right">Name:&nbsp;&nbsp;</p>
+				</div>
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:left">{!v.tijRecord.Name}</p>
+				</div>
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:right">Status:&nbsp;&nbsp;</p>
+				</div>
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:left">{!v.tijRecord.status__c}</p>
+				</div>
+				<!-- 2nd Row -->
+				<div class="slds-col slds-size_1-of-4">
+					<!--<p style="text-align:right">Start Date:&nbsp;&nbsp;</p>-->
+				</div>
+				<div class="slds-col slds-size_1-of-4">
+					<!--<p style="text-align:left"><lightning:formattedDateTime value="{!v.tijRecord.startDate__c}" year="2-digit" month="2-digit" day="2-digit" timeZone="UTC"/></p>-->
+				</div>
+				<aura:if isTrue="{!v.tijRecord.status__c !='Complete'}">
+					<div class="slds-col slds-size_2-of-4 slds-align_absolute-center">
+					</div>
+					<aura:set attribute="else">
+						<div class="slds-col slds-size_1-of-4">
+							<!--<p style="text-align:right">Integration Status:&nbsp;&nbsp;</p>-->
+						</div>
+						<div class="slds-col slds-size_1-of-4">
+							<!--<p style="text-align:left">{!v.tijRecord.integrationStatus__c}</p>-->
+						</div>
+					</aura:set>
+				</aura:if>
+				<!-- 3rd Row -->
+				<div class="slds-col slds-size_1-of-4">
+					<!--<p style="text-align:right">Completion Date: &nbsp;</p>-->
+				</div>
+				<div class="slds-col slds-size_1-of-4">
+					<!--<p style="text-align:left"><lightning:formattedDateTime value="{!v.tijRecord.completionDate__c}" year="2-digit" month="2-digit" day="2-digit" timeZone="UTC"/></p>-->
+				</div>
+				<div class="slds-col slds-size_2-of-4 slds-align_absolute-center">
+					<!--<lightning:button variant="neutral" label="Go to Job" title="Work on Title Job" onclick="{! c.goToJob }"  />-->
+					<!--<lightning:button variant="neutral" label="Mark Complete" title="Mark Title Work Complete" onclick="{! c.completeTitleIntegrationJob }"  />-->
+				</div>
+					
+			</div>
+			<!--<aura:set attribute="footer">
+				<lightning:badge label="Tag1"/>
+				<lightning:badge label="Tag2"/>
+				<lightning:badge label="Tag3"/>
+			</aura:set>-->
+			
+		</lightning:card>
+</aura:component>

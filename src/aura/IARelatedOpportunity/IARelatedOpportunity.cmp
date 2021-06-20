@@ -1,0 +1,102 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" controller="IARelatedOpportunityAura">
+	<aura:attribute name="relatedOpportunityTract" type="Object"/>
+    <aura:attribute name="recordId" type="String"/>
+	<aura:attribute name="iaRecord" type="Object"/>
+	<aura:attribute name="relatedType" type="String" default="Asset Acquisition" required="True"/>
+	<aura:attribute name="relatedField" type="String"/>
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+	<aura:registerEvent name="expandSection" type="c:evtAccordionSectionExpand"/>
+
+	<force:recordData aura:id="recordLoader"
+    recordId="{!v.recordId}"
+    fields="Id, Name"
+    targetFields="{!v.iaRecord}"
+    targetError="{!v.recordLoadError}"
+	recordUpdated = "{!c.recordUpdated}"
+    />
+	
+
+	<lightning:card class="{!v.relatedOpportunityTract.inactive? 'cardBackground':''}">
+		<aura:set attribute="title">
+			<aura:if isTrue="{!v.relatedOpportunityTract.organizationalTransfer}">
+				<h2 class="slds-align_absolute-center">Organizational Transfer
+				
+				</h2>
+			</aura:if>
+		</aura:set>
+		<div class="slds-grid slds-wrap outsidePadding">
+			
+			
+			<!--<div class="slds-section slds-is-open slds-size_1-of-1">
+				<h3 class="slds-section__title">
+				<button aria-controls="expando-unique-id" aria-expanded="true" class="{!v.relatedOpportunityTract.inactive? 'slds-button slds-section__title-action buttonBackground':'slds-button slds-section__title-action '}">
+					<span class="slds-truncate" title="Section Title">{!v.relatedType}</span>
+				</button>
+				</h3>
+			</div>-->
+			<div class="slds-col slds-size_1-of-2 leftColumn">
+				<div class="slds-border_bottom">
+					<p><lightning:formattedText value="OT Name" class="slds-form-element__label"/></p>
+					<p><lightning:formattedUrl class="slds-form-element__static" value="{!v.relatedOpportunityTract.oppTractId?'/'+ v.relatedOpportunityTract.oppTractId:''}" tooltip="Open Related Opportunity Tract" label="{!v.relatedOpportunityTract.oppTractName}" target="_self" /></p>
+				</div>
+				<div class="slds-border_bottom">
+					<p><lightning:formattedText value="Acquiring Entity" class="slds-form-element__label"/></p>
+					<p><lightning:formattedUrl class="slds-form-element__static" value="{!v.relatedOpportunityTract.acqEntityId?'/'+ v.relatedOpportunityTract.acqEntityId:''}" tooltip="Open Acquiring Entity Account" label="{!v.relatedOpportunityTract.acqEntityName}" target="_self" /></p>
+				</div>
+				<div class="slds-border_bottom">
+					<p><lightning:formattedText value="Opportunity Effective Date" class="slds-form-element__label"/></p>
+					<p><lightning:formattedDateTime value="{!v.relatedOpportunityTract.effectiveDate}" year="2-digit" month="2-digit" day="2-digit" timeZone="UTC"/></p>
+				</div>
+				<div class="slds-border_bottom">
+					<p><lightning:formattedText value="Unit Price" class="slds-form-element__label"/></p>
+					<p><lightning:formattedNumber value="{!v.relatedOpportunityTract.unitPrice}" style="currency" currencyCode="USD"/></p>
+				</div>
+				<!--<p>OppId: {!v.relatedOpportunityTract.oppId}</p>
+				<p>OppName: {!v.relatedOpportunityTract.oppName}</p>
+				<p>OppTractId: {!v.relatedOpportunityTract.oppTractId}</p>
+				<p>OppTractName: {!v.relatedOpportunityTract.oppTractName}</p>
+				<p>AcqEntityId: {!v.relatedOpportunityTract.acqEntityId}</p>
+				<p>AcqEntityName: {!v.relatedOpportunityTract.acqEntityName}</p>
+				<p>SellEntityId: {!v.relatedOpportunityTract.sellEntityId}</p>
+				<p>SellEntityName: {!v.relatedOpportunityTract.sellEntityName}</p>
+				<p>Effective Date:{!v.relatedOpportunityTract.effectiveDate}</p>
+				<p>Close Date: {!v.relatedOpportunityTract.closeDate}</p>
+				<p>Unit Price: {!v.relatedOpportunityTract.unitPrice}</p>
+				<p>Total Price: {!v.relatedOpportunityTract.totalPrice}</p>-->
+			</div>
+			<div class="slds-col slds-size_1-of-2 rightColumn">
+				<div class="slds-border_bottom">
+					<p><lightning:formattedText value="Opportunity Name" class="slds-form-element__label"/></p>
+					<p><lightning:formattedUrl class="slds-form-element__static" value="{!v.relatedOpportunityTract.oppId?'/'+ v.relatedOpportunityTract.oppId:''}" tooltip="Open Related Opportunity" label="{!v.relatedOpportunityTract.oppName}" target="_self" /></p>
+				</div>
+				<div class="slds-border_bottom">
+					<p><lightning:formattedText value="Selling Entity" class="slds-form-element__label"/></p>
+					<p><lightning:formattedUrl class="slds-form-element__static" value="{!v.relatedOpportunityTract.sellEntityId?'/'+ v.relatedOpportunityTract.sellEntityId:''}" tooltip="Open Acquiring Entity Account" label="{!v.relatedOpportunityTract.sellEntityName}" target="_self" /></p>
+				</div>
+				<div class="slds-border_bottom">
+					<p><lightning:formattedText value="Opportunity Close Date" class="slds-form-element__label"/></p>
+					<p><lightning:formattedDateTime value="{!v.relatedOpportunityTract.closeDate}" year="2-digit" month="2-digit" day="2-digit" timeZone="UTC"/></p>
+				</div>
+				<div class="slds-border_bottom">
+					<p><lightning:formattedText value="Total Price" class="slds-form-element__label"/></p>
+					<p><lightning:formattedNumber value="{!v.relatedOpportunityTract.totalPrice}" style="currency" currencyCode="USD"/></p>
+				</div>
+				<!--<p>OppId: {!v.relatedOpportunityTract.oppId}</p>
+				<p>OppName: {!v.relatedOpportunityTract.oppName}</p>
+				<p>OppTractId: {!v.relatedOpportunityTract.oppTractId}</p>
+				<p>OppTractName: {!v.relatedOpportunityTract.oppTractName}</p>
+				<p>AcqEntityId: {!v.relatedOpportunityTract.acqEntityId}</p>
+				<p>AcqEntityName: {!v.relatedOpportunityTract.acqEntityName}</p>
+				<p>SellEntityId: {!v.relatedOpportunityTract.sellEntityId}</p>
+				<p>SellEntityName: {!v.relatedOpportunityTract.sellEntityName}</p>
+				<p>Effective Date:{!v.relatedOpportunityTract.effectiveDate}</p>
+				<p>Close Date: {!v.relatedOpportunityTract.closeDate}</p>
+				<p>Unit Price: {!v.relatedOpportunityTract.unitPrice}</p>
+				<p>Total Price: {!v.relatedOpportunityTract.totalPrice}</p>-->
+			</div>
+		</div>
+	</lightning:card>
+	
+</aura:component>

@@ -1,0 +1,22 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" controller="AccountingInvestmentController">
+	
+	<aura:attribute name="currentRecord" type="Object"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="false"/>
+	<aura:attribute name="rec" type="Object"/>
+
+	<aura:handler event="force:refreshView" action="{!c.init}" />
+
+	<force:recordData aura:id="recordLoader"
+			recordId="{!v.recordId}"
+			fields="Id"
+			targetFields="{!v.rec}"
+			recordUpdated = "{!c.recordUpdated}"
+		/>
+
+	<lightning:card>
+		<c:IAOwner currentRecord="{!v.currentRecord}"/>
+		<c:IARelatedDetail currentRecord="{!v.currentRecord}" detailType="Acquisition"/>
+		<c:IARelatedDetail currentRecord="{!v.currentRecord}" detailType="Sale"/>
+	</lightning:card>
+
+</aura:component>

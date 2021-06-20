@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Instrument_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Instrument_Info</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Instrument_Info</fullName>
+        <fields>Name</fields>
+        <fields>Royalty_Type__c</fields>
+        <fields>Lease_Royalty__c</fields>
+        <fields>Lease_Status__c</fields>
+        <fields>Lessee__c</fields>
+        <fields>Lessor__c</fields>
+        <fields>Book_Type__c</fields>
+        <fields>Book_Number__c</fields>
+        <fields>Page_Number__c</fields>
+        <label>Instrument Info</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Book_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Volume</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Book_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Book Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Effective_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Instrument_County__c</fullName>
+        <externalId>false</externalId>
+        <label>Instrument County</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Instrument_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Instrument Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Instrument_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Instrument Notes</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Instrument_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Instrument Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Instrument_State__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>enter state abbreviation</inlineHelpText>
+        <label>Instrument State</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lease_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Lease Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lease_Royalty__c</fullName>
+        <externalId>false</externalId>
+        <label>Lease Royalty</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>15</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lease_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Lease Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>HBP</fullName>
+                    <default>false</default>
+                    <label>HBP</label>
+                </value>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Lessee__c</fullName>
+        <externalId>true</externalId>
+        <label>Lessee</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lessor__c</fullName>
+        <externalId>true</externalId>
+        <label>Lessor</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Page_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Page Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Royalty_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Royalty Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Assumed</fullName>
+                    <default>true</default>
+                    <label>Assumed</label>
+                </value>
+                <value>
+                    <fullName>Confirmed</fullName>
+                    <default>false</default>
+                    <label>Confirmed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>expirationDate__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( !ISBLANK(Effective_Date__c), 
+  IF( extended__c , 
+    /*All necessary fields are populated*/
+    IF(!ISBLANK( extensionTerm__c ) &amp;&amp; !ISBLANK(TEXT( extensionTermMeasure__c ))&amp;&amp;!ISBLANK( term__c )&amp;&amp;!ISBLANK(TEXT( termMeasure__c )), 
+      IF( TEXT(termMeasure__c) == &quot;Year&quot; &amp;&amp;  TEXT(extensionTermMeasure__c) ==&quot;Year&quot;, 
+        ADDMONTHS(ADDMONTHS( Effective_Date__c , term__c * 12), extensionTerm__c * 12)  , 
+        IF(TEXT(termMeasure__c) == &quot;Year&quot; &amp;&amp;  TEXT(extensionTermMeasure__c) ==&quot;Month&quot;, 
+          ADDMONTHS(ADDMONTHS( Effective_Date__c , term__c * 12), extensionTerm__c), 
+          IF(TEXT(termMeasure__c) == &quot;Month&quot; &amp;&amp;  TEXT(extensionTermMeasure__c) ==&quot;Month&quot;, 
+            ADDMONTHS(ADDMONTHS( Effective_Date__c , term__c ), extensionTerm__c), 
+            IF(TEXT(termMeasure__c) == &quot;Month&quot; &amp;&amp;  TEXT(extensionTermMeasure__c) ==&quot;Year&quot;, 
+              ADDMONTHS(ADDMONTHS( Effective_Date__c , term__c ), extensionTerm__c * 12), 
+               null ) ) ) ) , 
+    /*if extended, validation rule requires extension fields to be populated, but need to check initial term and option*/
+     IF(ISBLANK(term__c ) || ISBLANK(TEXT(termMeasure__c )), 
+        IF(TEXT(extensionTermMeasure__c) ==&quot;Year&quot;, 
+          ADDMONTHS( Effective_Date__c , extensionTerm__c * 12), 
+          IF(TEXT(extensionTermMeasure__c) ==&quot;Month&quot;, 
+            ADDMONTHS( Effective_Date__c , extensionTerm__c), 
+            null) ) , 
+        null ) ) ,
+  /*Not extended */
+  IF(!ISBLANK( term__c )&amp;&amp;!ISBLANK(TEXT( termMeasure__c )),
+     IF(TEXT(termMeasure__c) == &quot;Year&quot;, 
+       ADDMONTHS( Effective_Date__c , term__c * 12), 
+        IF(TEXT(termMeasure__c) == &quot;Month&quot;, 
+          ADDMONTHS( Effective_Date__c , term__c), 
+          null) ) , 
+    /*No valid options, use Effective Date*/
+    null) ) , 
+  null)</formula>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>extended__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates whether the extension option should be included when calculating the expiration date</description>
+        <externalId>false</externalId>
+        <label>Extended</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>extensionTermMeasure__c</fullName>
+        <externalId>false</externalId>
+        <label>Extension Term Measure</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Year</fullName>
+                    <default>true</default>
+                    <label>Year</label>
+                </value>
+                <value>
+                    <fullName>Month</fullName>
+                    <default>false</default>
+                    <label>Month</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>extensionTerm__c</fullName>
+        <externalId>false</externalId>
+        <label>Extension Term</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>termMeasure__c</fullName>
+        <description>Term length measure (Year or Month)</description>
+        <externalId>false</externalId>
+        <label>Term Measure</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Year</fullName>
+                    <default>true</default>
+                    <label>Year</label>
+                </value>
+                <value>
+                    <fullName>Month</fullName>
+                    <default>false</default>
+                    <label>Month</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>term__c</fullName>
+        <externalId>false</externalId>
+        <label>Term</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Instrument</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Lessor__c</columns>
+        <columns>Lessee__c</columns>
+        <columns>Book_Type__c</columns>
+        <columns>Book_Number__c</columns>
+        <columns>Page_Number__c</columns>
+        <columns>Lease_Royalty__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Jordan</fullName>
+        <columns>NAME</columns>
+        <columns>Lessor__c</columns>
+        <columns>Lessee__c</columns>
+        <columns>Book_Type__c</columns>
+        <columns>Book_Number__c</columns>
+        <columns>Page_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Book_Number__c</field>
+            <operation>equals</operation>
+            <value>1020</value>
+        </filters>
+        <label>All - Jordan</label>
+    </listViews>
+    <nameField>
+        <displayFormat>IN-{0000000000}</displayFormat>
+        <label>Instrument Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Instruments</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Lessee__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Lessor__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Lessee__c</searchFilterFields>
+        <searchFilterFields>Lessor__c</searchFilterFields>
+        <searchFilterFields>Book_Type__c</searchFilterFields>
+        <searchFilterFields>Book_Number__c</searchFilterFields>
+        <searchFilterFields>Page_Number__c</searchFilterFields>
+        <searchResultsAdditionalFields>Lessee__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Lessor__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Book_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Book_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Page_Number__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Require_Extension_Term_and_Term_Measure</fullName>
+        <active>true</active>
+        <description>If either is populated, the other field must be.</description>
+        <errorConditionFormula>(!ISBLANK( extensionTerm__c )&amp;&amp; ISBLANK(TEXT( extensionTermMeasure__c )))||
+(ISBLANK(extensionTerm__c )&amp;&amp; !ISBLANK(TEXT(extensionTermMeasure__c )))</errorConditionFormula>
+        <errorMessage>For a valid Extension Term you must enter both Extension Term and Extension Term Measure.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Require_Extension_Values_when_Extended</fullName>
+        <active>true</active>
+        <description>Require extension option and extension measure are populated when setting extended to true.</description>
+        <errorConditionFormula>extended__c &amp;&amp; (ISBLANK( extensionTerm__c ) || ISBLANK(TEXT( extensionTermMeasure__c )))</errorConditionFormula>
+        <errorMessage>You must enter an Extension Option and Extension Option Term Measure value when setting Extended to true.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Require_Term_and_Term_Measure</fullName>
+        <active>true</active>
+        <description>If either is populated, the other field must be.</description>
+        <errorConditionFormula>(!ISBLANK(term__c  )&amp;&amp; ISBLANK(TEXT(termMeasure__c )))||
+(ISBLANK(term__c  )&amp;&amp; !ISBLANK(TEXT(termMeasure__c )))</errorConditionFormula>
+        <errorMessage>For a valid Term you must enter both Term and Term Measure.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

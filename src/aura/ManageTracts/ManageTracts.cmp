@@ -1,0 +1,182 @@
+<aura:component  controller="ManageTractController">
+    
+    <!--attributes-->
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="unassociatedData" type="Object"/>
+    <aura:attribute name="pageNumberT1" type="Integer" default="1"/>
+    <aura:attribute name="pageSizeT1" type="Integer" default="10"/>
+    <aura:attribute name="isLastPageT1" type="Boolean" default="false"/>
+    <aura:attribute name="dataSizeT1" type="Integer" default="0"/>
+    <aura:attribute name="associatedData" type="Object"/>
+    <aura:attribute name="pageNumberT2" type="Integer" default="1"/>
+    <aura:attribute name="pageSizeT2" type="Integer" default="10"/>
+    <aura:attribute name="isLastPageT2" type="Boolean" default="false"/>
+    <aura:attribute name="dataSizeT2" type="Integer" default="0"/>
+    <aura:attribute name="addedTracts" type="Object"/>
+    <aura:attribute name="removedTracts" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="showAddTract" type="boolean"/>
+    <aura:attribute name="showRemoveTract" type="boolean"/>
+    <aura:attribute name="sortedByT1" type="String"/>
+    <aura:attribute name="sortedDirectionT1" type="String"/>
+    <aura:attribute name="sortedByT2" type="String"/>
+    <aura:attribute name="sortedDirectionT2" type="String"/>
+    <aura:attribute name="searchString" type="String" default=""/>
+    <aura:attribute name="searchCounter" type="Integer"/>
+    <aura:attribute name="t1PageChange" type="Boolean" default="false"/>
+    <aura:attribute name="t2PageChange" type="Boolean" default="false"/>
+    
+    <!--handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.searchString}" action="{!c.checkClear}"/>
+    
+    <aura:registerEvent name="modalEvent" type="c:modalEvent"/> 
+    <!--<aura:handler event="c:LandGridTractSelected" action="{!c.handleSelectedLandGridTract}"/>-->
+    
+    <!--navigation service-->
+    <lightning:navigation aura:id="navService"/>
+    <!--<ltng:require styles="{!$Resource.popupCSS}" />-->
+    
+    <!--layout-->
+    <div >
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open  slds-modal_large">
+            <div class="slds-modal__container" >
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Manage Tract</h2>
+                    
+                    <div onkeyup="{! c.handleKeyUp }">
+                        <p>
+                            <lightning:input
+                                             class="iconRight"
+                                             placeholder="Filter by Tract or Land Grid Tract Name"
+                                             aura:id="enter-search"
+                                             name="enter-search"
+                                             value="{!v.searchString}"
+                                             type="search"
+                                             autocomplete="off"
+                                             />
+                        </p>
+                    </div>
+                    
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="height:100%">					
+                    <div> 
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_3-of-12">
+                                <p class="slds-p-around_medium largeFont">
+                                    Associated Tracts
+                                </p>
+                            </div>
+                            <div class="slds-col slds-size_11-of-12">
+                            </div>
+                            
+                            
+                            <!--<div class="slds-col slds-size_1-of-2">
+         <lightning:formattedText value="Filter by Land Grid Tract "/>
+         <c:TractLookupContainer parentId="associated"/>
+       </div>-->
+                        </div>
+                        <!--<lightning:datatable
+                                             data="{!v.associatedData}" 
+                                             columns="{!v.columns}"
+                                             keyField="id" 
+                                             onrowselection="{!c.removeSelection}"
+                                             />
+      -->
+                        <div style="min-height:350px">
+                            <c:srpDataTable
+                                            aura:id="associatedTable"
+                                            class="slds-p-around_none"
+                                            columns="{! v.columns }"
+                                            data="{! v.associatedData }"
+                                            keyField="Id"
+                                            errors="{! v.errors }"
+                                            draftValues="{! v.draftValues }"
+                                            oncellchange="{! c.updateDataValues }"
+                                            hideCheckboxColumn="false"
+                                            suppressBottomBar="true"
+                                            showRowNumberColumn="false"
+                                            minColumnWidth="25"
+                                            maxColumnWidth="400"
+                                            onrowselection="{!c.removeSelection}"
+                                            sortedBy="{!v.sortedByT1}"
+                                            sortedDirection = "{!v.sortedDirectionT1}"
+                                            onsort="{!c.updateSortingT1}"/>
+                        </div>
+                        <div class="slds-clearfix">
+                            <div class="slds-p-around_medium">
+                                <div class="slds-float_right">            
+                                    <aura:if isTrue="{!v.showRemoveTract}">
+                                        <lightning:button label="Remove Tract" onclick="{!c.removeTracts}" variant="brand"/>
+                                    </aura:if>
+                                    <lightning:button label="Prev" iconName="utility:chevronleft" iconPosition="left"
+                                                      onclick="{!c.handlePrevT1}" disabled="{! v.pageNumberT1 == 1}"/>
+                                    <lightning:button label="Next" iconName="utility:chevronright" iconPosition="right"
+                                                      disabled="{!v.isLastPageT1}" onclick="{!c.handleNextT1}"/>
+                                </div>
+                                <p>Page {!v.pageNumberT1} | Showing records from {! ((v.pageNumberT1-1)*v.pageSizeT1+1)+' to '+((v.pageNumberT1-1)*v.pageSizeT1+v.dataSizeT1)}</p>
+                            </div>
+                        </div>
+                        <br/> <br/> 
+                    </div>
+                    <div >
+                        <!--<div class="slds-grid"> -->
+                        
+                        <div class="slds-col slds-size_3-of-12">
+                            <p class="slds-p-around_medium largeFont">
+                                Unassociated Tracts
+                            </p>
+                        </div>
+                        <!--<div class="slds-col slds-size_1-of-2">
+         <lightning:formattedText value="Filter by Land Grid Tract "/>
+         <c:TractLookupContainer parentId="unAssociated"/>
+       </div>-->
+                        <!--</div> -->
+                        <div style="min-height:350px">
+                            <c:srpDataTable
+                                            aura:id="unAssociatedTable"
+                                            class="slds-p-around_medium"
+                                            columns="{! v.columns }"
+                                            data="{! v.unassociatedData }"
+                                            keyField="Id"
+                                            errors="{! v.errors }"
+                                            draftValues="{! v.draftValues }"
+                                            oncellchange="{! c.updateDataValues }"
+                                            hideCheckboxColumn="false"
+                                            suppressBottomBar="true"
+                                            showRowNumberColumn="false"
+                                            minColumnWidth="25"
+                                            maxColumnWidth="400"
+                                            onrowselection="{!c.addSelection}"
+                                            sortedBy="{!v.sortedByT2}"
+                                            sortedDirection = "{!v.sortedDirectionT2}"
+                                            onsort="{!c.updateSortingT2}"/>
+                        </div>
+                        
+                        
+                        <div class="slds-clearfix">
+                            <div class="slds-p-around_medium">
+                                <div class="slds-float_right"> 
+                                    <aura:if isTrue="{!v.showAddTract}">
+                                        <lightning:button label="Add Tract" onclick="{!c.addTracts}" variant="brand"/>
+                                    </aura:if>
+                                    <lightning:button label="Prev" iconName="utility:chevronleft" iconPosition="left"
+                                                      onclick="{!c.handlePrevT2}" disabled="{! v.pageNumberT2 == 1}"/>
+                                    <lightning:button label="Next" iconName="utility:chevronright" iconPosition="right"
+                                                      disabled="{! v.isLastPageT2}" onclick="{!c.handleNextT2}"/>
+                                </div>
+                                <p>Page {!v.pageNumberT2} | Showing records from {! ((v.pageNumberT2-1)*v.pageSizeT2+1)+' to '+((v.pageNumberT2-1)*v.pageSizeT2+v.dataSizeT2)}</p>
+                            </div> 
+                        </div>
+                        <div class="slds-col slds-size_12-of-12">
+                        </div>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button class="slds-button slds-button_neutral" onclick="{!c.closeModal}">Close</lightning:button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+</aura:component>

@@ -1,0 +1,202 @@
+<aura:component controller="ContactInformationController">
+    
+    
+    <!--declare aura attributes-->
+    <aura:attribute name="objInfoForPicklistValues" type="account" default="{sobjectType : 'Account'}" description="object information to fetch picklist values"/>
+    <aura:attribute name="ratingPicklistOpts" type="string[]" description="store picklist options values"/> 
+    <aura:attribute name="showSaveCancelBtn" type="boolean"/>
+    <aura:attribute name="showErrorClass" type="boolean" default="false"/>
+    <aura:attribute name="sNo" type="string" />
+    <aura:attribute name="singleRec" type="object"/>
+    <aura:attribute name="phoneEditMode" type="boolean" default="false" />
+    <aura:attribute name="addressEditMode" type="boolean" default="false" />
+    <aura:attribute name="primaryEditMode" type="boolean" default="false" />
+    <aura:attribute name="statusEditMode" type="boolean" default="false" />
+    <aura:attribute name="notesEditMode" type="boolean" default="false" />
+    <aura:attribute name="phoneEditDisabled" type="boolean" default="false" />
+    <aura:attribute name="addressEditDisabled" type="boolean" default="false" />
+    <aura:registerEvent name="cmpEvent" type="c:ContactInformationInlineEditEvent"/>
+    <aura:registerEvent name="deleteEvent" type="c:ContactInformationDeleteEvent"/>
+    <!--Table Row Start-->  
+    <tr>
+        
+        <td ondblclick="{!v.singleRec.address!=''?c.doNothing:c.inlineEditPhone}" role="gridcell" class="{! v.showErrorClass == true ? 'slds-cell-edit slds-has-error' : 'slds-cell-edit'}" style="max-width=20%">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!v.phoneEditMode == false}">
+                    <span class="slds-truncate slds-has-flexi-truncate" title="{!v.singleRec.Type +'\n'+v.singleRec.Phone}" style="display: block; width: 100%;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;"><lightning:formattedPhone value="{!v.singleRec.Phone}"></lightning:formattedPhone></span>
+                    <aura:if isTrue="{!v.singleRec.address!=''?false:true}">
+                        <button onclick="{!c.inlineEditPhone}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Name" >
+                            <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                        </button>
+                    </aura:if>
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                        
+                        <section  tabindex="0"  class="slds-popover slds-popover_edit" role="dialog" style="position: absolute; top: 0px">
+                            <div  class="slds-popover__body">
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        <div class="slds-p-around_x-small">
+                                            
+                                            <br/>Phone:<br/>
+                                            <ui:inputPhone 
+                                                           label=""
+                                                           maxlength="10"
+                                                           aura:id="phoneId"
+                                                           change="{!c.onPhoneChange}"
+                                                           value="{!v.singleRec.Phone}" />
+                                            <br/><br/>Type:<br/>
+                                            <ui:inputSelect class="single"
+                                                            aura:id="typeId"
+                                                            change="{!c.onTypeChange}"
+                                                            value="{!v.singleRec.Type}" >
+                                                
+                                                <ui:inputSelectOption text="Cell"/>
+                                                <ui:inputSelectOption text="Landline"/>
+                                            </ui:inputSelect>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>
+                        <div style="width: 100%;height: 100%;opacity: 1;visibility: visible;position: fixed;top: 0;right: 0;bottom: 0;left: 0;z-index: 1;" onclick="{!c.closePhoneBox}"></div>
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+        
+        <td role="gridcell" ondblclick="{!v.singleRec.Phone!=''?c.doNothing:c.inlineEditAddress}" class="{! v.showErrorClass == true ? 'slds-cell-edit slds-has-error' : 'slds-cell-edit'}" style="max-width=20%">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!v.addressEditMode == false}">
+                    <span class="slds-truncate slds-has-flexi-truncate" title="{!v.singleRec.address}" style="display: block; width: 100px;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;">{!v.singleRec.address}</span>
+                    <aura:if isTrue="{!v.singleRec.Phone!=''?false:true}">
+                        <button onclick="{!c.inlineEditAddress}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Name">
+                            <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                        </button>
+                    </aura:if>
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                        <section  tabindex="0" class="slds-popover slds-popover_edit" role="dialog" style="position: absolute; top: 0px">
+                            <div class="slds-popover__body" >
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        
+                                        
+                                        <lightning:inputAddress
+                                                                aura:id="addressId"
+                                                                onblur="{!c.closeAddressBox}"
+                                                                onchange="{!c.onAddressChange}"
+                                                                addressLabel="Address"
+                                                                streetLabel="Street"
+                                                                cityLabel="City"
+                                                                countryLabel="County"
+                                                                provinceLabel="State"
+                                                                postalCodeLabel="PostalCode"
+                                                                
+                                                                street="{!v.singleRec.Street}"
+                                                                city="{!v.singleRec.City}"
+                                                                country="{!v.singleRec.County}"
+                                                                province="{!v.singleRec.State}"
+                                                                postalCode="{!v.singleRec.Zipcode}"
+                                                                class="slds-p-around_x-small"/>
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>  
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+        
+        <td role="gridcell" ondblclick="{!c.inlineEditPrimary}" class="{! v.showErrorClass == true ? 'slds-cell-edit slds-has-error' : 'slds-cell-edit'}" style="max-width=20%">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!v.primaryEditMode == false}">
+                    <span class="slds-truncate slds-has-flexi-truncate" title="Name"><ui:outputCheckbox value="{!v.singleRec.Primary}" /></span>
+                    
+                    <button onclick="{!c.inlineEditPrimary}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Name">
+                        <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                    
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                        <ui:inputCheckbox labelClass="slds-form-element__label slds-form-element__label_edit slds-no-flex"
+                                          aura:id="primaryId"
+                                          blur="{!c.closePrimaryBox}"
+                                          change="{!c.onPrimaryChange}"
+                                          value="{!v.singleRec.Primary}" />
+                        
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+        
+        <td role="gridcell" ondblclick="{!c.inlineEditStatus}" class="{! v.showErrorClass == true ? 'slds-cell-edit slds-has-error' : 'slds-cell-edit'}" style="max-width=20%">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!v.statusEditMode == false}">
+                    <span class="slds-truncate slds-has-flexi-truncate" title="{!v.singleRec.Status}">{!v.singleRec.Status}</span>
+                    <button onclick="{!c.inlineEditStatus}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Name">
+                        <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                    
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                        <ui:inputSelect class="single"
+                                        aura:id="statusId"
+                                        blur="{!c.closeStatusBox}"
+                                        change="{!c.onStatusChange}"
+                                        value="{!v.singleRec.Status}" >
+                            
+                            <ui:inputSelectOption text="Non Verified"/>
+                            <ui:inputSelectOption text="Verified"/>
+                            <ui:inputSelectOption text="Invalid"/>
+                        </ui:inputSelect>
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+        <td ondblclick="{!c.inlineEditNotes}" role="gridcell" class="{! v.showErrorClass == true ? 'slds-cell-edit slds-has-error' : 'slds-cell-edit'}" style="max-width=20%">
+            <span class="slds-grid slds-grid_align-spread">
+                <!-- show input and output section based on boolean flag --> 
+                <aura:if isTrue="{!v.notesEditMode == false}">
+                    <span class="slds-truncate slds-has-flexi-truncate" title="{!v.singleRec.Notes}" style="display: block; width: 50px;overflow: hidden; white-space: nowrap;text-overflow: ellipsis;">{!v.singleRec.Notes}</span>
+                    <button onclick="{!c.inlineEditNotes}" class="slds-button slds-button_icon slds-cell-edit__button slds-m-left_x-small" tabindex="0" title="Edit Name" >
+                        <lightning:icon iconName="utility:edit" size="xx-small" alternativeText="edit"/>
+                    </button>
+                    <!-- Inline Edit Section in else case-->  
+                    <aura:set attribute="else">
+                        <section  tabindex="0"  class="slds-popover slds-popover_edit" role="dialog" style="position: relative; top: 0px;right:10%">
+                            <div  class="slds-popover__body">
+                                <div class="slds-form-element slds-grid slds-wrap">
+                                    <div class="slds-form-element__control slds-grow">
+                                        <div class="slds-p-around_x-small">
+                                            <ui:inputTextArea
+                                                          aura:id="notesId"
+                                                          blur="{!c.closeNotesBox}"
+                                                          change="{!c.onNotesChange}"
+                                                          value="{!v.singleRec.Notes}" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="form-end" tabindex="0"></span>
+                        </section>
+                    </aura:set>  
+                </aura:if> 
+            </span>
+        </td>
+        <td>
+            <span class="slds-grid slds-align_absolute-center">
+                <lightning:button onclick="{!c.deleteRow}" variant="Base" iconName="utility:delete" iconPosition="right"/>
+            </span>
+        </td>
+        
+    </tr>
+</aura:component>

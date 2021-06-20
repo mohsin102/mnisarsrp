@@ -1,0 +1,32 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" controller="OpportunityTractController">
+    
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="oppTractList" type="list"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="sortBy" type="String" />
+    <aura:attribute name="sortDirection" type="String" />
+    <aura:attribute name="oppTractListlength" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div aria-labelledby="newexpenseform">
+        <fieldset class="slds-box slds-theme--default slds-container--XX-large" width="100%">
+            <div class="slds-clearfix">
+                
+                <lightning:icon iconName="custom:custom96" alternativeText="opportunity" style="width:35px;height:28px;"/>
+                &nbsp; <b style="font-size: 15px;"> Opportunity Tracts ({!v.oppTractListlength})</b>
+                <div class="slds-float_right">  
+                    <lightning:button label="New" onclick="{!c.createNewOppTract}"/>
+                </div>
+            </div>
+            <div class="slds-scrollable" style="height:15rem;">  <span style="height:5px;" ></span>
+                <lightning:datatable
+                                     data="{!v.oppTractList}" columns="{!v.mycolumns}"
+                                     keyField="id" hideCheckboxColumn="true" sortedBy="{!v.sortBy}" 
+                                     sortedDirection="{!v.sortDirection}" 
+                                     onsort="{!c.handleSort}" style="width:100%" 
+                                     onrowaction="{!c.handleRowAction}"
+                                     resize-column-disabled=""/>
+            </div>
+        </fieldset>
+    </div>
+</aura:component>

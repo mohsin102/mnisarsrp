@@ -1,0 +1,74 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" controller="OwnerInterestRevenueController">
+    
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="disabled" type="boolean"/>
+    <aura:attribute name="excludeRevenue" type="String" default="false"/>
+    <aura:attribute name="savedExcludeRevenue" type="String" default="false"/>
+    <aura:attribute name="showModal" type="boolean"/>
+    <aura:attribute name="suaId" type="string"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="sortedBy" type="String" default="productionMonth__c"/>
+    <aura:attribute name="sortedDirection" type="String" default="desc"/>
+    <aura:attribute name="listlength" type="String" /> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="ownerNetRevenueValueGas" type="Double" />
+    <aura:attribute name="ownerEntityLnk" type="String" />
+    <aura:attribute name="ownerNetRevenueValueOil" type="Double" />
+    <aura:attribute name="ownerNetRevenueValue" type="Double" />
+    <aura:registerEvent name="modalEvent" type="c:modalEvent"/>
+    <div class="slds-box slds-box_xx-small" width="100%"> 
+        <aura:if isTrue="{! !v.savedExcludeRevenue}">
+        <div class="slds-clearfix">
+            
+            <lightning:button aura:id="buttonId" label="Create Well Interest Allocation" variant="brand" onclick="{!c.createWIA}" class="{! v.disabled?'slds-hide':''}"/>
+            <b>
+                <div class="slds-float_right">
+                    <div > SRP Owner Net Revenue: ${!v.ownerNetRevenueValue}</div>   
+                </div>
+            </b>
+        </div>
+        
+        <aura:if isTrue="{! v.data.length >0 }">
+        <c:srpDataTable 
+                        class="slds-p-around_medium"
+                        columns="{! v.mycolumns }"
+                        data="{! v.data }"
+                        keyField="Id"
+                        hideCheckboxColumn="true"
+                        errors="{! v.errors }"
+                        suppressBottomBar="true"
+                        showRowNumberColumn="false"
+                        sortedBy="{!v.sortedBy}"
+                        sortedDirection = "{!v.sortedDirection}"
+                        onsort="{!c.handleSort}"/>
+             </aura:if>
+            <aura:set attribute="else">
+                <lightning:icon iconName="custom:custom19" size="small"/>
+				&nbsp;Well&nbsp;Interest&nbsp;Allocation&nbsp;&nbsp;
+                <lightning:button aura:id="editButtonId" label="Edit"  onclick="{!c.createWIA}" class="{! v.disabled?'slds-hide':''}"/>
+                <br/><br/>
+            </aura:set>
+            </aura:if>
+    </div>
+    
+    <aura:if isTrue="{!v.showModal}">
+        <section role="dialog" tabindex="-1" aria-label="Modal content" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Well Interest Allocation</h2>
+                    </header>
+                    <br/><p><ui:inputCheckbox labelClass="slds-p-horizontal--small slds-float_left" aura:id="checkbox" label="Exclude from SRP Revenue" value="{!v.excludeRevenue}"/></p>
+                    
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button label="Cancel" onclick="{! c.cancel }" />
+                    <lightning:button label="Save" variant="brand" onclick="{!c.save }"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+</aura:component>

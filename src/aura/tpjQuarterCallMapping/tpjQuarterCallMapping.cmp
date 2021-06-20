@@ -1,0 +1,71 @@
+<aura:component controller="tpjQuarterCallMappingAura" implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
+	<aura:attribute name="data" type="Object"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+	<aura:attribute name="sortedBy" type="String"/>
+	<aura:attribute name="sortedDirection" type="String"/>
+
+	<aura:attribute name="title" type="Aura.Component[]">
+        <h2 class="slds-text-heading_small">
+            <p class="slds-m-bottom_medium">Instructions: Enter Quarter Call Value for each Area</p>
+			<p>Quarter Call Mappings for {!v.data[0].titleIntegrationJob__r.Name}</p>
+        </h2>
+    </aura:attribute>
+
+
+	<!--navigation service-->
+	<lightning:navigation aura:id="navService"/>
+	
+	<!--handlers-->
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+	<aura:handler event="force:refreshView" action="{!c.init}" />
+
+	<lightning:card>	
+		<div class="slds-p-around_medium">
+			<h1 class="slds-text-heading_large"><b>Quarter Call Mapping List</b></h1>
+		</div>
+		<aura:if isTrue="{!v.isWaiting}">
+			<div>
+				<lightning:spinner alternativeText="Loading" size="large" />
+			</div>
+			<aura:set attribute="else">
+				<lightning:card title="{!v.title}" >
+					<aura:set attribute="footer">
+						<div class="slds-clearfix">
+							<div class="slds-float_right">
+								<lightning:button label="Save and Lock" title="Lock Quarter Call Map" onclick="{! c.lockMapping }" disabled="{!v.data[0].titleIntegrationJob__r.quarterCallLock__c }" />
+							</div>
+						</div>
+					</aura:set>
+					<div>
+						<table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_fixed-layout">
+							<thead>
+								<tr>
+									<th scope="col">
+										Area
+									</th>
+									<th scope="col">
+										Quarter Call
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<aura:iteration items="{!v.data}" var="mapping" indexVar="i">
+									<tr>
+										<td>{!mapping.area__c}</td>
+										<td><lightning:input value="{! mapping.quarterCall__c }" placeholder="Enter Quarter Call value" variant="label-hidden" oncommit="{!c.updateMapping}" readonly="{!mapping.titleIntegrationJob__r.quarterCallLock__c}" /></td>
+										<!--<td>{!mapping.quarterCall__c}</td>-->
+									</tr>
+								</aura:iteration>
+
+							</tbody>
+						</table>
+					</div>
+					
+					
+					
+				</lightning:card>
+			</aura:set>
+		</aura:if>
+	</lightning:card>
+
+</aura:component>

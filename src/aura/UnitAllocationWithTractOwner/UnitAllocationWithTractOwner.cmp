@@ -1,0 +1,24 @@
+<aura:component controller="UnitAllocationWithTractController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" >
+    <aura:attribute name="data" type="List"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="url" type="string" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+
+
+    <lightning:card title="Well by Tract Ownership">
+        <aura:set attribute="title">
+            <a href="{!v.url}">Well by Tract Ownership</a>
+        </aura:set>
+        <aura:set attribute="footer">
+            <a href="{!v.url}">View Report</a>
+        </aura:set>
+        <div class="slds-p-around_x-small">
+        <lightning:datatable
+        data="{!v.data}" columns="{!v.columns}"
+        keyField="id" hideCheckboxColumn="true" /></div>
+    </lightning:card>
+    
+    
+    
+</aura:component>

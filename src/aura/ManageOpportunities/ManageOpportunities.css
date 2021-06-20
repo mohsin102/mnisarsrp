@@ -1,0 +1,18 @@
+.THIS .myCheckbox{
+    display: inline-block;
+    float: left;
+  }
+
+  .THIS .slds-button {
+    height: 10px !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: contents;
+}
+
+.THIS.slds-button {
+    height: 10px !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: contents;
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>For Storing values that can be updated on a Tract that reset the Title Source Field.</description>
+    <label>Title Source Setting</label>
+    <pluralLabel>Title Source Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

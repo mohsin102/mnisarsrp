@@ -1,0 +1,73 @@
+<apex:page id="TractTransactionList" StandardController="Opportunity" extensions="OppExtension" lightningStylesheets="true">
+    <head>
+        <style>
+          .hclass {font-weight:bold !important; vertical-align:bottom !important;}
+          .hnum {text-align:right !important;}
+          .colnum {text-align:right !important;}
+          .odd {
+                background-color: #F3F2F2 !important;
+          }
+       </style>
+    </head>
+        <apex:slds />
+    <div id="myTable" style="width:100%" class="slds-scope">
+    <apex:dataTable value="{! oppTractList}" var="ot" rowClasses="odd,even" styleClass="tableClass" headerClass="hclass" width="100%" cellSpacing="2px" cellPadding="2px">
+        <apex:facet name="caption">
+            Total Related Tracts: {! oppTractList.size }
+            <br /><br />
+        </apex:facet>
+        <apex:column >
+            <apex:facet name="header">Tract Name</apex:facet>
+            <apex:outputLink value="{!URLFOR($Action.Tract__c.View,ot.Tract__r.Id)}" >{! ot.Tract__r.Name}</apex:outputLink>
+        </apex:column>
+        <apex:column >
+            <apex:facet name="header">Full Legal Name</apex:facet>
+            {! ot.Tract__r.Full_Legal_Name__c}
+        </apex:column>
+        <apex:column value="{! ot.Instrument_Type__c }" headerValue="Instrument" />
+        <apex:column headerValue="Acres" styleClass="colnum" headerClass="hnum">
+                <apex:outputText value="{0,number,#.0000}" styleClass="colnum">
+                    <apex:param value="{! ot.Tract_Acres__c }" />
+                </apex:outputText>
+        </apex:column>
+        <apex:column styleClass="colnum" headerClass="hnum" rendered="{! isAcquisition }">
+            <apex:facet name="header">OTG Cost<br/>Per Acre</apex:facet>
+            <apex:outputText value="{0,number,$###,###,###}" styleClass="colnum">
+                <apex:param value="{! ot.OTG_Cost_Per_Acre__c }" />
+            </apex:outputText>
+        </apex:column>
+        <apex:column headerValue="OTG Cost" styleClass="colnum" headerClass="hnum" rendered="{! isAcquisition }">
+            <apex:outputText value="{0,number,$###,###,###}" styleClass="colnum">
+                <apex:param value="{! ot.OTG_Cost__c }" />
+            </apex:outputText>
+        </apex:column>
+        <apex:column styleClass="colnum" headerClass="hnum">
+            <apex:facet name="header">Total Cost<br/>Per Acre</apex:facet>
+            <apex:outputText value="{0,number,$###,###,###}" styleClass="colnum">
+                <apex:param value="{! ot.Total_Cost_Per_Acre__c }" />
+            </apex:outputText>
+        </apex:column>
+        <apex:column headerValue="Total Cost" styleClass="colnum" headerClass="hnum">
+            <apex:outputText value="{0,number,$###,###,###}" styleClass="colnum">
+                <apex:param value="{! ot.Total_Cost__c }" />
+            </apex:outputText>
+        </apex:column>
+        <apex:column styleClass="colnum" headerClass="hnum"  rendered="{! isDivestiture }">
+            <apex:facet name="header">FMV<br/>Per Acre</apex:facet>
+            <apex:outputText value="{0,number,$###,###,###}" styleClass="colnum">
+                <apex:param value="{! ot.FMV_Per_Acre__c }" />
+            </apex:outputText>
+        </apex:column>
+        <apex:column headerValue="FMV" styleClass="colnum" headerClass="hnum" rendered="{! isDivestiture }">
+            <apex:outputText value="{0,number,$###,###,###}" styleClass="colnum">
+                <apex:param value="{! ot.Fair_Market_Value__c }" />
+            </apex:outputText>
+        </apex:column>
+        <apex:column headerValue="Gain on Asset" styleClass="colnum" headerClass="hnum" rendered="{! isDivestiture }">
+            <apex:outputText value="{0,number,$###,###,###}" styleClass="colnum">
+                <apex:param value="{! ot.Gain_on_Asset__c }" />
+            </apex:outputText>
+        </apex:column>
+    </apex:dataTable>
+    </div>
+</apex:page>

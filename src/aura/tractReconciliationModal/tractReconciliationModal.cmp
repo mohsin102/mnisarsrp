@@ -1,0 +1,344 @@
+<aura:component controller="tractReconciliationAura" implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
+
+	<!--attributes-->
+	<aura:attribute name="totData" type="Object"/>
+	<aura:attribute name="priorTractData" type="Object"/>
+	<aura:attribute name="tractReconciliation" type="tractReconciliation__c"/>
+	<aura:attribute name="currentTractData" type="Tract__c"/>
+	<aura:attribute name="ton" type="Object"/>
+	<aura:attribute name="newTract" type="boolean" default="true"/>
+	<aura:attribute name="viewOnly" type="boolean" default="false"/>
+	<aura:attribute name="headerText" type="String" default="Tract Reconciliation"/>
+	<aura:attribute name="currentTractClass" type="String"/>
+	<aura:attribute name="tractInstrumentTypeOptions" type="List"/>
+	<aura:attribute name="tractNetAcreageUnitsOptions" type="List"/>
+	<aura:attribute name="currentTractHeaderClass" type="String"/>
+
+	<aura:registerEvent name="reconciliationResponse" type="c:tractReconciliationStatus"/> 
+	
+	<!--handlers-->
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>	
+
+	<!--layout-->
+	<div>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open  slds-modal_large">
+		    <div class="slds-modal__container">
+				<header class="slds-modal__header">
+				  <lightning:button iconName="utility:close" class="slds-button slds-button_icon slds-modal__close closeIcon slds" title="Close" onclick="{!c.handleCancel}">
+				  </lightning:button>
+				  <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.headerText}</h2>
+				</header>
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+					<div class="slds-grid slds-gutters">
+						<div class = "slds-col slds-size_1-of-4 totTable">
+							<div class="innerTable">
+								<div class="slds-form-element totHeader  modalCell">
+								  <label class="slds-form-element__label totHeader" for="form-element-01">TOT Record</label>
+								  <div class="slds-form-element__control">
+							
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Quarter Call</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedText value="{!v.totData.quarterCall__c}" title="{!'Area from TORs was: ' + v.totData.area__c}" />
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label " for="form-element-01">Depth</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedText value="{!v.totData.depth__c}" />
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label " for="form-element-01">Instrument Type</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedText value="{!v.totData.instrumentType__c}" />
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label " for="form-element-01">Gross Acreage</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedNumber maximumFractionDigits="8" value="{!v.totData.grossAc__c}" />
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label " for="form-element-01">Acres</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedNumber maximumFractionDigits="8" value="{!v.totData.tractsCOCalculation__c}" />
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label " for="form-element-01">Acreage Unit</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedText value="{!v.totData.measurement__c}" />
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">TOT Name</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedUrl target="_blank" label="{!v.totData.Name}" tooltip="Open Tract in a new tab" value="{!v.totData.link__c}" />
+								  </div>
+								</div>
+							</div>
+						</div>
+						<div class = "{!'slds-col slds-size_1-of-4 ' + v.currentTractClass}">
+							<div class="innerTable">
+								<div class="{!'slds-form-element modalCell ' + v.currentTractHeaderClass}">
+								  <label class="{!'slds-form-element__label ' + v.currentTractHeaderClass}" for="form-element-01">Current Tract Record</label>
+								  <div class="slds-form-element__control">
+							
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Quarter Call</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedText value="{!v.priorTractData.Quarter_Call__c}" />
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Depth</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedText value="{!v.priorTractData.depth__c}" />
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Instrument Type</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedText value="{!v.priorTractData.Instrument_Type__c}" />
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Gross Acreage</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedNumber maximumFractionDigits="8" value="{!v.priorTractData.Gross_Acres__c}" />
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Net Acres</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedNumber maximumFractionDigits="8" value="{!v.priorTractData.netAcres__c}" />
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Company Acreage Unit</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedText value="{!v.priorTractData.netAcreageUnits__c}" />
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Tract Name</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedUrl target="_blank" label="{!v.priorTractData.Name}" tooltip="Open Tract in a new tab" value="{!v.priorTractData.link__c}" />
+								  </div>
+								</div>
+							</div>
+						</div>
+						<div class = "slds-col slds-size_1-of-4 newTractTable">
+							<div class="innerTable">
+								<div class="slds-form-element newTractHeader modalCell">
+								  <aura:if isTrue="{!v.newTract}">
+									<label class="slds-form-element__label newTractHeader" for="form-element-01">New Tract Record</label>
+									<aura:set attribute="else">
+										<label class="slds-form-element__label newTractHeader" for="form-element-01">Revised Tract Record</label>
+									</aura:set>
+								  </aura:if>
+								  <div class="slds-form-element__control">
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Quarter Call</label>
+								  <div class="slds-form-element__control">
+									<aura:if isTrue="{!v.tractReconciliation.quarterCallOption__c == 'manualEntry'}">
+										<div class="slds-form-element_horizontal">
+											<lightning:input value="{!v.currentTractData.Quarter_Call__c}" label="Manual Entry" class=""/>
+										</div>
+										<aura:set attribute="else">
+											<lightning:formattedText value="{!v.currentTractData.Quarter_Call__c}" />
+										</aura:set>
+									</aura:if>
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Depth</label>
+								  <div class="slds-form-element__control">
+									<aura:if isTrue="{!v.tractReconciliation.depthOption__c == 'manualEntry'}">
+										<div class="slds-form-element_horizontal">
+											<lightning:input value="{!v.currentTractData.depth__c}" label="Manual Entry" class=""/>
+										</div>
+										<aura:set attribute="else">
+											<lightning:formattedText value="{!v.currentTractData.depth__c}" />
+										</aura:set>
+									</aura:if>
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Instrument Type</label>
+								  <div class="slds-form-element__control">
+									<aura:if isTrue="{!v.tractReconciliation.instrumentTypeOption__c == 'manualEntry'}">
+										<div class="slds-form-element_horizontal">
+											<lightning:select label="Manual Entry" aura:id="tractInstrumentTypeSelect" name="tractInstrumentTypeSelect" value="{!v.currentTractData.Instrument_Type__c}">
+												<option value="" Disabled="true">Please Select</option>
+												<aura:iteration items="{!v.tractInstrumentTypeOptions}" var="instrumentType">
+													<option value="{!instrumentType.value}">{!instrumentType.label}</option>
+												</aura:iteration>
+											</lightning:select>
+										</div>
+										<aura:set attribute="else">
+											<lightning:formattedText value="{!v.currentTractData.Instrument_Type__c}" />
+										</aura:set>
+									</aura:if>									
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Gross Acreage</label>
+								  <div class="slds-form-element__control">
+									<aura:if isTrue="{!v.tractReconciliation.grossAcreageOption__c == 'manualEntry'}">
+										<div class="slds-form-element_horizontal">
+											<lightning:input value="{!v.currentTractData.Gross_Acres__c}" label="Manual Entry" class=""/>
+										</div>
+										<aura:set attribute="else">
+											<lightning:formattedNumber maximumFractionDigits="8" value="{!v.currentTractData.Gross_Acres__c}" />
+										</aura:set>
+									</aura:if>
+									
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Net Acres</label>
+								  <div class="slds-form-element__control">
+									<aura:if isTrue="{!v.tractReconciliation.netAcresOption__c == 'manualEntry'}">
+										<div class="slds-form-element_horizontal">
+											<lightning:input value="{!v.currentTractData.netAcres__c}" label="Manual Entry" class=""/>
+										</div>
+										<aura:set attribute="else">
+											<lightning:formattedNumber maximumFractionDigits="8" value="{!v.currentTractData.netAcres__c}" />
+										</aura:set>
+									</aura:if>
+									
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Company Acreage Unit</label>
+								  <div class="slds-form-element__control">
+									<aura:if isTrue="{!v.tractReconciliation.netAcreageUnitOption__c == 'manualEntry'}">
+										<div class="slds-form-element_horizontal">
+											<lightning:select label="Manual Entry" aura:id="tractInstrumentTypeSelect" name="tractInstrumentTypeSelect" value="{!v.currentTractData.netAcreageUnits__c}">
+												<option value="" Disabled="true">Please Select</option>
+												<aura:iteration items="{!v.tractNetAcreageUnitsOptions}" var="netAcreageUnits">
+													<option value="{!netAcreageUnits.value}">{!netAcreageUnits.label}</option>
+												</aura:iteration>
+											</lightning:select>
+										</div>
+										<aura:set attribute="else">
+											<lightning:formattedText value="{!v.currentTractData.netAcreageUnits__c}" />
+										</aura:set>
+									</aura:if>
+									
+								  </div>
+								</div>
+								<div class="slds-form-element modalCell">
+								  <label class="slds-form-element__label" for="form-element-01">Tract Name</label>
+								  <div class="slds-form-element__control">
+									<lightning:formattedUrl target="_blank" label="{!v.currentTractData.Name}" tooltip="Open Tract in a new tab" value="{!v.currentTractData.link__c}" />
+								  </div>
+								</div>
+							</div>
+						</div>
+						<div class = "slds-col slds-size_1-of-4">
+							<div class="innerTable">
+								<div class="slds-form-element modalCell"/>
+								<div class="slds-form-element__control modalCell dropDown">
+									<aura:if isTrue="{!v.viewOnly}">
+											<lightning:formattedText value="{!v.tractReconciliation.quarterCallOption__c}" />
+										<aura:set attribute="else">
+											<lightning:select aura:id="quarterCallSelect" name="quarterCallSelect" value="{!v.tractReconciliation.quarterCallOption__c}" onchange="{!c.handleSelectChange}">
+												<option value="" Disabled="true">Please Select</option>
+												<option value="totValue">Tot Value</option>
+												<option value="tractValue" Disabled="{!v.newTract}">Tract Value</option>
+												<option value="manualEntry">Manual Entry</option>
+											</lightning:select>
+										</aura:set>
+									</aura:if>
+								</div>
+								<div class="slds-form-element modalCell dropDown">
+									<aura:if isTrue="{!v.viewOnly}">
+											<lightning:formattedText value="{!v.tractReconciliation.depthOption__c}"/>
+										<aura:set attribute="else">
+											<lightning:select aura:id="depthSelect" name="depthSelect" value="{!v.tractReconciliation.depthOption__c}"  onchange="{!c.handleSelectChange}">
+												<option value="" Disabled="true">Please Select</option>
+												<option value="totValue">Tot Value</option>
+												<option value="tractValue" Disabled="{!v.newTract}">Tract Value</option>
+												<option value="manualEntry">Manual Entry</option>
+											</lightning:select>
+										</aura:set>
+									</aura:if>
+								</div>
+								<div class="slds-form-element modalCell dropDown">
+									<aura:if isTrue="{!v.viewOnly}">
+											<lightning:formattedText value="{!v.tractReconciliation.instrumentTypeOption__c}"/>
+										<aura:set attribute="else">
+											<lightning:select aura:id="instrumentTypeSelect" name="instrumentTypeSelect" value="{!v.tractReconciliation.instrumentTypeOption__c}"  onchange="{!c.handleSelectChange}">
+												<option value="" Disabled="true">Please Select</option>
+												<option value="totValue">Tot Value</option>
+												<option value="tractValue" Disabled="{!v.newTract}">Tract Value</option>
+												<option value="manualEntry">Manual Entry</option>
+											</lightning:select>
+										</aura:set>
+									</aura:if>
+								</div>
+								<div class="slds-form-element modalCell dropDown">
+									<aura:if isTrue="{!v.viewOnly}">
+											<lightning:formattedText value="{!v.tractReconciliation.grossAcreageOption__c}" />
+										<aura:set attribute="else">
+											<lightning:select aura:id="grossAcreageSelect" name="grossAcreageSelect" value="{!v.tractReconciliation.grossAcreageOption__c}"  onchange="{!c.handleSelectChange}">
+												<option value="" Disabled="true">Please Select</option>
+												<option value="totValue">Tot Value</option>
+												<option value="tractValue" Disabled="{!v.newTract}">Tract Value</option>
+												<option value="manualEntry">Manual Entry</option>
+											</lightning:select>
+										</aura:set>
+									</aura:if>
+								</div>
+								<div class="slds-form-element modalCell dropDown">
+									<aura:if isTrue="{!v.viewOnly}">
+											<lightning:formattedText value="{!v.tractReconciliation.netAcresOption__c}" />
+										<aura:set attribute="else">
+											<lightning:select aura:id="netAcresSelect" name="netAcresSelect" value="{!v.tractReconciliation.netAcresOption__c}"  onchange="{!c.handleSelectChange}">
+												<option value="" Disabled="true">Please Select</option>
+												<option value="totValue">Tot Value</option>
+												<option value="tractValue" Disabled="{!v.newTract}">Tract Value</option>
+												<option value="manualEntry">Manual Entry</option>
+											</lightning:select>
+										</aura:set>
+									</aura:if>
+								</div>
+								<div class="slds-form-element modalCell dropDown">
+									<aura:if isTrue="{!v.viewOnly}">
+											<lightning:formattedText value="{!v.tractReconciliation.netAcreageUnitOption__c}" />
+										<aura:set attribute="else">
+											<lightning:select aura:id="netAcreageUnitSelect" name="netAcreageUnitSelect" value="{!v.tractReconciliation.netAcreageUnitOption__c}"  onchange="{!c.handleSelectChange}">
+												<option value="" Disabled="true">Please Select</option>
+												<option value="totValue">Tot Value</option>
+												<option value="tractValue" Disabled="{!v.newTract}">Tract Value</option>
+												<option value="manualEntry">Manual Entry</option>
+											</lightning:select>
+										</aura:set>
+									</aura:if>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<footer class="slds-modal__footer">
+				  <lightning:button class="slds-button slds-button_neutral" onclick="{!c.handleCancel}">Cancel</lightning:button>
+				  <aura:if isTrue="{!!v.viewOnly}">
+					<button class="slds-button slds-button_brand" onclick="{!c.handleSave}">Save</button>
+				  </aura:if>
+				</footer>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</div>
+	
+</aura:component>

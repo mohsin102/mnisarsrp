@@ -1,0 +1,6 @@
+<design:component>
+	<sfdc:objects>
+        <sfdc:object>InventoryAsset__c</sfdc:object>
+    </sfdc:objects>
+    <design:attribute name="concatenatedRelatedTypes" label="Related Types separated by comma" />
+</design:component>

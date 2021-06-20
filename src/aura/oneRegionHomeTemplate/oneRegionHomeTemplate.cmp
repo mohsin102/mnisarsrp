@@ -1,0 +1,13 @@
+<aura:component implements="lightning:homeTemplate"
+                description="A home page with 1 column" >
+    <aura:attribute name="column1" type="Aura.Component[]" />
+     
+    <div>
+        <lightning:layout horizontalAlign="spread" pullToBoundary="small">
+            <lightning:layoutItem flexibility="grow"
+                                  padding="around-small">
+                {!v.column1}
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

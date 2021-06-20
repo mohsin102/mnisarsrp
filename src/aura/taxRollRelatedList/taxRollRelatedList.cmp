@@ -1,0 +1,62 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" controller="taxRollRelatedListAura">
+    
+    <aura:attribute name="recordId" type="string"/>
+	<aura:attribute name="sObjectName" type="string"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="sortedBy" type="String" />
+    <aura:attribute name="sortedDirection" type="String"/>
+    <aura:attribute name="listlength" type="String" />
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+	<aura:attribute name="relatedObject" type="String" default=""/>
+	<aura:attribute name="cardLabel" type="String" default="Related List"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:handler event="force:refreshView" action="{!c.refreshData}" />
+
+	<aura:attribute name="noRelatedObjects" type="Aura.Component[]">
+        <h2 class="slds-text-heading_medium">
+            <p class="slds-m-bottom_medium">No related objects found.</p>
+        </h2>
+    </aura:attribute>
+
+	<!--navigation service-->
+	<lightning:navigation aura:id="navService"/>
+	
+	<lightning:card class="noHeader">	
+		<div class="slds-p-around_medium">
+			<h1 class="slds-text-heading_medium displayInline"><b>{!v.cardLabel}</b>&nbsp;{!v.data.length}&nbsp;Related&nbsp;Records</h1>
+			<aura:if isTrue="{!v.showButton}">
+				<div class="slds-float_right">  
+					<lightning:button label="{!v.buttonLabel}" onclick="{!c.buttonClick}" disabled="{!v.buttonDisabled}" title="{!v.buttonMessage}"/>
+				</div>
+			</aura:if>
+		</div>
+		<aura:if isTrue="{!v.isWaiting}">
+			<div>
+				<lightning:spinner alternativeText="Loading" size="large" />
+			</div>
+			<aura:set attribute="else"> 
+				<aura:if isTrue="{!v.data.length>0}">       
+					<div aura:id="tableDiv" id="srpDataTableDiv">
+						<c:srpDataTable
+												columns="{! v.columns }"
+												data="{! v.data }"
+												keyField="Id"
+												hideCheckboxColumn="true"
+												errors="{! v.errors }"
+												suppressBottomBar="true"
+												showRowNumberColumn="false"
+												sortedBy="{!v.sortedBy}"
+												sortedDirection = "{!v.sortedDirection}"
+												onsort="{!c.handleSort}"/>
+					</div>
+					<!--<aura:set attribute="else">
+						{!v.noRelatedObjects}
+					</aura:set>-->
+				</aura:if>
+			</aura:set>
+		</aura:if>
+	</lightning:card>
+	<div aura:id="modalArea" ></div>
+</aura:component>

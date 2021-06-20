@@ -1,0 +1,3225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>NewTractWizard</content>
+        <skipRecordTypeSelect>true</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Tract_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>Tract_Header</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Tract_Header</fullName>
+        <fields>Full_Legal_Name__c</fields>
+        <fields>Total_Cost__c</fields>
+        <fields>Total_Cost_Per_Acre__c</fields>
+        <fields>Account__c</fields>
+        <label>Tract Header</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Abstract__c</fullName>
+        <externalId>false</externalId>
+        <label>Abstract</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Current owner of the tract</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Current owner of the tract</inlineHelpText>
+        <label>Owner (Account)</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Tracts</relationshipLabel>
+        <relationshipName>Tracts</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Acquisition_Close_Date__c</fullName>
+        <businessStatus>Active</businessStatus>
+        <externalId>false</externalId>
+        <formula>Acquisition_Opportunity__r.CloseDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Acquisition Close Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Acquisition_Effective_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Acquisition_Opportunity__r.Effective_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Acquisition Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Acquisition_Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Acquisition Opportunity</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 AND 2</booleanFilter>
+            <errorMessage>Opportunity must be closed won acquisition</errorMessage>
+            <filterItems>
+                <field>Opportunity.StageName</field>
+                <operation>equals</operation>
+                <value>Closed Won</value>
+            </filterItems>
+            <filterItems>
+                <field>Opportunity.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Acquisition</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Tracts</relationshipLabel>
+        <relationshipName>Tracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Acquisition_PSA_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Acquisition_Opportunity__r.PSA_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Acquisition PSA Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Acres_Match_Subtract__c</fullName>
+        <description>This will be checked if the total of Subtract Acres matches this tract&apos;s Net Acres</description>
+        <externalId>false</externalId>
+        <formula>Total_Subtract_Acres__c =  netAcres__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This will be checked if the total of Subtract Acres matches this tract&apos;s Net Acres</inlineHelpText>
+        <label>Acres Match Subtract</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Alt_Asset_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Alt Asset ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Basin__c</fullName>
+        <externalId>false</externalId>
+        <label>Basin</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Permian</fullName>
+                    <default>false</default>
+                    <label>Permian</label>
+                </value>
+                <value>
+                    <fullName>Mid-Con</fullName>
+                    <default>false</default>
+                    <label>Mid-Con</label>
+                </value>
+                <value>
+                    <fullName>Haynesville</fullName>
+                    <default>false</default>
+                    <label>Haynesville</label>
+                </value>
+                <value>
+                    <fullName>DJ</fullName>
+                    <default>false</default>
+                    <label>DJ</label>
+                </value>
+                <value>
+                    <fullName>Eagleford</fullName>
+                    <default>false</default>
+                    <label>Eagleford</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Buyer_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Buyer Text</label>
+        <length>75</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Close_Date_Acquisition__c</fullName>
+        <externalId>false</externalId>
+        <label>Close Date Acquisition</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Close_Date_Divestiture__c</fullName>
+        <externalId>false</externalId>
+        <label>Close Date Divestiture</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Combined_Legal_Formula__c</fullName>
+        <externalId>false</externalId>
+        <formula>/*If(State_New__c == null,&apos;&apos;,State_New__c)&amp; &quot;&quot; &amp;*/
+/*If(County__c == null,&apos;&apos;, &apos;-&apos;&amp; County__c)&amp; &quot;&quot; &amp;*/
+/*If(Survey_Name__c == null,&apos;&apos;, &apos;-&apos;&amp; Survey_Name__c)&amp; &quot;&quot; &amp;*/
+/*If(Block__c == null,&apos;&apos;, &apos;-&apos;&amp;  Block__c)&amp; &quot;&quot; &amp;*/
+If(Section__c == null,&apos;&apos;, &apos;-&apos;&amp;  Section__c)&amp; &quot;&quot; &amp;
+If(Abstract__c == null,&apos;&apos;, &apos;-&apos;&amp; Abstract__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Combined Legal Formula</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Commission_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Commission Amount</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Tracts</relationshipLabel>
+        <relationshipName>Tracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>County_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>County Text</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deal_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Description</label>
+        <length>150</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Divestiture_Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Divestiture_Opportunity__r.CloseDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Divestiture Close Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Divestiture_Effective_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Divestiture_Opportunity__r.Effective_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Divestiture Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Divestiture_Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Divestiture Opportunity</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 AND 2</booleanFilter>
+            <errorMessage>Opportunity must be closed won divestiture</errorMessage>
+            <filterItems>
+                <field>Opportunity.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Divestiture</value>
+            </filterItems>
+            <filterItems>
+                <field>Opportunity.StageName</field>
+                <operation>equals</operation>
+                <value>Closed Won</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Tracts (Divestiture Opportunity)</relationshipLabel>
+        <relationshipName>Tracts1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Divestiture_PSA_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Divestiture_Opportunity__r.PSA_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Divestiture PSA Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Fair_Market_Value__c</fullName>
+        <externalId>false</externalId>
+        <formula>Value_Per_Acre__c *  netAcres__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Value per acre times net acres</inlineHelpText>
+        <label>Fair Market Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Ford_Abbreviated_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(
+Ford_Tract_Status__c,
+&quot;&quot;, &quot;101 - Outreach&quot;,
+&quot;101 - Contact Info Not Yet Found&quot;, &quot;101 - Outreach&quot;,
+&quot;103 - Outreach&quot;, &quot;101 - Outreach&quot;,
+&quot;107 - Pending Investigation&quot;, &quot;101 - Outreach&quot;,
+&quot;109 - Premium Investigation&quot;, &quot;101 - Outreach&quot;,
+&quot;201 - Continued Discussions&quot;, &quot;201 - Continued Discussions&quot;,
+&quot;301 - Rejected - Price&quot;, &quot;001 - Will Not Sell&quot;,
+&quot;302 - Rejected - Not Interested&quot;, &quot;001 - Will Not Sell&quot;,
+&quot;401 - Offer Outstanding&quot;, &quot;450 - Soft Commitment&quot;,
+&quot;401 - Offer Outstanding&quot;, &quot;450 - Soft Commitment&quot;,
+&quot;401 - Offer Outstanding&quot;, &quot;450 - Soft Commitment&quot;,
+&quot;404 - Offer Outstanding - Offer Letter Sent&quot;, &quot;450 - Soft Commitment&quot;,
+&quot;405 - Offer Outstanding - PSA Sent&quot;, &quot;450 - Soft Commitment&quot;,
+&quot;410 - Offer Accepted&quot;, &quot;450 - Soft Commitment&quot;,
+&quot;411 - Offer Accepted - Verbal&quot;, &quot;450 - Soft Commitment&quot;,
+&quot;420 - Offer Expired&quot;, &quot;450 - Soft Commitment&quot;,
+&quot;450 - Offer Accepted - Pending Title&quot;, &quot;600 - Hard Commitment&quot;,
+&quot;501 - Offer Declined&quot;,	&quot;001 - Will Not Sell&quot;,
+&quot;601 - Invoiced - Pending&quot;, &quot;601 - Closed - Payment Pending&quot;,
+&quot;602 - Invoiced - Consummated&quot;, &quot;602 - Closed&quot;,
+&quot;701 - Wrong Owner&quot;, &quot;101 - Outreach&quot;,
+&quot;801 - EMC Rejected&quot;, &quot;801 - EMC Rejected&quot;,
+&quot;901 - Title Fail - Rejected&quot;, &quot;901 - Title Fail - Rejected&quot;, 
+&quot;1001 - Dropped Sold&quot;, &quot;1001 - Dropped Sold&quot;,
+&quot;Duplicate&quot;, &quot;Duplicate&quot;, 
+&quot;Replaced&quot;, &quot;Duplicate&quot;,
+&quot;101 Outreach&quot;
+)</formula>
+        <label>Ford Abbreviated Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ford_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Ford Area</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1A</fullName>
+                    <default>false</default>
+                    <label>1A</label>
+                </value>
+                <value>
+                    <fullName>1B</fullName>
+                    <default>false</default>
+                    <label>1B</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Ford_Cost_Per_Acre__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Ford_Consideration__c /  netAcres__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ford Cost Per Acre</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Ford_Mineral_Owner__c</fullName>
+        <description>should be replaced with a lookup to the contact</description>
+        <externalId>false</externalId>
+        <inlineHelpText>should only be used for Project Ford</inlineHelpText>
+        <label>Ford Mineral Owner Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ford_Notice_Number__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>should only be used for Project Ford</inlineHelpText>
+        <label>Ford Notice Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ford_SRP_Consideration__c</fullName>
+        <externalId>false</externalId>
+        <formula>netAcres__c * 1000</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>net acres times 1000</inlineHelpText>
+        <label>Ford SRP Consideration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Ford_Tract_Status__c</fullName>
+        <description>legacy statuses from project ford, should be removed and migrated to a standard status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ONLY use for project Ford assets, this field needs to be removed</inlineHelpText>
+        <label>Ford Tract Status</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>101 - Contact Info Not Yet Found</fullName>
+                    <default>false</default>
+                    <label>101 - Contact Info Not Yet Found</label>
+                </value>
+                <value>
+                    <fullName>103 - Outreach</fullName>
+                    <default>false</default>
+                    <label>103 - Outreach</label>
+                </value>
+                <value>
+                    <fullName>107 - Pending Investigation</fullName>
+                    <default>false</default>
+                    <label>107 - Pending Investigation</label>
+                </value>
+                <value>
+                    <fullName>109 - Premium Investigation</fullName>
+                    <default>false</default>
+                    <label>109 - Premium Investigation</label>
+                </value>
+                <value>
+                    <fullName>201 - Continued Discussions</fullName>
+                    <default>false</default>
+                    <label>201 - Continued Discussions</label>
+                </value>
+                <value>
+                    <fullName>301 - Rejected - Price</fullName>
+                    <default>false</default>
+                    <label>301 - Rejected - Price</label>
+                </value>
+                <value>
+                    <fullName>302 - Rejected - Not Interested</fullName>
+                    <default>false</default>
+                    <label>302 - Rejected - Not Interested</label>
+                </value>
+                <value>
+                    <fullName>401 - Offer Outstanding</fullName>
+                    <default>false</default>
+                    <label>401 - Offer Outstanding</label>
+                </value>
+                <value>
+                    <fullName>404 - Offer Outstanding - Offer Letter Sent</fullName>
+                    <default>false</default>
+                    <label>404 - Offer Outstanding - Offer Letter Sent</label>
+                </value>
+                <value>
+                    <fullName>405 - Offer Outstanding - PSA Sent</fullName>
+                    <default>false</default>
+                    <label>405 - Offer Outstanding - PSA Sent</label>
+                </value>
+                <value>
+                    <fullName>410 - Offer Accepted</fullName>
+                    <default>false</default>
+                    <label>410 - Offer Accepted</label>
+                </value>
+                <value>
+                    <fullName>411 - Offer Accepted - Verbal</fullName>
+                    <default>false</default>
+                    <label>411 - Offer Accepted - Verbal</label>
+                </value>
+                <value>
+                    <fullName>420 - Offer Expired</fullName>
+                    <default>false</default>
+                    <label>420 - Offer Expired</label>
+                </value>
+                <value>
+                    <fullName>450 - Offer Accepted - Pending Title</fullName>
+                    <default>false</default>
+                    <label>450 - Offer Accepted - Pending Title</label>
+                </value>
+                <value>
+                    <fullName>501 - Offer Declined</fullName>
+                    <default>false</default>
+                    <label>501 - Offer Declined</label>
+                </value>
+                <value>
+                    <fullName>601 - Invoiced - Pending</fullName>
+                    <default>false</default>
+                    <label>601 - Invoiced - Pending</label>
+                </value>
+                <value>
+                    <fullName>602 - Invoiced - Consummated</fullName>
+                    <default>false</default>
+                    <label>602 - Invoiced - Consummated</label>
+                </value>
+                <value>
+                    <fullName>701 - Wrong Owner</fullName>
+                    <default>false</default>
+                    <label>701 - Wrong Owner</label>
+                </value>
+                <value>
+                    <fullName>801 - EMC Rejected</fullName>
+                    <default>false</default>
+                    <label>801 - EMC Rejected</label>
+                </value>
+                <value>
+                    <fullName>901 - Title Fail - Rejected</fullName>
+                    <default>false</default>
+                    <label>901 - Title Fail - Rejected</label>
+                </value>
+                <value>
+                    <fullName>Duplicate</fullName>
+                    <default>false</default>
+                    <label>Duplicate</label>
+                </value>
+                <value>
+                    <fullName>Replaced</fullName>
+                    <default>false</default>
+                    <label>Replaced</label>
+                </value>
+                <value>
+                    <fullName>1001 - Dropped Sold</fullName>
+                    <default>false</default>
+                    <label>1001 - Dropped Sold</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Full_Legal_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>LandGridTract__r.Name  &amp; &apos; &apos; &amp; Quarter_Call__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Full Legal Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gain_on_Asset__c</fullName>
+        <externalId>false</externalId>
+        <formula>Fair_Market_Value__c -  Total_Cost__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>FMV - Total Cost</inlineHelpText>
+        <label>Gain on Asset</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Grid_Exception__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Has a quarter call that can not be automapped</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Has a quarter call that can not be automapped</inlineHelpText>
+        <label>Grid Exception</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Gross_Acres__c</fullName>
+        <externalId>false</externalId>
+        <label>Gross Acres</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>10</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Instrument_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Instrument Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>OGL</fullName>
+                    <default>false</default>
+                    <label>OGL</label>
+                </value>
+                <value>
+                    <fullName>MD</fullName>
+                    <default>false</default>
+                    <label>MD</label>
+                </value>
+                <value>
+                    <fullName>ORRI</fullName>
+                    <default>false</default>
+                    <label>ORRI</label>
+                </value>
+                <value>
+                    <fullName>Surface</fullName>
+                    <default>false</default>
+                    <label>Surface</label>
+                </value>
+                <value>
+                    <fullName>Commission</fullName>
+                    <default>false</default>
+                    <label>Commission</label>
+                </value>
+                <value>
+                    <fullName>NPRI</fullName>
+                    <default>false</default>
+                    <label>NPRI</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LV_Lead_ID__c</fullName>
+        <externalId>true</externalId>
+        <inlineHelpText>the Landvantage Lead ID, only populated for tracts that exist in both Salesforce and Landvantage</inlineHelpText>
+        <label>LV Lead ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LV_Tract_ID__c</fullName>
+        <externalId>true</externalId>
+        <inlineHelpText>Tract ID for assets that exist in Landvantage</inlineHelpText>
+        <label>LV Tract ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LV_URL__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(LV_Lead_ID__c), &quot;NA&quot;, &quot;https://srp.landvant.com/Lead/Edit?id=&quot; &amp; LV_Lead_ID__c)</formula>
+        <label>LV URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LandGridTract_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>/*If(State_New__c == null,&apos;&apos;,State_New__c)&amp; &quot;&quot; &amp; */
+/*If(County__c == null,&apos;&apos;, &apos;-&apos;&amp; County__c)&amp; &quot;&quot; &amp; */
+/*If(Survey_Name__c == null,&apos;&apos;, &apos;-&apos;&amp; Survey_Name__c)&amp; &quot;&quot; &amp; */
+/*If(Block__c == null,&apos;&apos;, &apos;-&apos;&amp; Block__c)&amp; &quot;&quot; &amp; */
+If(Section__c == null,&apos;&apos;, &apos;-&apos;&amp; Section__c)&amp; &quot;&quot; &amp; 
+If(Abstract__c == null,&apos;&apos;, &apos;-&apos;&amp; Abstract__c) &amp; &quot;&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>LandGridTract Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LandGridTract__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>LandGridTract</label>
+        <referenceTo>LandGridTract__c</referenceTo>
+        <relationshipLabel>Tracts (LandGridTract)</relationshipLabel>
+        <relationshipName>Tracts1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>LeaseName__c</fullName>
+        <externalId>false</externalId>
+        <label>LeaseName</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lease_Legal_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Lease Legal Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Link_to_Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Link to Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Tracts (Opportunity)</relationshipLabel>
+        <relationshipName>Tracts2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Lots__c</fullName>
+        <description>Lot detail</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lot detail</inlineHelpText>
+        <label>Lots</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>OTG_Cost_Per_Acre__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>OTG Cost per Acre</inlineHelpText>
+        <label>OTG Cost Per Acre</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OTG_Cost__c</fullName>
+        <externalId>false</externalId>
+        <formula>netAcres__c * OTG_Cost_Per_Acre__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>OTG Price per acre x Net Acres</inlineHelpText>
+        <label>OTG Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Operator_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Operator Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Capitalized_Costs__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Capitalized Costs</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PSA_Date_Acquisition__c</fullName>
+        <externalId>false</externalId>
+        <label>PSA Date Acquisition</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PSA_Date_Divestiture__c</fullName>
+        <externalId>false</externalId>
+        <label>PSA Date Divestiture</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Purchase_Package_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Purchase Package ID</label>
+        <length>25</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarter_Call__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Quarter Call</inlineHelpText>
+        <label>Quarter Call</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RRC_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>RRC Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Responsible_Party__c</fullName>
+        <externalId>false</externalId>
+        <label>Responsible Party</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Rayne</fullName>
+                    <default>false</default>
+                    <label>Rayne</label>
+                </value>
+                <value>
+                    <fullName>Chandler</fullName>
+                    <default>false</default>
+                    <label>Chandler</label>
+                </value>
+                <value>
+                    <fullName>Ryan</fullName>
+                    <default>false</default>
+                    <label>Ryan</label>
+                </value>
+                <value>
+                    <fullName>Patrick</fullName>
+                    <default>false</default>
+                    <label>Patrick</label>
+                </value>
+                <value>
+                    <fullName>Matt Scott</fullName>
+                    <default>false</default>
+                    <label>Matt Scott</label>
+                </value>
+                <value>
+                    <fullName>Billy</fullName>
+                    <default>false</default>
+                    <label>Billy</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>DCD</fullName>
+                    <default>false</default>
+                    <label>DCD</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sales_Package_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Package ID</label>
+        <length>25</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Section__c</fullName>
+        <externalId>false</externalId>
+        <label>Section</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Subtract_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Subtract Count</label>
+        <summaryForeignKey>Subtract__c.Tract__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Title_Cost__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Title Cost</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Cost_Per_Acre__c</fullName>
+        <externalId>false</externalId>
+        <formula>if (netAcres__c == 0,0,Total_Cost__c /  netAcres__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Total Costs divided by Net Acres</inlineHelpText>
+        <label>Total Cost Per Acre</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Cost__c</fullName>
+        <description>OTG Costs plus Commissions and title</description>
+        <externalId>false</externalId>
+        <formula>(netAcres__c *  OTG_Cost_Per_Acre__c) +  Commission_Amount__c +  Title_Cost__c +  Other_Capitalized_Costs__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>OTG Costs plus Commissions and title</inlineHelpText>
+        <label>Total Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Ford_Consideration__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Cost__c +  Ford_SRP_Consideration__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Total Cost to Ford animals, includes amount paid to SRP</inlineHelpText>
+        <label>Total Ford Consideration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Instrument_Acres__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Instrument Acres</label>
+        <summarizedField>Subtract__c.Subtract_Acres__c</summarizedField>
+        <summaryForeignKey>Subtract__c.Tract__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Instrument_Gross_Acres__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Instrument Gross Acres</label>
+        <summarizedField>Subtract__c.Subtract_Gross_Acres__c</summarizedField>
+        <summaryForeignKey>Subtract__c.Tract__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Subtract_Acres__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Subtract Acres</label>
+        <summarizedField>Subtract__c.Subtract_Acres__c</summarizedField>
+        <summaryForeignKey>Subtract__c.Tract__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Subtracts__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Subtracts</label>
+        <summaryForeignKey>Subtract__c.Tract__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Tract_Legal__c</fullName>
+        <externalId>false</externalId>
+        <label>Tract Full Legal Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Value_Per_Acre__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>FMV for the tract</inlineHelpText>
+        <label>FMV Per Acre</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>aoiNetAcres__c</fullName>
+        <description>Sum of net acres in AOI</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of net acres in AOI</inlineHelpText>
+        <label>AOI Net Acres</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>8</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>depth__c</fullName>
+        <externalId>false</externalId>
+        <label>Depth</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>gDocAssetId__c</fullName>
+        <externalId>false</externalId>
+        <label>GDoc Asset ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>link__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;/&quot;&amp;Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>maxPPA__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(aoiNetAcres__c &lt;&gt; 0, maxPrice__c / aoiNetAcres__c, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Max Price Per Acres</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>maxPrice__c</fullName>
+        <description>Max Price for Tract</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Max Price for Tract</inlineHelpText>
+        <label>Max Price</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>netAcreageUnits__c</fullName>
+        <externalId>false</externalId>
+        <label>Net Acreage Units</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>NRA</fullName>
+                    <default>false</default>
+                    <label>NRA</label>
+                </value>
+                <value>
+                    <fullName>NMA</fullName>
+                    <default>false</default>
+                    <label>NMA</label>
+                </value>
+                <value>
+                    <fullName>NA</fullName>
+                    <default>false</default>
+                    <label>NA</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>netAcres__c</fullName>
+        <externalId>false</externalId>
+        <label>Net Acres</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>10</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>percentCovered__c</fullName>
+        <description>Sum of percentage in AOI for project AOI tract</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of percentage in AOI for project AOI tract</inlineHelpText>
+        <label>percentCovered</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rptPercentCovered__c</fullName>
+        <description>percent covered adapted to percentage format for reporting</description>
+        <externalId>false</externalId>
+        <formula>percentCovered__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Percent Covered</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>targetOTGCostPerAcre__c</fullName>
+        <externalId>false</externalId>
+        <label>Target OTG Cost Per Acre</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>targetPPA__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(aoiNetAcres__c &lt;&gt; 0, targetPrice__c /  aoiNetAcres__c, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Target Price Per Acre</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>targetPrice__c</fullName>
+        <description>Sum of target price for Project AOI Tract</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of target price for Project AOI Tract</inlineHelpText>
+        <label>Target Price</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>titleSourceResetDate__c</fullName>
+        <description>System field used for determining last edit to field that indicates Title Source functionality should be reset.</description>
+        <externalId>false</externalId>
+        <label>Title Source Reset Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>titleSourceType__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(titleSource__r.type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Title Source Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>titleSource__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Title Source</label>
+        <referenceTo>TitleWorkJob__c</referenceTo>
+        <relationshipLabel>Tracts</relationshipLabel>
+        <relationshipName>Tracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Tract</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Account__c</columns>
+        <columns>NAME</columns>
+        <columns>Ford_Tract_Status__c</columns>
+        <columns>Instrument_Type__c</columns>
+        <columns>LandGridTract_Name__c</columns>
+        <columns>Quarter_Call__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>LV_Lead_ID__c</columns>
+        <columns>LV_Tract_ID__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Created_last_10_days</fullName>
+        <columns>Account__c</columns>
+        <columns>NAME</columns>
+        <columns>Instrument_Type__c</columns>
+        <columns>LandGridTract_Name__c</columns>
+        <columns>Quarter_Call__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>LV_Lead_ID__c</columns>
+        <columns>LV_Tract_ID__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Tract__c.Standard_Tract_Record</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>greaterThan</operation>
+            <value>N_DAYS_AGO:7</value>
+        </filters>
+        <label>All - Created last 10 days</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Ford_Mineral_Owners_A_D</fullName>
+        <booleanFilter>(1 OR 2 OR 3 OR 4 OR 6) AND 5</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Ford_Mineral_Owner__c</columns>
+        <columns>Ford_Tract_Status__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>County_Text__c</columns>
+        <columns>Ford_Area__c</columns>
+        <columns>Quarter_Call__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>A</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>B</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>C</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>D</value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>startsWith</operation>
+            <value>E</value>
+        </filters>
+        <label>Ford Tracts without Owners A - D</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Ford_Tier_1_A</fullName>
+        <columns>NAME</columns>
+        <columns>Ford_Notice_Number__c</columns>
+        <columns>Alt_Asset_ID__c</columns>
+        <columns>Responsible_Party__c</columns>
+        <columns>Account__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>Ford_Area__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Account__c</field>
+            <operation>equals</operation>
+            <value>Denny</value>
+        </filters>
+        <label>All - Ford Tier 1 A</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Ford_Tracts_with_Owners_F_K</fullName>
+        <booleanFilter>(1 OR 2 OR 3 OR 4 OR 6 OR 7 OR 8) AND 5</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Ford_Mineral_Owner__c</columns>
+        <columns>Ford_Tract_Status__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>County_Text__c</columns>
+        <columns>Ford_Area__c</columns>
+        <columns>Quarter_Call__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>F</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>G</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>H</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>I</value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>J</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>K</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>E</value>
+        </filters>
+        <label>Ford Tracts without Owners E - K</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Ford_Tracts_without_Owners_X_Z</fullName>
+        <booleanFilter>(1 OR 2 OR 3) AND 4</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Ford_Mineral_Owner__c</columns>
+        <columns>Ford_Tract_Status__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>County_Text__c</columns>
+        <columns>Ford_Area__c</columns>
+        <columns>Quarter_Call__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>X</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>Y</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>Z</value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Ford Tracts without Owners X - Z</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Ford_Tracts_without_owners_L_Q</fullName>
+        <booleanFilter>(1 OR 2 OR 3 OR 4 OR 6 OR 7) AND 5</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Ford_Mineral_Owner__c</columns>
+        <columns>Ford_Tract_Status__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>County_Text__c</columns>
+        <columns>Ford_Area__c</columns>
+        <columns>Quarter_Call__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>L</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>M</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>N</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>O</value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>P</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>Q</value>
+        </filters>
+        <label>Ford Tracts without Owners L - Q</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Ford_Tracts_without_owners_R_W</fullName>
+        <booleanFilter>(1 OR 2 OR 3 OR 4 OR 6 OR 7) AND 5</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Ford_Mineral_Owner__c</columns>
+        <columns>Ford_Tract_Status__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>County_Text__c</columns>
+        <columns>Ford_Area__c</columns>
+        <columns>Quarter_Call__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>R</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>S</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>T</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>W</value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>U</value>
+        </filters>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>startsWith</operation>
+            <value>V</value>
+        </filters>
+        <label>Ford Tracts without Owners R - W</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Texas</fullName>
+        <columns>Account__c</columns>
+        <columns>Instrument_Type__c</columns>
+        <columns>Ford_Mineral_Owner__c</columns>
+        <columns>Ford_Notice_Number__c</columns>
+        <columns>Ford_Tract_Status__c</columns>
+        <columns>Quarter_Call__c</columns>
+        <columns>Commission_Amount__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>NAME</columns>
+        <columns>OTG_Cost__c</columns>
+        <columns>Title_Cost__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Account__c</field>
+            <operation>contains</operation>
+            <value>starrack</value>
+        </filters>
+        <label>All - Texas</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Tracts</fullName>
+        <columns>NAME</columns>
+        <columns>County_Text__c</columns>
+        <columns>Ford_Mineral_Owner__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Ford_Mineral_Owner__c</field>
+            <operation>contains</operation>
+            <value>nh</value>
+        </filters>
+        <label>All Tracts, will&apos;s list</label>
+    </listViews>
+    <listViews>
+        <fullName>Ford_Tier_1_A_No_OTG_Cost</fullName>
+        <columns>NAME</columns>
+        <columns>Ford_Notice_Number__c</columns>
+        <columns>Alt_Asset_ID__c</columns>
+        <columns>Responsible_Party__c</columns>
+        <columns>Account__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>Ford_Area__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OTG_Cost_Per_Acre__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Ford_Area__c</field>
+            <operation>equals</operation>
+            <value>1A</value>
+        </filters>
+        <label>Ford Tier 1 A - No OTG Cost</label>
+    </listViews>
+    <listViews>
+        <fullName>Ford_Tracts_without_Owners</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Ford_Mineral_Owner__c</columns>
+        <columns>Ford_Tract_Status__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>County_Text__c</columns>
+        <columns>Ford_Area__c</columns>
+        <columns>Quarter_Call__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Account__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Ford Tracts without Owners</label>
+    </listViews>
+    <listViews>
+        <fullName>Ford_Upton_and_Reagan</fullName>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Ford_Mineral_Owner__c</columns>
+        <columns>Ford_Notice_Number__c</columns>
+        <columns>Ford_Tract_Status__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>County_Text__c</columns>
+        <columns>Ford_Area__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>County_Text__c</field>
+            <operation>contains</operation>
+            <value>Upton</value>
+        </filters>
+        <filters>
+            <field>County_Text__c</field>
+            <operation>contains</operation>
+            <value>Reagan</value>
+        </filters>
+        <label>Ford - Upton and Reagan</label>
+    </listViews>
+    <listViews>
+        <fullName>James_Sackett</fullName>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <columns>Account__c</columns>
+        <columns>NAME</columns>
+        <columns>Instrument_Type__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>Ford_Tract_Status__c</columns>
+        <columns>Quarter_Call__c</columns>
+        <columns>LandGridTract__c</columns>
+        <columns>depth__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Notes__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Tract__c.Standard_Tract_Record</value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>contains</operation>
+            <value>Michael Chad Berry</value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>contains</operation>
+            <value>Melissa Christine Berry</value>
+        </filters>
+        <label>Copy of All</label>
+    </listViews>
+    <listViews>
+        <fullName>June_13_Upload</fullName>
+        <columns>NAME</columns>
+        <columns>Gross_Acres__c</columns>
+        <columns>LandGridTract__c</columns>
+        <columns>Account__c</columns>
+        <columns>Instrument_Type__c</columns>
+        <columns>LandGridTract_Name__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATEDBY_USER</field>
+            <operation>contains</operation>
+            <value>shul</value>
+        </filters>
+        <filters>
+            <field>LandGridTract__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>June 13 Upload</label>
+    </listViews>
+    <listViews>
+        <fullName>ND_Unmapped</fullName>
+        <columns>NAME</columns>
+        <columns>Gross_Acres__c</columns>
+        <columns>LandGridTract__c</columns>
+        <columns>Account__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Instrument_Type__c</columns>
+        <columns>CREATEDBY_USER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>Tracts from Today</label>
+    </listViews>
+    <listViews>
+        <fullName>Newly_Imported_Records</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LAST_UPDATE</field>
+            <operation>equals</operation>
+            <value>10/29/2018 12:00 AM</value>
+        </filters>
+        <filters>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <operation>equals</operation>
+            <value>gauto</value>
+        </filters>
+        <label>Newly updated Tracts (FOR TESTING ONLY)</label>
+    </listViews>
+    <listViews>
+        <fullName>Project_Ruby_Tracts</fullName>
+        <columns>NAME</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>10/6/2019 12:00 AM</value>
+        </filters>
+        <label>Project Ruby Tracts</label>
+    </listViews>
+    <listViews>
+        <fullName>Thomas_Family</fullName>
+        <booleanFilter>(1 OR 2 OR 3 OR 4 OR 5 or 6) and 7</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Ford_Mineral_Owner__c</columns>
+        <columns>Ford_Tract_Status__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>County_Text__c</columns>
+        <columns>Quarter_Call__c</columns>
+        <columns>Ford_Notice_Number__c</columns>
+        <columns>Total_Cost_Per_Acre__c</columns>
+        <columns>Instrument_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Account__c</field>
+            <operation>contains</operation>
+            <value>Irving Anne</value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>contains</operation>
+            <value>Kirk Thomas</value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>contains</operation>
+            <value>Leavitt Karen</value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>contains</operation>
+            <value>Newton Sherry</value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>contains</operation>
+            <value>Talkington Kendra</value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>contains</operation>
+            <value>Thomas Betty</value>
+        </filters>
+        <filters>
+            <field>Ford_Tract_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Duplicate</value>
+        </filters>
+        <label>Thomas Family</label>
+    </listViews>
+    <listViews>
+        <fullName>Unlinked_LandGrids</fullName>
+        <columns>Ford_Mineral_Owner__c</columns>
+        <columns>NAME</columns>
+        <columns>Instrument_Type__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>PSA_Date_Acquisition__c</columns>
+        <columns>Close_Date_Acquisition__c</columns>
+        <columns>Ford_Tract_Status__c</columns>
+        <columns>Quarter_Call__c</columns>
+        <columns>OTG_Cost__c</columns>
+        <columns>Ford_Notice_Number__c</columns>
+        <columns>Ford_Area__c</columns>
+        <columns>LandGridTract__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LandGridTract__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Tract__c.Standard_Tract_Record</value>
+        </filters>
+        <label>Unlinked LandGrids</label>
+    </listViews>
+    <listViews>
+        <fullName>section_cleanup</fullName>
+        <booleanFilter>1 AND (2 or 3)</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Ford_Mineral_Owner__c</columns>
+        <columns>OTG_Cost_Per_Acre__c</columns>
+        <columns>LandGridTract__c</columns>
+        <columns>Instrument_Type__c</columns>
+        <columns>Quarter_Call__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Tract__c.Standard_Tract_Record</value>
+        </filters>
+        <label>20&amp;28/20&amp;29 cleanup</label>
+    </listViews>
+    <nameField>
+        <displayFormat>T-{0000000}</displayFormat>
+        <label>Tract Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Tracts</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>PLSS_States</fullName>
+        <active>false</active>
+        <compactLayoutAssignment>Tract_Header</compactLayoutAssignment>
+        <label>PLSS States</label>
+        <picklistValues>
+            <picklist>Basin__c</picklist>
+            <values>
+                <fullName>DJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eagleford</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Haynesville</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Con</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Permian</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ford_Area__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ford_Tract_Status__c</picklist>
+            <values>
+                <fullName>101 - Contact Info Not Yet Found</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>103 - Outreach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>107 - Pending Investigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>109 - Premium Investigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>201 - Continued Discussions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>301 - Rejected - Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>302 - Rejected - Not Interested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>401 - Offer Outstanding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>404 - Offer Outstanding - Offer Letter Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>405 - Offer Outstanding - PSA Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>410 - Offer Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>411 - Offer Accepted - Verbal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>420 - Offer Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>450 - Offer Accepted - Pending Title</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>501 - Offer Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>601 - Invoiced - Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>602 - Invoiced - Consummated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>701 - Wrong Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>801 - EMC Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>901 - Title Fail - Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replaced</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Instrument_Type__c</picklist>
+            <values>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OGL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ORRI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surface</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Responsible_Party__c</picklist>
+            <values>
+                <fullName>Billy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chandler</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DCD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Matt Scott</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patrick</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rayne</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ryan</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>netAcreageUnits__c</picklist>
+            <values>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NMA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NRA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Standard_Tract_Record</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>Tract_Header</compactLayoutAssignment>
+        <label>Standard Tract Record</label>
+        <picklistValues>
+            <picklist>Basin__c</picklist>
+            <values>
+                <fullName>DJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eagleford</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Haynesville</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Con</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Permian</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ford_Area__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ford_Tract_Status__c</picklist>
+            <values>
+                <fullName>1001 - Dropped Sold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>101 - Contact Info Not Yet Found</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>103 - Outreach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>107 - Pending Investigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>109 - Premium Investigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>201 - Continued Discussions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>301 - Rejected - Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>302 - Rejected - Not Interested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>401 - Offer Outstanding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>404 - Offer Outstanding - Offer Letter Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>405 - Offer Outstanding - PSA Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>410 - Offer Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>411 - Offer Accepted - Verbal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>420 - Offer Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>450 - Offer Accepted - Pending Title</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>501 - Offer Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>601 - Invoiced - Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>602 - Invoiced - Consummated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>701 - Wrong Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>801 - EMC Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>901 - Title Fail - Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replaced</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Instrument_Type__c</picklist>
+            <values>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NPRI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OGL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ORRI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surface</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Responsible_Party__c</picklist>
+            <values>
+                <fullName>Billy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chandler</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DCD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Matt Scott</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patrick</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rayne</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ryan</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>netAcreageUnits__c</picklist>
+            <values>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NMA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NRA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Tax_Parcel_States</fullName>
+        <active>false</active>
+        <compactLayoutAssignment>Tract_Header</compactLayoutAssignment>
+        <label>Tax Parcel States</label>
+        <picklistValues>
+            <picklist>Basin__c</picklist>
+            <values>
+                <fullName>DJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eagleford</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Haynesville</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Con</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Permian</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ford_Area__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ford_Tract_Status__c</picklist>
+            <values>
+                <fullName>101 - Contact Info Not Yet Found</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>103 - Outreach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>107 - Pending Investigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>109 - Premium Investigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>201 - Continued Discussions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>301 - Rejected - Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>302 - Rejected - Not Interested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>401 - Offer Outstanding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>404 - Offer Outstanding - Offer Letter Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>405 - Offer Outstanding - PSA Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>410 - Offer Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>411 - Offer Accepted - Verbal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>420 - Offer Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>450 - Offer Accepted - Pending Title</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>501 - Offer Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>601 - Invoiced - Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>602 - Invoiced - Consummated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>701 - Wrong Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>801 - EMC Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>901 - Title Fail - Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replaced</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Instrument_Type__c</picklist>
+            <values>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OGL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ORRI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surface</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Responsible_Party__c</picklist>
+            <values>
+                <fullName>Billy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chandler</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DCD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Matt Scott</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patrick</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rayne</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ryan</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>netAcreageUnits__c</picklist>
+            <values>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NMA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NRA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Texas_Abstract</fullName>
+        <active>false</active>
+        <compactLayoutAssignment>Tract_Header</compactLayoutAssignment>
+        <label>Texas (Abstract)</label>
+        <picklistValues>
+            <picklist>Basin__c</picklist>
+            <values>
+                <fullName>DJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eagleford</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Haynesville</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Con</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Permian</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ford_Area__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ford_Tract_Status__c</picklist>
+            <values>
+                <fullName>101 - Contact Info Not Yet Found</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>103 - Outreach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>107 - Pending Investigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>109 - Premium Investigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>201 - Continued Discussions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>301 - Rejected - Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>302 - Rejected - Not Interested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>401 - Offer Outstanding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>404 - Offer Outstanding - Offer Letter Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>405 - Offer Outstanding - PSA Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>410 - Offer Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>411 - Offer Accepted - Verbal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>420 - Offer Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>450 - Offer Accepted - Pending Title</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>501 - Offer Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>601 - Invoiced - Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>602 - Invoiced - Consummated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>701 - Wrong Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>801 - EMC Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>901 - Title Fail - Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replaced</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Instrument_Type__c</picklist>
+            <values>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OGL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ORRI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surface</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Responsible_Party__c</picklist>
+            <values>
+                <fullName>Billy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chandler</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DCD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Matt Scott</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patrick</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rayne</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ryan</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>netAcreageUnits__c</picklist>
+            <values>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NMA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NRA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Texas_Section</fullName>
+        <active>false</active>
+        <compactLayoutAssignment>Tract_Header</compactLayoutAssignment>
+        <label>Texas (Section)</label>
+        <picklistValues>
+            <picklist>Basin__c</picklist>
+            <values>
+                <fullName>DJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eagleford</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Haynesville</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mid-Con</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Permian</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ford_Area__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ford_Tract_Status__c</picklist>
+            <values>
+                <fullName>101 - Contact Info Not Yet Found</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>103 - Outreach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>107 - Pending Investigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>109 - Premium Investigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>201 - Continued Discussions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>301 - Rejected - Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>302 - Rejected - Not Interested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>401 - Offer Outstanding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>404 - Offer Outstanding - Offer Letter Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>405 - Offer Outstanding - PSA Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>410 - Offer Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>411 - Offer Accepted - Verbal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>420 - Offer Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>450 - Offer Accepted - Pending Title</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>501 - Offer Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>601 - Invoiced - Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>602 - Invoiced - Consummated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>701 - Wrong Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>801 - EMC Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>901 - Title Fail - Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replaced</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Instrument_Type__c</picklist>
+            <values>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OGL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ORRI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surface</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Responsible_Party__c</picklist>
+            <values>
+                <fullName>Billy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chandler</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DCD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Matt Scott</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patrick</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rayne</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ryan</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>netAcreageUnits__c</picklist>
+            <values>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NMA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NRA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OTG_Cost_Per_Acre__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Instrument_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Tract_Legal__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LandGridTract__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Quarter_Call__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Full_Legal_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>LV_Lead_and_Tract</fullName>
+        <active>true</active>
+        <errorConditionFormula>!REGEX( LV_Lead_ID__c ,&quot;[0-9]*&quot;) || !REGEX(LV_Tract_ID__c,&quot;[0-9]*&quot;)</errorConditionFormula>
+        <errorMessage>LV Lead ID and LV Tract ID must contain numbers only</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>instrumentTypeOGLAcreageUnitsNMA</fullName>
+        <active>true</active>
+        <description>Validate if Instrument Type is OGL, Acreage Units should be NMA</description>
+        <errorConditionFormula>ISPICKVAL(Instrument_Type__c , &apos;OGL&apos;) &amp;&amp; !ISPICKVAL ( netAcreageUnits__c , &apos;NMA&apos;)</errorConditionFormula>
+        <errorMessage>For Instrument Type &quot;OGL&quot; Net Acreage Units must be &quot;NMA&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>instrumentTypeSurfaceAcreageUnitsNA</fullName>
+        <active>true</active>
+        <description>Validate if Instrument Type is Surface, Acreage Units should be NA</description>
+        <errorConditionFormula>ISPICKVAL(Instrument_Type__c , &apos;Surface&apos;) &amp;&amp; !ISPICKVAL ( netAcreageUnits__c , &apos;NA&apos;)</errorConditionFormula>
+        <errorMessage>For Instrument Type &quot;Surface&quot; Net Acreage Units must be &quot;NA&quot;</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

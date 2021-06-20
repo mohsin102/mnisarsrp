@@ -1,0 +1,77 @@
+<aura:component controller="totBuilderAura" implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
+    <!-- attributes -->
+	<aura:attribute name="recordId" type="String"/>
+	<aura:attribute name="sObjectName" type="String"/>
+	<aura:attribute name="totData" type="Object" default="[]"/>
+	<aura:attribute name="savedTotData" type="Object"/>
+	<aura:attribute name="totReadOnlyColumns" type="List"/>
+	<aura:attribute name="readOnlyColumns" type="List"/>
+	<aura:attribute name="hasLockedTot" type="Boolean" default="false"/>
+	<aura:attribute name="totSortedBy" type="String"/>
+	<aura:attribute name="totSortedDirection" type="String"/>
+	<aura:attribute name="tableWidth" type="Integer"/>
+	<aura:attribute name="totsSelected" type="Boolean" default="false"/>
+	<aura:attribute name="selectedTOTIds" type="List"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+	<aura:handler event="force:refreshView" action="{!c.init}" />
+
+	<aura:method name="setWaiting" action="{!c.setWaiting}"/>
+
+	<lightning:card>	
+		
+		<div class="slds-scrollable">
+			<div style="{!'width:'+v.tableWidth + 'px'}">
+				<div class="slds-p-around_medium">
+					<h1 class="slds-text-heading_large"><b>Saved TOTs</b></h1>
+				</div>
+				<!-- the container element determine the height of the datatable -->
+				<aura:if isTrue="{!not(empty(v.totData))}">
+					<lightning:card title="TOT Records">
+						<c:srpDataTable
+							aura:id="relatedTotRecordsTable"
+							columns="{! v.totReadOnlyColumns }"
+							data="{! v.totData }"
+							keyField="id"
+							draftValues="{! v.draftValues }"
+							hideCheckboxColumn="{!v.hasLockedTot}"
+							minColumnWidth="25"
+							maxColumnWidth="300"
+							sortedBy="{!v.totSortedBy}"
+							sortedDirection="{!v.totSortedDirection}"
+							onsort="{!c.updateTOTSorting}"
+							onrowselection="{!c.updateTOTDelete}"
+						/>
+						<lightning:button variant="brand" label="Undo TOTs" title="Undo TOTs" onclick="{! c.handleDeleteTots }" disabled="{!!v.totsSelected}" class="buttonMargin"/>
+					</lightning:card>
+				
+				
+					<aura:if isTrue="{!v.isWaiting}">
+						<div>
+							<lightning:spinner alternativeText="Loading" size="large" />
+						</div>
+						<aura:set attribute="else">
+							<!--<aura:if isTrue="{!v.savedTotData}">-->
+								<div aura:id = "savedTOTArea">
+									<lightning:card>
+										<div class="totGroups">
+											<aura:iteration items="{!v.savedTotData}" var="totGroup" indexVar="i">
+												<c:totGroup aura:id = "totDataComponent" parent="{! this }" editable="false" torData="{!totGroup.torLines2}" totData="{!totGroup.tot}" torColumns="{!v.readOnlyColumns}" totGroupNumber = "{!totGroup.totGroupNumber}" hasUnsavedChanges = "{!totGroup.hasUnsavedChanges}"/>
+											</aura:iteration>
+										</div>
+									</lightning:card>
+								</div>
+							<!--</aura:if>-->
+						</aura:set>
+					</aura:if>
+					<aura:set attribute="else">
+						<div class="slds-p-around_medium">
+							<h1 class="slds-text-heading_large">NO Saved TOTs Found.</h1>
+						</div>
+					</aura:set>
+				</aura:if>
+			</div>
+		</div>
+	</lightning:card>
+</aura:component>

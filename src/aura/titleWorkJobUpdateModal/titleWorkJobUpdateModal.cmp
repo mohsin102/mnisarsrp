@@ -1,0 +1,48 @@
+<aura:component controller="TitleWorkJobUpdateModalAura">
+	<aura:attribute name="recordId" type="String" default=""/>
+	<aura:attribute name="canDelete" type="Boolean" default="false"/>
+	<aura:attribute name="hasIntegrations" type="Boolean" default="false"/>
+	<aura:attribute name="selectedOwner" type="List" default="[]" />
+	<force:recordData aura:id="recordHandler"
+        recordId="{!v.recordId}"
+        fields="Id"
+        targetError="{!v.recordError}"
+        recordUpdated="{!c.handleRecordUpdated}" />
+
+    <div>
+		<lightning:recordEditForm recordId = "{!v.recordId}" objectApiName="TitleWorkJob__c" aura:id="titleWorkJobForm" onsuccess="{!c.handleSuccess}" onload="{!c.handleLoad}" onsubmit="{!c.handleSubmit}">
+			<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open  slds-modal_small">
+				<div class="slds-modal__container">
+					<header class="slds-modal__header">
+						<!--<lightning:button iconName="utility:close" class="slds-button slds-button_icon slds-modal__close closeIcon slds" title="Close" onclick="{!c.handleCancel}">
+						</lightning:button>-->
+						<h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">
+							<lightning:outputField fieldName="Name" />
+						</h2>
+
+
+					</header>
+					<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+					
+							<lightning:messages />
+							<c:Lookup aura:id="userLookup" selection="{!v.selectedOwner}" onSearch="{!c.userLookupSearch}" label="Owner" placeholder="Search Users" isMultiEntry="false" required="true"/>
+							<lightning:inputField fieldName="OwnerId" class="hidden"/>
+							<lightning:inputField fieldName="tractsCO__c"/>
+							<lightning:inputField fieldName="egnyteLink__c"/>
+							<lightning:inputField fieldName="status__c"/>
+							<lightning:inputField fieldName="startDate__c"/>
+							<lightning:inputField fieldName="completionDate__c"/>
+							<lightning:button class="slds-m-top_small" type="cancel" label="Cancel" onclick="{!c.handleCancel}" />
+							<lightning:button class="slds-m-top_small" type="submit" variant="brand" label="Save" />
+							<aura:if isTrue="{!v.canDelete}">
+								<div class="slds-float_right">
+									<lightning:button class="slds-m-top_small" label="Delete" variant="destructive-text" onclick="{!c.handleDeleteRecord}"/>
+								</div>
+							</aura:if>
+					</div>
+				</div>
+			</section>
+			<div class="slds-backdrop slds-fade-in-open" aura:id="modalBack"></div>
+		</lightning:recordEditForm>
+	</div>
+</aura:component>

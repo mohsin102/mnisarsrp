@@ -1,0 +1,73 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" controller="ContactInformationController" access="global" >
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="sortedBy" type="String" />
+    <aura:attribute name="sortedDirection" type="String"/>
+    <aura:attribute name="listlength" type="String" />
+    <aura:attribute name="showTable" type="Boolean" />
+    <aura:attribute name="showSaveCancelBtn" type="Boolean" />
+    <aura:attribute name="errorStr" type="String"/>
+    <aura:attribute name="showError" type="Boolean" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="cmpEvent" event="c:ContactInformationInlineEditEvent" action="{!c.showSaveCancelButtons}"/>
+    <aura:handler name="deleteEvent" event="c:ContactInformationDeleteEvent" action="{!c.deleteRow}"/>
+    <div class="slds-m-around_large">
+        <!-- use aura:if for show/hide buttons --> 
+        <aura:if isTrue="{!v.showSaveCancelBtn}">
+            <!--button for save and cancel Record after Inline Edit-->
+            <lightning:buttonGroup class="slds-m-around_medium">
+                <lightning:button label="Cancel" onclick="{!c.cancel}"/>
+                <lightning:button label="Save" onclick="{!c.Save}" variant="brand"/>
+            </lightning:buttonGroup>
+        </aura:if> 
+        <aura:if isTrue="{!v.showError}">
+            <div class="slds-notify_container slds-is-relative">
+                <div class="slds-notify slds-notify_toast slds-theme_error" role="status">
+                    <span class="slds-assistive-text">error</span>
+                    <div class="slds-notify__content">
+                        <h2 class="slds-text-heading_small ">{!v.errorStr}</h2>
+                    </div>
+                </div>
+            </div>
+        </aura:if>
+        <!--Data Table-->     
+        <aura:if isTrue="{!v.showTable}">
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-cell-wrap">
+                <thead>
+                    <tr class="slds-text-title--caps">
+                        <th scope="col"><div class="slds-truncate slds-has-flexi-truncate" title="Phone" style="max-width=20%">Phone</div></th>
+                        <th scope="col"><div class="slds-truncate slds-has-flexi-truncate" title="Address" style="max-width=20%">Address</div></th>
+                        <th scope="col"><div class="slds-truncate slds-has-flexi-truncate" title="Primary" style="max-width=20%">Primary</div></th>
+                        <th scope="col"><div class="slds-truncate slds-has-flexi-truncate" title="Status" style="max-width=20%">Status</div></th>
+                        <th scope="col"><div class="slds-truncate slds-has-flexi-truncate" title="Notes" style="max-width=20%">Notes</div></th>
+                        <th scope="col"><div class="slds-truncate slds-has-flexi-truncate" title="Action" style="max-width=20%">Action</div></th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <!--### display all records of data attribute one by one by aura:iteration ###-->
+                    <aura:iteration items="{!v.data}" var="rec" indexVar="sNo">
+                        <!-- Child Lightning Component -->
+                        
+                        <c:ContatInformationInlineEdit singleRec="{!rec}"
+                                                       showSaveCancelBtn="true"
+                                                       sNo="{!sNo}"
+                                                       />
+                    </aura:iteration>
+                </tbody>
+            </table>
+            <aura:set attribute="else">
+               <div class="slds-notify_container slds-is-relative">
+                <div class="slds-notify slds-notify_toast slds-theme_info" role="status">
+                    <span class="slds-assistive-text">info</span>
+                    <div class="slds-notify__content">
+                        <h2 class="slds-text-heading_small ">No Contact Information Found.</h2>
+                    </div>
+                </div>
+            </div>
+            </aura:set>
+        </aura:if>
+        <lightning:button label="Add Contact Information" onclick="{!c.addRow}" variant="Base" iconName="utility:new"/>
+    </div>
+</aura:component>

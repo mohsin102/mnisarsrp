@@ -1,0 +1,13 @@
+.THIS .label{
+    font-size:14px;
+    
+}
+
+.THIS .value{
+    font-size:18px;
+    font-weight: bold;
+}
+
+.THIS .leftPadding {
+    padding-left:20px;
+}

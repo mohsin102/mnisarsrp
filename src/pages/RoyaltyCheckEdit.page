@@ -1,0 +1,53 @@
+<apex:page id="RoyaltyCheckEdit" StandardController="Royalty_Check__c" Extensions="RoyaltyCheckExtension" lightningStylesheets="true">
+<!-- apex:form >
+
+    <!-- quick refresh of the calculated unique check name -- >
+    <script type="text/javascript">
+        function updateName() {
+            console.log('updating...');
+            rerenderName();
+        }
+    </script>
+    <apex:actionFunction name="rerenderName" reRender="unique"/>
+    <apex:sectionHeader title="Royalty Check Details" subtitle=""/>
+    <apex:outputPanel id="errmsg">
+        <apex:pageMessages id="msg" />
+    </apex:outputPanel>
+
+
+    <!-- Check form -- >
+    <apex:pageBlock >
+        <apex:pageBlockButtons location="both" id="pbb">
+            <apex:commandButton id="cancel" action="{!cancel}" value="Cancel" onclick="" immediate="true" />
+            <apex:commandButton id="saveNew" action="{!saveNew}" value="Save & New"/>
+            <apex:commandButton id="save" action="{!save}" value="Save"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Royalty Check Details" columns="2">
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Unique Check Name: </apex:outputLabel>
+                    <apex:outputPanel id="unique">
+                    <apex:outputText label="Unique Name" value="{! UniqueName }" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+
+            <apex:outputField value="{! selCheck.Name }" />
+
+            <apex:inputField value="{! selCheck.Payor__c }" onKeyUp="updateName();" />
+            <apex:inputField value="{! selCheck.Operator_Name__c }" />
+            <apex:inputField value="{! selCheck.Payee__c }" onKeyUp="updateName();" />
+            <apex:inputField value="{! selCheck.Owner_Number__c }" onKeyUp="updateName();" />
+            <apex:inputField value="{! selCheck.Amount__c }" onKeyUp="updateName();" />
+            <apex:inputField value="{! selCheck.Check_Number__c }" onKeyUp="updateName();" />
+            <apex:inputField value="{! selCheck.Check_Issue_Date__c }" onKeyUp="updateName();" onChange="updateName();"/>
+            <apex:inputField value="{! selCheck.Notes__c }" />
+
+        </apex:pageBlockSection>
+
+
+    </apex:pageBlock>
+
+</apex:form -->
+
+</apex:page>

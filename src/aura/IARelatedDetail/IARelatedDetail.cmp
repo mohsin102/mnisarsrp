@@ -1,0 +1,60 @@
+<aura:component>
+	<aura:attribute name="currentRecord" type="Object"/>
+	<aura:attribute name="detailType" type="String" required="true"/>
+	<aura:attribute name="hasDetail" type="Boolean" default="false"/>
+	<aura:attribute name="closeDate" type="Date"/>
+	<aura:attribute name="effectiveDate" type="Date"/>
+	<aura:attribute name="opportunityName" type="String"/>
+	<aura:attribute name="opportunityLink" type="String"/>
+	<aura:attribute name="price" type="Double"/>
+	<aura:attribute name="relatedAccountName" type="String"/>
+	<aura:attribute name="relatedAccountLink" type="String"/>
+	
+	<aura:attribute name="relatedAccountLabel" type="String" default="Seller (Previous Owner)"/>
+
+	<aura:handler name="change" value="{!v.currentRecord}" action="{!c.currentRecordChange}"/>
+	
+	<!--<aura:attribute name="closeDate" type="Date"/>
+	<aura:attribute name="effectiveDate" type="Date"/>
+	<aura:attribute name="opportunityName" type="String"/>
+	<aura:attribute name="otherAccount" type="String"/>-->
+	<lightning:card>
+		<aura:if isTrue="{!v.hasDetail}">
+			<div class="leftPadding rightPadding">
+				<div class="slds-border_bottom">
+					<p><lightning:formattedText class="headerLabel" value="{!v.detailType + ' Info'}"/></p>
+				</div>
+				<div class="leftPadding rightPadding">
+					<div class="slds-border_bottom">
+						<p><lightning:formattedText class="label" value="Close Date"/></p>
+						<p><lightning:formattedDateTime value="{!v.closeDate}" year="numeric" month="2-digit" day="2-digit" timeZone="UTC"/></p>
+					</div>
+					<div class="slds-border_bottom">
+						<p><lightning:formattedText class="label" value="Effective Date"/></p>
+						<p><lightning:formattedDateTime value="{!v.effectiveDate}" year="numeric" month="2-digit" day="2-digit" timeZone="UTC"/></p>
+					</div>
+					<div class="slds-border_bottom">
+						<p><lightning:formattedText class="label" value="Opportunity Name"/></p>
+						<p><lightning:formattedUrl value="{!v.opportunityLink}" label="{!v.opportunityName}" target="_self" /></p>
+					</div>
+					<div class="slds-border_bottom">
+						<p><lightning:formattedText class="label" value="{!v.detailType + ' Price'}"/></p>
+						<p><lightning:formattedNumber value="{!v.price}" maximumFractionDigits="2" minimumFractionDigits="2"/></p>
+					</div>
+					<div class="slds-border_bottom">
+						<p><lightning:formattedText class="label" value="{!v.relatedAccountLabel}"/></p>
+						<p><lightning:formattedUrl value="{!v.relatedAccountLink}" label="{!v.relatedAccountName}" target="_self" /></p>
+					</div>
+				</div>
+				<!--<aura:set attribute="else">	
+					aura else
+					<div class="leftPadding rightPadding">
+						<div class="slds-border_bottom">
+							<p><lightning:formattedText class="headerLabel" value="{!v.detailType + ' Info'}"/></p>
+						</div>
+					</div>
+				</aura:set>-->
+			</div>
+		</aura:if>
+	</lightning:card>
+</aura:component>

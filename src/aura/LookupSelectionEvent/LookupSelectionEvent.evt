@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT"
+            description="Optional component event fired when a selection is made. Can be 
+                         used for clearing custom error messages set by the consumer component.">
+</aura:event>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Ad_Val__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Ad Val</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Differential__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Differential</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Differentials__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Differentials</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Serverence_Tax__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Serverence Tax</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <label>State Deduction</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>MasterLabel</columns>
+        <columns>DeveloperName</columns>
+        <columns>Differential__c</columns>
+        <columns>Serverence_Tax__c</columns>
+        <columns>Ad_Val__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>SRP_State_Fees</fullName>
+        <columns>MasterLabel</columns>
+        <columns>DeveloperName</columns>
+        <columns>NamespacePrefix</columns>
+        <columns>Differentials__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>SRP State Fees</label>
+        <language>en_US</language>
+    </listViews>
+    <pluralLabel>State Deductions</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

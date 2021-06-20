@@ -1,0 +1,67 @@
+.THIS .map {
+    height: var(--height);
+    position:sticky !important;
+}
+
+.THIS .noMap {
+    height: 0;
+}
+
+.THIS .hidden {
+    display:none;
+}
+
+.THIS.my-label {
+     position: absolute;
+     width:1000px;
+     font-size:20px;
+ }
+
+.THIS.leaflet-container {
+         cursor:pointer !important;
+ }
+
+.THIS.leaflet-container.crosshair-cursor-enabled {
+         cursor:auto !important;
+ }
+
+.THIS .leaflet-container {
+         cursor:pointer !important;
+ }
+
+.THIS .leaflet-container.crosshair-cursor-enabled {
+         cursor:auto !important;
+ }
+
+.THIS.maphoverInfo {
+          padding: 6px 8px;
+          font: 14px/16px Arial, Helvetica, sans-serif !important;
+          background: white !important;
+          background: rgba(255,255,255,.95) !important;
+          box-shadow: 0 0 15px rgba(0,0,0,0.2) !important;
+          border-radius: 5px;
+          text-align:center;
+ }
+
+.THIS.maphoverInfo h4 {
+          margin: 0 0 5px;
+          color: #777;
+          text-align:center;
+ }
+
+.THIS .checkBoxGroup{
+    display: flex;
+}
+
+
+.THIS .selectionComboBox {
+    margin: 10px 10px 5px 10px;
+}
+
+.THIS .selectedItems {
+    margin: 0px 10px 10px 10px;
+}
+
+.THIS .accountSelection {
+    margin: 10px 10px 10px 10px;
+}

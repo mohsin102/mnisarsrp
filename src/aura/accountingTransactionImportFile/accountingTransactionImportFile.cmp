@@ -1,0 +1,64 @@
+<aura:component controller ="accountingTransactionImportItemsAura" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="accept" type="List" default="['.csv', '.json']"/>
+	<aura:attribute name="canUpload" type="Boolean" default = "false"/>
+	<aura:attribute name="fileType" type="String" default=""/>
+	<aura:attribute name="fileFormat" type="String" default=""/>
+	<aura:attribute name="aijRecord" type="Object"/>
+	<aura:attribute name="recordLoadError" type="String"/>
+	<aura:attribute name="uploadDisabled" type="Boolean" default="true"/>
+	<force:recordData aura:id="recordLoader"
+    recordId="{!v.recordId}"
+    fields="transactionFileLoaded__c, status__c, Name, notes__c, transactionFileId__c, transactionFileName__c"
+    targetFields="{!v.aijRecord}"
+    targetError="{!v.recordLoadError}"
+	recordUpdated = "{!c.recordUpdated}"
+    />
+	<aura:attribute name="options" type="List" default="[
+    {'label': 'Acct TXN File', 'value': 'accountTransactionFile'}
+    ]"/>
+
+    <!-- handlers-->
+    <!--<aura:handler name="init" value="{! this }" action="{! c.init }"/>-->
+    
+	<!--<lightning:recordViewForm aura:id="forceRecord" recordId="{!v.recordId}" objectApiName="TitleIntegrationJob__c">-->
+		<lightning:card>
+			<div class="slds-grid">
+				<div class="slds-col slds-size_1-of-2 paddingAround">
+					<h2 class="slds-text-heading_large">AIJ File Upload</h2>
+					<div class="slds-grid">
+						<div class="slds-col slds-size_1-of-2 paddingTop">
+							<lightning:combobox name="progress" label="File Type" value="{v.fileType}" placeholder="Acct TXN File" options="{! v.options }" onchange="{! c.handleChange }" disabled="{!!v.canUpload}"/>
+						</div>
+					</div>
+					<div class="paddingTop">
+						<lightning:fileUpload  name="ImportLineItem"
+											  label= "Import from .csv"
+											  multiple="false"
+											  accept="{!v.accept}"
+											  disabled="{!v.uploadDisabled}"
+											  recordId="{!v.recordId}"
+											  onuploadfinished="{! c.handleUploadFinished}"/>
+    
+						<lightning:spinner aura:Id="spinner" alternativeText="Loading" size="medium" class="slds-hide"/>
+					</div>
+				</div>
+				<div class="slds-col slds-size_1-of-2 paddingAround">
+					<h2 class="slds-text-heading_large">Loaded Files</h2>
+					<div class="slds-grid paddingTop">	
+						<table>
+							<tr>
+								<td class="slds-col slds-size_1-of-4">
+									<p><lightning:formattedText value="Acct TXN File:"/></p>
+								</td>
+								<td class="slds-col slds-szie_3-of-4">
+									<p><aura:if isTrue="{!v.aijRecord.transactionFileId__c != null}"> <lightning:formattedUrl value="{!'/' + v.aijRecord.transactionFileId__c}" tooltip="Link to Transaction file" label="{!v.aijRecord.transactionFileName__c}" target="_blank" class="slds-form-element slds-form-element_horizontal"/></aura:if></p>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		
+		</lightning:card>
+	<!--</lightning:recordViewForm>-->
+</aura:component>

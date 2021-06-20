@@ -1,0 +1,141 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName,force:appHostable,force:LightningQuickAction" description="Show GIS Representation of Tract" controller="MapControllerV2">
+	<aura:attribute name="tractLayer" type="Object" />
+	<aura:attribute name="recordId" type="String" default='' />
+	<aura:attribute name="recordId2" type="String" />
+	<aura:attribute name="consoleTabId" type="String" Default="notConsole" />
+	<aura:attribute name="subtractLayer" type="Object" />
+	<aura:attribute name="horizontalUnitLayer" type="Object" />
+	<aura:attribute name="verticalUnitLayer" type="Object" />
+	<aura:attribute name="wellLayer" type="Object" />
+	<aura:attribute name="horizontalProducingWellLayer" type="Object" />
+	<aura:attribute name="horizontalPermitWellLayer" type="Object" />
+	<aura:attribute name="horizontalDUCWellLayer" type="Object" />
+	<aura:attribute name="verticalWellLayer" type="Object" />
+	<aura:attribute name="inactiveSubtractLayer" type="Object" />
+	<aura:attribute name="activeSubtractLayer" type="Object" />
+	<aura:attribute name="lgtLayer" type="Object" />
+	<aura:attribute name="aoiPricingLayer" type="Object" />
+	<aura:attribute name="customTilesLayer" type="Object" />
+	<aura:attribute name="rigsLayer" type="Object" />
+	<aura:attribute name="typeCurveLayer" type="Object" />
+	<aura:attribute name="tiersLayer" type="Object" />
+	<aura:attribute name="layerGroup" type="Object" />
+	<aura:attribute name="hasTractLayer" type="Boolean" default="false"/>
+	<aura:attribute name="hasSubtractLayer" type="Boolean" default="false"/>
+	<aura:attribute name="hasHorizontalUnitLayer" type="Boolean" default="false"/>
+	<aura:attribute name="hasVerticalUnitLayer" type="Boolean" default="false"/>
+	<aura:attribute name="hasHorizontalProducingWellLayer" type="Boolean" default="false"/>
+	<aura:attribute name="hasHorizontalPermitWellLayer" type="Boolean" default="false"/>
+	<aura:attribute name="hasHorizontalDUCWellLayer" type="Boolean" default="false"/>
+	<aura:attribute name="hasVerticalWellLayer" type="Boolean" default="false"/>
+	<aura:attribute name="hasInactiveSubtractLayer" type="Boolean" default="false"/>
+	<aura:attribute name="hasActiveSubtractLayer" type="Boolean" default="false"/>
+	<aura:attribute name="tractLayerLoaded" type="Boolean" default="false"/>
+	<aura:attribute name="subtractLayerLoaded" type="Boolean" default="false"/>
+	<aura:attribute name="horizontalUnitLayerLoaded" type="Boolean" default="false"/>
+	<aura:attribute name="verticalUnitLayerLoaded" type="Boolean" default="false"/>
+	<aura:attribute name="horizontalProducingWellLayerLoaded" type="Boolean" default="false"/>
+	<aura:attribute name="horizontalPermitWellLayerLoaded" type="Boolean" default="false"/>
+	<aura:attribute name="horizontalDUCWellLayerLoaded" type="Boolean" default="false"/>
+	<aura:attribute name="verticalWellLayerLoaded" type="Boolean" default="false"/>
+	<aura:attribute name="inactiveSubtractLayerLoaded" type="Boolean" default="false"/>
+	<aura:attribute name="activeSubtractLayerLoaded" type="Boolean" default="false"/>
+	<aura:attribute name="allLayersLoaded" type="Boolean" default="false"/>
+	<aura:attribute name="noMap" type="Boolean" default="false"/>
+	<aura:attribute name="bounds" type="Object"/>
+	<aura:attribute name="selectedAccount" type="List" default="[]"/>
+	<aura:attribute name="map" type="Object" />
+    <aura:attribute name="token" type="String" />
+	<aura:attribute name="generalOptions" type="List"/>
+	<aura:attribute name="scopedOptions" type="List"/>
+	<aura:attribute name="generalSelectedOptions" type="List"/>
+	<aura:attribute name="scopedSelectedOptions" type="List"/>
+	<aura:attribute name="record" type="Object"/>
+	<aura:attribute name="recordLoadError" type="String" default=""/>
+	<aura:attribute name="jsLoaded" type="Boolean" default="false"/>
+	<aura:attribute name="recordLoaded" type="Boolean" default="false"/>
+    <!--<aura:attribute name="value" type="List" default="option1"/>-->
+	<aura:attribute name="isWaiting" type="Boolean" default="false"/>
+	<!--<aura:attribute name="activeSections" type="List" default="['layers']" />-->
+	<aura:attribute name="width" type="String"/>
+	<aura:attribute name="height" type="Integer" default="700"/>
+	<aura:attribute name="modalComponent" type="Aura.Component" />
+
+	<aura:attribute name="title" type="Aura.Component[]">
+        <lightning:icon iconName="action:map" alternativeText="GIS Map" />
+        &nbsp; <b style="font-size: 15px;"> GIS Map</b>
+    </aura:attribute>
+
+	<aura:handler name="change" value="{!v.tractLayerLoaded}" action="{!c.layerLoaded}"/>
+	<aura:handler name="change" value="{!v.subtractLayerLoaded}" action="{!c.layerLoaded}"/>
+	<aura:handler name="change" value="{!v.horizontalUnitLayerLoaded}" action="{!c.layerLoaded}"/>
+	<aura:handler name="change" value="{!v.verticalUnitLayerLoaded}" action="{!c.layerLoaded}"/>
+	<aura:handler name="change" value="{!v.horizontalProducingWellLayerLoaded}" action="{!c.layerLoaded}"/>
+	<aura:handler name="change" value="{!v.horizontalPermitWellLayerLoaded}" action="{!c.layerLoaded}"/>
+	<aura:handler name="change" value="{!v.horizontalDUCWellLayerLoaded}" action="{!c.layerLoaded}"/>
+	<aura:handler name="change" value="{!v.verticalWellLayerLoaded}" action="{!c.layerLoaded}"/>
+	<aura:handler name="change" value="{!v.inactiveSubtractLayerLoaded}" action="{!c.layerLoaded}"/>
+	<aura:handler name="change" value="{!v.activeSubtractLayerLoaded}" action="{!c.layerLoaded}"/>
+	<aura:handler name="change" value="{!v.allLayersLoaded}" action="{!c.buildMap}"/>
+	<aura:handler name="change" value="{!v.jsLoaded}" action="{!c.autoLoadMap}"/>
+	<aura:handler name="change" value="{!v.recordLoaded}" action="{!c.autoLoadMap}"/>
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+	<aura:handler name="change" value="{!v.selectedAccount}" action=" {!c.loadMap}"/>
+
+	<lightning:overlayLibrary aura:id="overlayLib"/>
+	<lightning:workspaceAPI aura:id="workspace" />
+	
+	<aura:html tag="style">
+       :root {
+           --height: {!v.height + 'px'} ;
+       }
+	</aura:html>
+	<aura:html tag="style">
+       .leaflet-popup-content {
+			max-height: {!v.height/2 + 'px'};
+			overflow:auto;
+       }
+   </aura:html>
+    <lightning:flexipageRegionInfo width="{!v.width}"/>
+	
+    <force:recordData aura:id="recordLoader"
+          recordId="{!v.recordId}"
+          fields="Id, Name"
+		  targetError="{!v.recordLoadError}"
+          targetRecord="{!v.record}"
+		  recordUpdated = "{!c.recordUpdated}"
+    />
+	
+
+    <ltng:require styles="/resource/leaflet_171/leaflet.css" />
+    <ltng:require scripts="/resource/leaflet_171/leaflet.js,/resource/esri_250/esri-leaflet.js" afterScriptsLoaded="{!c.jsLoaded}" />
+
+    <!--<aura:html tag="div" class="maphoverInfo" id="{!'mho'+v.recordId}" aura:id="{!'mho'+v.recordId}" />-->
+	<lightning:card title="{!v.title}" >
+		<aura:if isTrue="{!v.recordId ==''}">
+			<div class="accountSelection">
+				<c:Lookup aura:id="accountLookup" selection="{!v.selectedAccount}" onSearch="{!c.accountLookupSearch}" label="Account" placeholder="Search Accounts" isMultiEntry="false" required="true"/>
+			</div>	
+		</aura:if>
+		<div class="slds-grid">
+			<div class="slds-col slds-size_1-of-2">
+				<lightning:combobox aura:id="scopedSelectItem" name="scopedLayersSelect" label="Scoped Layers" placeholder="Select an Option" options="{! v.scopedOptions }" onchange="{! c.handleScopedChange }" class="selectionComboBox"/>
+				<p class="selectedItems"><lightning:pillContainer items="{!v.scopedSelectedOptions}" onitemremove="{!c.handleScopedRemove}"></lightning:pillContainer></p>
+			</div>
+			<div class="slds-col slds-size_1-of-2">
+				<lightning:combobox aura:id="generalSelectItem" name="generalLayersSelect" label="General Layers" placeholder="Select an Option" options="{! v.generalOptions }" onchange="{! c.handleGeneralChange }" class="selectionComboBox"/>
+				<p class="selectedItems"><lightning:pillContainer items="{!v.generalSelectedOptions}" onitemremove="{!c.handleGeneralRemove}"></lightning:pillContainer></p>
+			</div>
+		</div>
+		<aura:if isTrue="{!v.isWaiting}">
+			<div>
+				<!--<lightning:spinner alternativeText="Loading" size="large" />-->
+				<img src="{!$Resource.srpLoading}" class="slds-align_absolute-center"/>
+			</div>
+		</aura:if>
+		<!--<lightning:button variant="brand" label="Invalidate Size" title="Brand action" onclick="{! c.invalidateSize }" />-->
+		
+		<aura:html tag="div" class="map slds-box" id="{!'map'+v.recordId2+v.consoleTabId}" aura:id="mapDiv" />
+			
+	</lightning:card>
+</aura:component>

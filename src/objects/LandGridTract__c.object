@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>LandGridTract_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>Tract_Header</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Tract_Header</fullName>
+        <fields>Name</fields>
+        <fields>State__c</fields>
+        <fields>County__c</fields>
+        <fields>Block__c</fields>
+        <fields>RecordTypeId</fields>
+        <fields>Section__c</fields>
+        <label>Tract Header</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Abstract__c</fullName>
+        <externalId>false</externalId>
+        <label>Abstract</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Block__c</fullName>
+        <externalId>false</externalId>
+        <label>Block</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CTY_Row_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>CTY Row ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CombinedLegal__c</fullName>
+        <externalId>false</externalId>
+        <label>CombinedLegal</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>County__c</fullName>
+        <externalId>true</externalId>
+        <label>County</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Egnyte_Link__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>link to the title folder in Egnyte</inlineHelpText>
+        <label>Egnyte Link</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>GDB_Geomattr_Data__c</fullName>
+        <externalId>false</externalId>
+        <label>GDB Geomattr Data</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lookup_Key__c</fullName>
+        <description>Full Name without surveyor used for bulk loading from LandVantage in the format State:County:Block:Section:Abstract</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Full Name without surveyor used for bulk loading from LandVantage in the format State:County:Block:Section:Abstract</inlineHelpText>
+        <label>Lookup Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Parcel_ID__c</fullName>
+        <externalId>true</externalId>
+        <label>Parcel ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RDIR__c</fullName>
+        <externalId>false</externalId>
+        <label>RDIR</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Range__c</fullName>
+        <externalId>false</externalId>
+        <label>Range</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Record_Type_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>$RecordType.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Record Type Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>STR_Text__c</fullName>
+        <description>Concatenate of Township, TDIR, Range, RDIR</description>
+        <externalId>false</externalId>
+        <label>STR</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>STR__c</fullName>
+        <externalId>false</externalId>
+        <formula>Section__c&amp;&quot;-&quot;&amp;Text(Township__c)&amp;TDIR__c&amp;&quot;-&quot;&amp;Text(Range__c)&amp;RDIR__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>STR (Calculated)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Section__c</fullName>
+        <externalId>false</externalId>
+        <label>Section</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <externalId>true</externalId>
+        <label>State</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Name</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>TDIR__c</fullName>
+        <externalId>false</externalId>
+        <label>TDIR</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TRACTS_CO_Completed_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>TRACTS.CO Completed By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>LandGridTracts</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TRACTS_CO_Last_Completed__c</fullName>
+        <externalId>false</externalId>
+        <label>TRACTS.CO Last Completed</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>TRACTS_CO__c</fullName>
+        <description>link to Tracts.CO</description>
+        <externalId>false</externalId>
+        <label>TRACTS.CO</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Title_Notes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Brief comments and title notes. Full comments should be entered into Tracts.Co</inlineHelpText>
+        <label>Title Notes</label>
+        <length>32768</length>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Title_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Title Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Started</fullName>
+                    <default>true</default>
+                    <label>Not Started</label>
+                </value>
+                <value>
+                    <fullName>On Hold</fullName>
+                    <default>false</default>
+                    <label>On Hold</label>
+                </value>
+                <value>
+                    <fullName>Imaging In Progress</fullName>
+                    <default>false</default>
+                    <label>Imaging In Progress</label>
+                </value>
+                <value>
+                    <fullName>Imaging Complete</fullName>
+                    <default>false</default>
+                    <label>Imaging Complete</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Ready For Review</fullName>
+                    <default>false</default>
+                    <label>Ready For Review</label>
+                </value>
+                <value>
+                    <fullName>In Review</fullName>
+                    <default>false</default>
+                    <label>In Review</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+                <value>
+                    <fullName>Complete - Acquisition</fullName>
+                    <default>false</default>
+                    <label>Complete - Acquisition</label>
+                </value>
+                <value>
+                    <fullName>Complete - Limited</fullName>
+                    <default>false</default>
+                    <label>Complete - Limited</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Township_Range__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Township__c) &amp; TDIR__c &amp; &quot;-&quot; &amp; Text(Range__c) &amp; RDIR__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Township Range</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Township__c</fullName>
+        <externalId>false</externalId>
+        <label>Township</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>LandGridTract</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>State__c</columns>
+        <columns>County__c</columns>
+        <columns>Block__c</columns>
+        <columns>Township_Range__c</columns>
+        <columns>Section__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Section__c</field>
+            <operation>equals</operation>
+            <value>269</value>
+        </filters>
+        <filters>
+            <field>Block__c</field>
+            <operation>equals</operation>
+            <value>12</value>
+        </filters>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_North_Dakota</fullName>
+        <columns>NAME</columns>
+        <columns>CombinedLegal__c</columns>
+        <columns>State__c</columns>
+        <columns>County__c</columns>
+        <columns>Block__c</columns>
+        <columns>Township_Range__c</columns>
+        <columns>Section__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>State__c</field>
+            <operation>contains</operation>
+            <value>ND</value>
+        </filters>
+        <label>All - North Dakota</label>
+    </listViews>
+    <listViews>
+        <fullName>All_TX_Martin</fullName>
+        <columns>NAME</columns>
+        <columns>CombinedLegal__c</columns>
+        <columns>State__c</columns>
+        <columns>County__c</columns>
+        <columns>Block__c</columns>
+        <columns>Township_Range__c</columns>
+        <columns>Section__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>County__c</field>
+            <operation>equals</operation>
+            <value>Martin</value>
+        </filters>
+        <filters>
+            <field>State__c</field>
+            <operation>equals</operation>
+            <value>TX</value>
+        </filters>
+        <filters>
+            <field>Section__c</field>
+            <operation>equals</operation>
+            <value>23</value>
+        </filters>
+        <label>All - TX-Martin</label>
+    </listViews>
+    <listViews>
+        <fullName>All_TX_Martin_Howard</fullName>
+        <columns>NAME</columns>
+        <columns>County__c</columns>
+        <columns>Block__c</columns>
+        <columns>Section__c</columns>
+        <columns>Title_Status__c</columns>
+        <columns>TRACTS_CO__c</columns>
+        <columns>TRACTS_CO_Completed_By__c</columns>
+        <columns>TRACTS_CO_Last_Completed__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>County__c</field>
+            <operation>equals</operation>
+            <value>Martin</value>
+        </filters>
+        <filters>
+            <field>Block__c</field>
+            <operation>equals</operation>
+            <value>A</value>
+        </filters>
+        <label>All - TX-Martin - Howard</label>
+    </listViews>
+    <listViews>
+        <fullName>All_TX_Martin_Howard_Ford</fullName>
+        <booleanFilter>(1 OR (10 OR (2 AND (3 OR 4 OR 5 OR 6 OR 7 OR 8 OR 9))))</booleanFilter>
+        <columns>NAME</columns>
+        <columns>County__c</columns>
+        <columns>Block__c</columns>
+        <columns>Section__c</columns>
+        <columns>Title_Status__c</columns>
+        <columns>TRACTS_CO__c</columns>
+        <columns>TRACTS_CO_Completed_By__c</columns>
+        <columns>TRACTS_CO_Last_Completed__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Block__c</field>
+            <operation>equals</operation>
+            <value>33 T2N</value>
+        </filters>
+        <filters>
+            <field>Block__c</field>
+            <operation>equals</operation>
+            <value>35 T1N</value>
+        </filters>
+        <filters>
+            <field>Section__c</field>
+            <operation>equals</operation>
+            <value>10</value>
+        </filters>
+        <filters>
+            <field>Section__c</field>
+            <operation>equals</operation>
+            <value>11</value>
+        </filters>
+        <filters>
+            <field>Section__c</field>
+            <operation>equals</operation>
+            <value>12</value>
+        </filters>
+        <filters>
+            <field>Section__c</field>
+            <operation>equals</operation>
+            <value>13</value>
+        </filters>
+        <filters>
+            <field>Section__c</field>
+            <operation>equals</operation>
+            <value>14</value>
+        </filters>
+        <filters>
+            <field>Section__c</field>
+            <operation>equals</operation>
+            <value>15</value>
+        </filters>
+        <filters>
+            <field>Section__c</field>
+            <operation>equals</operation>
+            <value>24</value>
+        </filters>
+        <filters>
+            <field>Block__c</field>
+            <operation>equals</operation>
+            <value>34 T3N</value>
+        </filters>
+        <label>All - TX-Martin - Howard - Ford</label>
+    </listViews>
+    <listViews>
+        <fullName>All_TX_Martin_Mercury</fullName>
+        <columns>NAME</columns>
+        <columns>County__c</columns>
+        <columns>Block__c</columns>
+        <columns>Section__c</columns>
+        <columns>Abstract__c</columns>
+        <columns>Title_Status__c</columns>
+        <columns>TRACTS_CO__c</columns>
+        <columns>TRACTS_CO_Completed_By__c</columns>
+        <columns>TRACTS_CO_Last_Completed__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>State__c</field>
+            <operation>equals</operation>
+            <value>TX</value>
+        </filters>
+        <filters>
+            <field>County__c</field>
+            <operation>equals</operation>
+            <value>Martin</value>
+        </filters>
+        <filters>
+            <field>Block__c</field>
+            <operation>equals</operation>
+            <value>36 T1N</value>
+        </filters>
+        <label>All - TX-Martin - Mercury</label>
+    </listViews>
+    <listViews>
+        <fullName>North_Dakota</fullName>
+        <columns>NAME</columns>
+        <columns>State__c</columns>
+        <columns>Section__c</columns>
+        <columns>County__c</columns>
+        <columns>Lookup_Key__c</columns>
+        <columns>Range__c</columns>
+        <columns>Record_Type_Name__c</columns>
+        <columns>TDIR__c</columns>
+        <columns>Township__c</columns>
+        <columns>Township_Range__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>State__c</field>
+            <operation>equals</operation>
+            <value>ND</value>
+        </filters>
+        <label>North Dakota</label>
+    </listViews>
+    <listViews>
+        <fullName>PLSS</fullName>
+        <columns>NAME</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>STR_Text__c</columns>
+        <columns>STR__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>LandGridTract__c.PLSS_States</value>
+        </filters>
+        <filters>
+            <field>State__c</field>
+            <operation>equals</operation>
+            <value>LA</value>
+        </filters>
+        <filters>
+            <field>County__c</field>
+            <operation>equals</operation>
+            <value>Red River</value>
+        </filters>
+        <label>PLSS</label>
+    </listViews>
+    <listViews>
+        <fullName>PLSS_ND</fullName>
+        <columns>NAME</columns>
+        <columns>STR__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>TRACTS_CO__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>LandGridTract__c.PLSS_States</value>
+        </filters>
+        <filters>
+            <field>State__c</field>
+            <operation>equals</operation>
+            <value>ND</value>
+        </filters>
+        <label>PLSS - ND</label>
+    </listViews>
+    <listViews>
+        <fullName>TLS_Broker_LandGridTract</fullName>
+        <filterScope>Queue</filterScope>
+        <label>TLS Broker</label>
+        <queue>TLS_Broker</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <label>LandGridTract Name</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>LandGridTracts</pluralLabel>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>PLSS_States</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>Tract_Header</compactLayoutAssignment>
+        <label>PLSS States</label>
+        <picklistValues>
+            <picklist>Title_Status__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Acquisition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Limited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Imaging Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Imaging In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready For Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Tax_Parcel_States</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>Tract_Header</compactLayoutAssignment>
+        <label>Tax Parcel States</label>
+        <picklistValues>
+            <picklist>Title_Status__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Acquisition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Limited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready For Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Texas</fullName>
+        <active>false</active>
+        <compactLayoutAssignment>Tract_Header</compactLayoutAssignment>
+        <label>Texas</label>
+        <picklistValues>
+            <picklist>Title_Status__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready For Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Texas_Abstract</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>Tract_Header</compactLayoutAssignment>
+        <description>Texas LandGridTract - Identified by County and Abstract</description>
+        <label>Texas (Abstract)</label>
+        <picklistValues>
+            <picklist>Title_Status__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Acquisition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Limited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready For Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Texas_Section</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>Tract_Header</compactLayoutAssignment>
+        <description>Texas LandGridTract - Identified by Section and Block</description>
+        <label>Texas (Section)</label>
+        <picklistValues>
+            <picklist>Title_Status__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Acquisition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Limited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready For Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>LAST_UPDATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>State__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>County__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Block__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Abstract__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Section__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Monthly_Production_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Monthly_Production_Info</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Monthly_Production_Info</fullName>
+        <fields>Name</fields>
+        <fields>API10__c</fields>
+        <fields>Current_Operator_Name__c</fields>
+        <fields>Current_Status__c</fields>
+        <fields>Gas__c</fields>
+        <fields>Liquid__c</fields>
+        <label>Monthly Production Info</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>API10__c</fullName>
+        <externalId>false</externalId>
+        <formula>Well__r.API10__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>API10</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>API14__c</fullName>
+        <externalId>false</externalId>
+        <label>API14</label>
+        <length>14</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Operator_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Current Operator Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Operator__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Current Operator (Account)</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Monthly Production</relationshipLabel>
+        <relationshipName>Monthly_Production</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Current_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Current Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fluid_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Fluid Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>OIL</fullName>
+                    <default>false</default>
+                    <label>OIL</label>
+                </value>
+                <value>
+                    <fullName>GAS</fullName>
+                    <default>false</default>
+                    <label>GAS</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Formation_at_TD__c</fullName>
+        <externalId>false</externalId>
+        <label>Formation at TD</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gas_Differential__c</fullName>
+        <externalId>false</externalId>
+        <formula>If( Lower(Well__r.State__c) == Lower(&apos;Texas&apos;),$CustomMetadata.State_Deduction__mdt.TX_Gas.Differentials__c , If( Lower(Well__r.State__c) == Lower(&apos;Oklahoma&apos;), $CustomMetadata.State_Deduction__mdt.OK_Gas.Differentials__c , If( Lower(Well__r.State__c) == Lower(&apos;New Mexico&apos;), $CustomMetadata.State_Deduction__mdt.NM_Gas.Differentials__c , $CustomMetadata.State_Deduction__mdt.Default_Gas.Differentials__c ) ) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Gas Differential</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Gas_Taxes__c</fullName>
+        <externalId>false</externalId>
+        <formula>If( Lower(Well__r.State__c) == Lower(&apos;Texas&apos;), $CustomMetadata.State_Deduction__mdt.TX_Gas.Serverence_Tax__c + $CustomMetadata.State_Deduction__mdt.TX_Gas.Ad_Val__c , If( Lower(Well__r.State__c) == Lower(&apos;Oklahoma&apos;),$CustomMetadata.State_Deduction__mdt.OK_Gas.Serverence_Tax__c + $CustomMetadata.State_Deduction__mdt.OK_Gas.Ad_Val__c , If( Lower(Well__r.State__c) == Lower(&apos;New Mexico&apos;), $CustomMetadata.State_Deduction__mdt.NM_Gas.Serverence_Tax__c + $CustomMetadata.State_Deduction__mdt.NM_Gas.Ad_Val__c , $CustomMetadata.State_Deduction__mdt.Default_Gas.Serverence_Tax__c + $CustomMetadata.State_Deduction__mdt.Default_Gas.Ad_Val__c ) ) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Gas Taxes</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Gas__c</fullName>
+        <description>Value comes from GIS (source is IHS or DI)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value comes from GIS (source is IHS or DI)</inlineHelpText>
+        <label>Monthly Production (Gas)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Update__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Update</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Liquid__c</fullName>
+        <description>Value comes from GIS (source is IHS or DI)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value comes from GIS (source is IHS or DI)</inlineHelpText>
+        <label>Monthly Production (Oil)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Month__c</fullName>
+        <externalId>false</externalId>
+        <label>Month</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Monthly_Pricing_Gas__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Related Monthly Pricing record with gas average monthly prices</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Related Monthly Pricing record with gas average monthly prices</inlineHelpText>
+        <label>Monthly Pricing - Gas</label>
+        <referenceTo>Monthly_Pricing__c</referenceTo>
+        <relationshipLabel>Monthly Production (Gas)</relationshipLabel>
+        <relationshipName>Monthly_Production1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Monthly_Pricing_Oil__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Related Monthly Pricing record with oil average monthly prices</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Related Monthly Pricing record with oil average monthly prices</inlineHelpText>
+        <label>Monthly Pricing - Oil</label>
+        <referenceTo>Monthly_Pricing__c</referenceTo>
+        <relationshipLabel>Monthly Production (Oil)</relationshipLabel>
+        <relationshipName>Monthly_Production</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Net_Realized_Commodity_Price_Gas__c</fullName>
+        <externalId>false</externalId>
+        <formula>Monthly_Pricing_Gas__r.Price__c - Gas_Differential__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Net Realized Commodity Price (Gas)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Net_Realized_Commodity_Price_Oil__c</fullName>
+        <externalId>false</externalId>
+        <formula>Monthly_Pricing_Oil__r.Price__c - Oil_Differential__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Net Realized Commodity Price (Oil)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Oil_Differential__c</fullName>
+        <externalId>false</externalId>
+        <formula>If( Lower(Well__r.State__c) == Lower(&apos;Texas&apos;),$CustomMetadata.State_Deduction__mdt.TX_Oil.Differentials__c  , If( Lower(Well__r.State__c) == Lower(&apos;Oklahoma&apos;), $CustomMetadata.State_Deduction__mdt.OK_Oil.Differentials__c  , If( Lower(Well__r.State__c) == Lower(&apos;New Mexico&apos;), $CustomMetadata.State_Deduction__mdt.NM_Oil.Differentials__c  , $CustomMetadata.State_Deduction__mdt.Default_Oil.Differentials__c   )  )  )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Oil Differential</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Oil_Taxes__c</fullName>
+        <externalId>false</externalId>
+        <formula>If( Lower(Well__r.State__c) == Lower(&apos;Texas&apos;),  $CustomMetadata.State_Deduction__mdt.TX_Oil.Serverence_Tax__c +  $CustomMetadata.State_Deduction__mdt.TX_Oil.Ad_Val__c  , If( Lower(Well__r.State__c) == Lower(&apos;Oklahoma&apos;),$CustomMetadata.State_Deduction__mdt.OK_Oil.Serverence_Tax__c +  $CustomMetadata.State_Deduction__mdt.OK_Oil.Ad_Val__c  , If( Lower(Well__r.State__c) == Lower(&apos;New Mexico&apos;), $CustomMetadata.State_Deduction__mdt.NM_Oil.Serverence_Tax__c +  $CustomMetadata.State_Deduction__mdt.NM_Oil.Ad_Val__c , $CustomMetadata.State_Deduction__mdt.Default_Oil.Serverence_Tax__c +  $CustomMetadata.State_Deduction__mdt.Default_Oil.Ad_Val__c ) ) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Oil Taxes</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Percent_Water__c</fullName>
+        <externalId>false</externalId>
+        <label>Percent Water</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>14</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Production_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Production Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Production_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Production Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ratio_Gas_Oil__c</fullName>
+        <externalId>false</externalId>
+        <label>Ratio of Gas to Oil</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>8</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Unique_Key__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Unique key built with API10 and Production Date</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Unique key built with API10 and Production Date</inlineHelpText>
+        <label>Unique Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Water__c</fullName>
+        <description>Value comes from GIS (source is IHS or DI)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value comes from GIS (source is IHS or DI)</inlineHelpText>
+        <label>Monthly Production (Water)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Well_Gross_Revenue_Value_Gas__c</fullName>
+        <description>Monthly Production Gas x Monthly Price Gas</description>
+        <externalId>false</externalId>
+        <formula>Net_Realized_Commodity_Price_Gas__c  * Gas__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Monthly Production Gas x Monthly Price Gas</inlineHelpText>
+        <label>Well Gross Revenue Value Gas</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Well_Gross_Revenue_Value_Oil__c</fullName>
+        <description>Monthly Production (Oil) x Net Realized Commodity Price (Oil)</description>
+        <externalId>false</externalId>
+        <formula>Net_Realized_Commodity_Price_Oil__c   *  Liquid__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Monthly Production (Oil) x Net Realized Commodity Price (Oil)</inlineHelpText>
+        <label>Well Gross Revenue Value Oil</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Well_Gross_Revenue_Value__c</fullName>
+        <description>Well Gross Revenue Value Oil + Well Gross Revenue Value Gas</description>
+        <externalId>false</externalId>
+        <formula>Well_Gross_Revenue_Value_Gas__c +  Well_Gross_Revenue_Value_Oil__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Well Gross Revenue Value Oil + Well Gross Revenue Value Gas</inlineHelpText>
+        <label>Well Gross Revenue Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Well_Gross_Taxes_Gas__c</fullName>
+        <description>Well Gross Revenue Value Gas x State Taxes.  Taxes will include Severance Tax and Ad Val Tax</description>
+        <externalId>false</externalId>
+        <formula>Well_Gross_Revenue_Value_Gas__c *  Gas_Taxes__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Well Gross Revenue Value Gas x State Taxes.  Taxes will include Severance Tax and Ad Val Tax</inlineHelpText>
+        <label>Well Gross Taxes Gas</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Well_Gross_Taxes_Oil__c</fullName>
+        <description>Well Gross Value Oil x State Taxes</description>
+        <externalId>false</externalId>
+        <formula>Well_Gross_Revenue_Value_Oil__c *  Oil_Taxes__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Well Gross Value Oil x State Taxes</inlineHelpText>
+        <label>Well Gross Taxes Oil</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Well_Gross_Taxes__c</fullName>
+        <description>Well Gross Taxes Oil + Well Gross Taxes Gas</description>
+        <externalId>false</externalId>
+        <formula>Well_Gross_Taxes_Gas__c +  Well_Gross_Taxes_Oil__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Well Gross Taxes Oil + Well Gross Taxes Gas</inlineHelpText>
+        <label>Well Gross Taxes</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Well_Net_Revenue_Value_Gas__c</fullName>
+        <description>Well Gross Revenue Value Gas - Well Gross Taxes Gas</description>
+        <externalId>false</externalId>
+        <formula>Well_Gross_Revenue_Value_Gas__c -  Well_Gross_Taxes_Gas__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Well Gross Revenue Value Gas - Well Gross Taxes Gas</inlineHelpText>
+        <label>Well Net Revenue Value Gas</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Well_Net_Revenue_Value_Oil__c</fullName>
+        <description>Well Gross Revenue Value Oil - Well Gross Taxes Oil</description>
+        <externalId>false</externalId>
+        <formula>Well_Gross_Revenue_Value_Oil__c -  Well_Gross_Taxes_Oil__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Well Gross Revenue Value Oil - Well Gross Taxes Oil</inlineHelpText>
+        <label>Well Net Revenue Value Oil</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Well_Net_Revenue_Value__c</fullName>
+        <description>Well Gross Revenue Value - Well Gross Taxes</description>
+        <externalId>false</externalId>
+        <formula>Well_Gross_Revenue_Value__c -  Well_Gross_Taxes__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Well Gross Revenue Value - Well Gross Taxes</inlineHelpText>
+        <label>Well Net Revenue Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Well__c</fullName>
+        <externalId>false</externalId>
+        <label>Well</label>
+        <referenceTo>Well__c</referenceTo>
+        <relationshipLabel>Monthly Production</relationshipLabel>
+        <relationshipName>Monthly_Production</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Wellbore_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Wellbore Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>H</fullName>
+                    <default>false</default>
+                    <label>H</label>
+                </value>
+                <value>
+                    <fullName>V</fullName>
+                    <default>false</default>
+                    <label>V</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Year</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Monthly Production</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Production_Date__c</columns>
+        <columns>API10__c</columns>
+        <columns>Month__c</columns>
+        <columns>Last_Update__c</columns>
+        <columns>Year__c</columns>
+        <columns>Well__c</columns>
+        <columns>Liquid__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>MP-{0000000000}</displayFormat>
+        <label>Monthly Production Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Monthly Production</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

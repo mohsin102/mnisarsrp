@@ -1,0 +1,31 @@
+<aura:component implements="flexipage:availableForAllPageTypes"  controller="RoyaltyCheckReUpload">
+    
+    <aura:attribute name="retStr" type="string"/>
+    <aura:attribute name="folderName" type="string"/>
+    <aura:attribute name="showResults" type="boolean"/>
+    <aura:attribute name="loading" type="boolean"/>
+    <aura:attribute name="totalChecks" type="String" default = "0"/>
+    <aura:attribute name="validChecks" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:card title="Reprocess Checks" iconName="utility:connected_apps">
+        <p class="slds-p-horizontal_small">
+        <ul class="slds-list_dotted">
+            <li>Go to the files tab from the app launcher.</li>
+            <li>Click on Libraries from the the left column.</li>
+            <li>Open the folder : {!v.folderName}</li>
+            <li>Upload Checks</li>
+        </ul>
+            <br/>
+        <aura:if isTrue="{!v.showResults}">
+            {!v.retStr}
+            </aura:if>
+        </p>
+        <aura:set attribute="footer">
+            <lightning:button label="Reprocess Check" onclick="{! c.handleClick }"/>
+            
+        </aura:set>
+        <aura:if isTrue="{! v.loading }">
+                <lightning:spinner alternativeText="Loading" />
+        </aura:if>
+    </lightning:card>
+</aura:component>

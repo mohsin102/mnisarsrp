@@ -1,0 +1,15 @@
+.THIS .bold{
+    font-weight:bold;
+}
+
+.THIS .blue {
+    color:rgb(21, 137, 238);
+}
+
+.THIS .red {
+    color:#c23934;
+}
+
+.THIS .hidden {
+    display:none;
+}

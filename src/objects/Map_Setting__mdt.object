@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Settings related to rendering and calling maps</description>
+    <fields>
+        <fullName>Web_Service_URL__c</fullName>
+        <description>Base URL for map service queries</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Base URL for map service queries</inlineHelpText>
+        <label>Web Service URL</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <label>Map Setting</label>
+    <pluralLabel>Map Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

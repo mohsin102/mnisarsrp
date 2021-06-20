@@ -1,0 +1,41 @@
+.THIS.noPadding header{
+    padding:0px 0px 0px 0px;
+}
+
+.THIS.noMargin header{
+    margin:0px 0px 0px 0px;
+}
+
+.THIS .maxHeight {
+    height:300px !important;
+}
+
+.THIS .slds-card__body {
+    margin-top: 0px;
+    margin-bottom: var(--lwc-varSpacingVerticalSmall,0.75rem);
+    max-height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    
+}
+.THIS .smallFont {
+    font-size: x-small;
+}
+
+.THIS .displayInlineTable {
+    display:inline-table;
+}
+
+.THIS .nameButton {
+    height: 10px !important;
+    line-height: 1px !important;
+}
+
+.THIS.nameButton button{
+    height: 10px !important;
+    line-height: 1px !important;
+}
+
+.THIS .slds-button {
+    line-height: 1px !important;
+}

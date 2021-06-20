@@ -1,0 +1,56 @@
+<aura:component controller="totBuilderAura" implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
+    <!-- attributes -->
+    <aura:attribute name="data" type="Object"/>
+	<aura:attribute name="accountId" type="String"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="errors" type="Object" default="[]"/>
+    <aura:attribute name="draftValues" type="Object" default="[]"/>
+	<aura:attribute name="oppSortedBy" type="String"/>
+	<aura:attribute name="oppSortedDirection" type="String"/>
+	<aura:attribute name="tableWidth" type="Integer"/>
+	<aura:attribute name="selectedTOTIds" type="List"/>
+	<aura:attribute name="tableHeight" type="Integer" default="1000"/>
+	<aura:attribute name="canCreate" type="Boolean" default="false"/>
+	<aura:attribute name="createButtonInactive" type="Boolean" default="true"/>
+
+	<aura:attribute name="opportunityTitle" type="Aura.Component[]">
+        <h1 class="slds-text-heading_large">
+            Opportunity Records:
+        </h1>
+    </aura:attribute>
+	
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <div><b> </b> </div>
+	<lightning:card>	
+		
+		<div class="slds-scrollable">
+			<div style="{!'width:'+v.tableWidth + 'px'}">
+				<!--<div class="slds-p-around_medium">
+					<h1 class="slds-text-heading_large"><b>Target Ownership Tract (TOT) Builder</b></h1>
+				</div>-->
+				<lightning:card title="{!v.opportunityTitle}" >
+					<c:srpDataTable
+						columns="{! v.columns }"
+						data="{! v.data }"
+						keyField="id"
+						errors="{! v.errors }"
+						draftValues="{! v.draftValues }"
+						oncellchange="{! c.updateDataValues }"
+						hideCheckboxColumn="true"
+						suppressBottomBar="true"
+						showRowNumberColumn="false"
+						minColumnWidth="25"
+						maxColumnWidth="300"
+						sortedBy="{!v.oppSortedBy}"
+						sortedDirection = "{!v.oppSortedDirection}"
+						onsort="{!c.updateOppSorting}"
+					/>
+                </lightning:card>
+						<aura:if isTrue="{!v.canCreate}">
+							<lightning:button variant="brand" label="Create Opportunity" onclick="{! c.handleCreateOpp }" class="buttonMargin" />
+						</aura:if>
+			</div>
+		</div>
+	</lightning:card>
+</aura:component>

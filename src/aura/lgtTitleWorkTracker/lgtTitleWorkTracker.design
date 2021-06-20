@@ -1,0 +1,10 @@
+<design:component label="Land Grid Tract Title Work Tracker">
+	<sfdc:objects>
+        <sfdc:object>LandGridTract__c</sfdc:object>
+    </sfdc:objects>
+    <!--<design:attribute name="showButton" label="Show Button" description="Show a header button to display a custom modal" />
+    <design:attribute name="buttonLabel" label="Label for the button" />
+    <design:attribute name="buttonAction" label="Should a Quick Action for Land Grid Tract available on the page and listed here with Action API Name "/>
+    <design:attribute name="relatedObject" label="Object API Name for the list of related Objects "/>
+    <design:attribute name="cardLabel" label="Header Label"/>-->
+</design:component>

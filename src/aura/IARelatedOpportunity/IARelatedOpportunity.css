@@ -1,0 +1,25 @@
+.THIS .leftColumn {
+    padding: 0px 10px 0px 20px;
+}
+.THIS .rightColumn {
+    padding: 0px 20px 0px 10px;
+}
+.THIS .outsidePadding {
+    padding: 0px 20px 0px 20px;
+}
+
+.THIS.cardBackground {
+    background:lightgray;
+}
+
+.THIS .buttonBackground {
+    background:gray;
+}
+
+.THIS .slds-text-heading_small{
+    width:100%;
+    font-size: large;
+    font-weight:700;
+    color:white;
+    background:black;
+}

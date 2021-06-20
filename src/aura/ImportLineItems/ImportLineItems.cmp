@@ -1,0 +1,83 @@
+<aura:component controller ="ImportLineItemsController" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global">
+    <aura:attribute name="accept" type="List" default="['.csv']"/>
+    <aura:attribute name="jsonstr" type="String"/>
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="batchJobId" type="String"/>
+    <aura:attribute name="isImporting" type="boolean"/>
+    <aura:attribute name="jobDetails" type="AsyncApexJob"/>
+    <aura:attribute name="overallStatus" type="String"/>
+    <aura:attribute name="completion" type="Decimal"/>
+    <aura:attribute name="totalLineItems" type="Integer"/>
+    <aura:attribute name="hasError" type="boolean"/>
+    <aura:attribute name="errorMessage" type="String"/>
+    <aura:attribute name="partialSuccess" type="String"/>
+    <aura:attribute name="partialFailures" type="String"/>
+    <aura:attribute name="rcRec" type="Object"/>
+    <force:recordData aura:id="recordLoader"
+        recordId="{!v.recordId}"
+        fields="rawFileId__c,flatFileId__c,rawFileName__c,flatFileName__c"
+        targetFields="{!v.rcRec}"
+    />
+    <lightning:card title="Upload Royalty Check Line Item">
+        <div class="paddingAround">
+            <p>In order for Royalty Check to be imported correctly, please ensure the file has column names as specified in the <a href="https://srp-tx--test--c.cs69.content.force.com/servlet/servlet.FileDownload?file=0152D000000Cn5b">Royalty Check Import Template</a>.</p>
+            
+            <br/>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <lightning:select aura:id="select" label="Select File Type" required="true">
+                        <option value="Raw">Raw File</option>
+                        <option value="Flat">Flat File</option>
+                    </lightning:select>
+                    <lightning:fileUpload  name="ImportLineItem"
+                                          label= "Import from .csv"
+                                          multiple="false"
+                                          accept="{!v.accept}"
+                                          disabled="false"
+                                          recordId="{!v.recordId}"
+                                          onuploadfinished="{! c.handleUploadFinished}"/>
+                    
+                    <br/><br/>
+                    <div class="slds-text-color_destructive">
+                        {!v.message}
+                    </div>
+                    <aura:if isTrue="{!v.isImporting}">
+                        <h2><b>Import Details:</b></h2>
+                        <h2>Total Line Items: {!v.totalLineItems}</h2>
+                        <h2>{!v.completion}% processed.</h2>
+                        <h2>Overall Status: {!v.overallStatus}</h2><br/>
+                        <aura:if isTrue="{!v.hasError}">
+                            <h2><b>Error:</b> {!v.errorMessage}</h2>
+                            <h2><b>Number of records Successfully inserted:</b> {!v.partialSuccess}</h2>
+                        </aura:if>
+                        <lightning:button label='Refresh Status' onclick="{!c.showBatchDetails}"/>
+                    </aura:if>
+                </div>
+                <div class="slds-col"></div>
+                <div class="slds-col">
+                    <h2 class="slds-text-heading_large">Loaded Files</h2><br/>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <p><lightning:formattedText value="Raw File (Source)"/></p>
+                        </div>
+                        <div class="slds-col">
+                            <p><aura:if isTrue="{!v.rcRec.rawFileId__c != null}"> <lightning:formattedUrl value="{!'/' + v.rcRec.rawFileId__c}" tooltip="Raw File (Source)" label="{!v.rcRec.rawFileName__c}" target="_blank" class="slds-form-element slds-form-element_horizontal"/></aura:if></p>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <p><lightning:formattedText value="Processed File (Salesforce)"/></p>
+                        </div>
+                        <div class="slds-col">
+                            <p><aura:if isTrue="{!v.rcRec.flatFileId__c != null}"> <lightning:formattedUrl value="{!'/' + v.rcRec.flatFileId__c}" tooltip="Processed File (Salesforce)" label="{!v.rcRec.flatFileName__c}" target="_blank" class="slds-form-element slds-form-element_horizontal" /></aura:if></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            <lightning:spinner aura:Id="spinner" alternativeText="Loading" size="medium" class="slds-hide"/>
+        </div>
+    </lightning:card>
+</aura:component>

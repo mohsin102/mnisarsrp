@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Well_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Well</fullName>
+        <fields>Name</fields>
+        <fields>API10__c</fields>
+        <fields>Last_Activity_Date__c</fields>
+        <fields>Last_Activity_Type__c</fields>
+        <fields>Last_Production_Date__c</fields>
+        <fields>Total_Rev_Last_3_Months__c</fields>
+        <label>Well</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>API10__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>API/Unique Well Identifier (10 Digit)</description>
+        <externalId>true</externalId>
+        <inlineHelpText>API/Unique Well Identifier (10 Digit)</inlineHelpText>
+        <label>API10</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>API14__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Full API/UWI identifier</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Full API/UWI identifier</inlineHelpText>
+        <label>API14</label>
+        <length>14</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>ActualTotalRevenueLastMonth__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Total Revenue Last Month</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Completion_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Completion Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>County__c</fullName>
+        <externalId>false</externalId>
+        <label>County</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Operator_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Current Operator Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Operator__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Current Operator (Account)</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Wells</relationshipLabel>
+        <relationshipName>Wells</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>First_Production_Month_Used__c</fullName>
+        <description>First Production Month used in the calculation for 3 month production oil, gas, and totals</description>
+        <externalId>false</externalId>
+        <inlineHelpText>First Production Month used in the calculation for 3 month production oil, gas, and totals</inlineHelpText>
+        <label>First Production Month Used</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>First_Production_Month__c</fullName>
+        <externalId>false</externalId>
+        <label>First Production Month</label>
+        <summarizedField>Monthly_Production__c.Production_Date__c</summarizedField>
+        <summaryForeignKey>Monthly_Production__c.Well__c</summaryForeignKey>
+        <summaryOperation>min</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Formation_Objective_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Formation Objective Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gas_Prod_Last_3_Months__c</fullName>
+        <description>Sum of the most recent 3 month of Gas production within the last 9 months.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of the most recent 3 month of Gas production within the last 9 months.</inlineHelpText>
+        <label>Gas Prod Last 3 Months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gas_Prod_Last_Month__c</fullName>
+        <description>The most recent month of Gas production within the last 9 months.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The most recent month of Gas production within the last 9 months.</inlineHelpText>
+        <label>Gas Prod Last Month</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gas_Rev_Last_3_Months_Net__c</fullName>
+        <description>Gas Production Fee * Gas Revenue Last Three Months</description>
+        <externalId>false</externalId>
+        <formula>$CustomMetadata.Production_Fee__mdt.Gas.Value__c *   Gas_Rev_Last_3_Months__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Gas Production Fee * Gas Revenue Last Three Months</inlineHelpText>
+        <label>Gas Rev Last 3 Months (Net)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Gas_Rev_Last_3_Months__c</fullName>
+        <description>The most recent 3 months of Gas production within the last 9 months * Avg gas price for that month</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The most recent 3 months of Gas production within the last 9 months * Avg gas price for that month</inlineHelpText>
+        <label>Gas Rev Last 3 Months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Gas_Rev_Last_Month_Net__c</fullName>
+        <description>Gas Production Fee * Last Month Gas Revenue</description>
+        <externalId>false</externalId>
+        <formula>$CustomMetadata.Production_Fee__mdt.Gas.Value__c *  Gas_Rev_Last_Month__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Gas Production Fee * Last Month Gas Revenue</inlineHelpText>
+        <label>Gas Rev Last Month (Net)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Gas_Rev_Last_Month__c</fullName>
+        <description>The most recent month of Gas production within the last 9 months * Avg gas price for that month</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The most recent month of Gas production within the last 9 months * Avg gas price for that month</inlineHelpText>
+        <label>Gas Rev Last Month</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Hole_Direction__c</fullName>
+        <externalId>false</externalId>
+        <label>Hole Direction</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Vertical</fullName>
+                    <default>false</default>
+                    <label>Vertical</label>
+                </value>
+                <value>
+                    <fullName>Directional</fullName>
+                    <default>false</default>
+                    <label>Directional</label>
+                </value>
+                <value>
+                    <fullName>HORIZONTAL</fullName>
+                    <default>false</default>
+                    <label>Horizontal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Is_Paying_calc__c</fullName>
+        <description>Returns true if there is monthly production activity data in the last 12 months. Calculated in GIS database.</description>
+        <externalId>false</externalId>
+        <formula>IF(YEAR(Last_Production_Month__c ) - YEAR( TODAY() )&lt;1,true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Returns true if there is monthly production activity data in the last 12 months. Calculated in GIS database.</inlineHelpText>
+        <label>Is Paying</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Permit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Returns True if the record is a Well Permit only.  Calculated in GIS Database.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Returns True if the record is a Well Permit only.  Calculated in GIS Database.</inlineHelpText>
+        <label>Is Permit</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LastActivityDate__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( CONTAINS(wellStatus__c, &apos;Permit&apos;), Permit_Date__c ,Spud_Date__c   )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Activity Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>LastActivityType__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(CONTAINS(wellStatus__c,&apos;Permit&apos;), &apos;Permit&apos;, &apos;Spud&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Activity Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Activity_Date__c</fullName>
+        <description>Most recent Permit or Spud date - type of activity will be specified in the Last Activity Type field.  Calculated by GIS database.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Most recent Permit or Spud date - type of activity will be specified in the Last Activity Type field.  Calculated by GIS database.</inlineHelpText>
+        <label>Last Activity Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Activity_Type__c</fullName>
+        <description>Type of activity for Last Activity Date field.  Calculated by GIS database.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Type of activity for Last Activity Date field.  Calculated by GIS database.</inlineHelpText>
+        <label>Last Activity Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Permit</fullName>
+                    <default>false</default>
+                    <label>Permit</label>
+                </value>
+                <value>
+                    <fullName>Spud</fullName>
+                    <default>false</default>
+                    <label>Spud</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Last_Production_Date__c</fullName>
+        <description>Date of the last Monthly Production record.  Calculated by GIS database.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date of the last Monthly Production record.  Calculated by GIS database.</inlineHelpText>
+        <label>Last Production Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Production_Month_Used__c</fullName>
+        <description>Month used for 1 month production oil, gas, and totals and Last Production Month used in the calculation for 3 month production oil, gas, and totals.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Month used for 1 month production oil, gas, and totals and Last Production Month used in the calculation for 3 month production oil, gas, and totals.</inlineHelpText>
+        <label>Last Production Month Used</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Production_Month__c</fullName>
+        <description>Last Month from Monthly Production record for Well</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Last Month from Monthly Production record for Well</inlineHelpText>
+        <label>Last Production Month</label>
+        <summarizedField>Monthly_Production__c.Production_Date__c</summarizedField>
+        <summaryForeignKey>Monthly_Production__c.Well__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Lease_Designation_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Lease Designation Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Location_Concatenated__c</fullName>
+        <externalId>false</externalId>
+        <label>Location Concatenated</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Oil_Prod_Last_3_Months__c</fullName>
+        <description>Sum of the most recent 3 month of Oil production within the last 9 months.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of the most recent 3 month of Oil production within the last 9 months.</inlineHelpText>
+        <label>Oil Prod Last 3 Months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Oil_Prod_Last_Month__c</fullName>
+        <description>The most recent month of Oil production within the last 9 months.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The most recent month of Oil production within the last 9 months.</inlineHelpText>
+        <label>Oil Prod Last Month</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Oil_Rev_Last_3_Months_Net__c</fullName>
+        <description>Oil Production Fee * Last 3 Months Oil Rev</description>
+        <externalId>false</externalId>
+        <formula>$CustomMetadata.Production_Fee__mdt.Oil.Value__c *   Oil_Rev_Last_3_Months__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Oil Production Fee * Last 3 Months Oil Rev</inlineHelpText>
+        <label>Oil Rev Last 3 Months (Net)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Oil_Rev_Last_3_Months__c</fullName>
+        <description>The most recent 3 months of Oil production within the last 9 months * Avg gas price for that month</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The most recent 3 months of Oil production within the last 9 months * Avg gas price for that month</inlineHelpText>
+        <label>Oil Rev Last 3 Months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Oil_Rev_Last_Month_Net__c</fullName>
+        <description>Oil Production Fee * Oil Revenue Last Month</description>
+        <externalId>false</externalId>
+        <formula>$CustomMetadata.Production_Fee__mdt.Oil.Value__c *  Oil_Rev_Last_Month__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Oil Production Fee * Oil Revenue Last Month</inlineHelpText>
+        <label>Oil Rev Last Month (Net)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Oil_Rev_Last_Month__c</fullName>
+        <description>The most recent month of Oil production within the last 9 months * Avg gas price for that month</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The most recent month of Oil production within the last 9 months * Avg gas price for that month</inlineHelpText>
+        <label>Oil Rev Last Month</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Paying_Category__c</fullName>
+        <description>Categorizes well in to three types (Permit, Horiz, Vertical)</description>
+        <externalId>false</externalId>
+        <formula>if (Is_Permit__c,&apos;Permit&apos;, 
+if (ISPICKVAL(Hole_Direction__c,&apos;horizontal&apos;),&apos;Horizontal&apos;,&apos;Vertical&apos;))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Categorizes well in to three types (Permit, Horiz, Vertical)</inlineHelpText>
+        <label>Paying Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Permit_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Permit Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Permit_Expired__c</fullName>
+        <description>Returns true if last activity was a permit and permit has expired (24 months for TX, NM or 18 months for OK)</description>
+        <externalId>false</externalId>
+        <formula>and( Is_Permit__c ,
+Today() &gt; CASE(State__c, &apos;NEW MEXICO&apos;,  Addmonths(Permit_Date__c,24) , &apos;TEXAS&apos;, Addmonths(Permit_Date__c,24),&apos;OKLAHOMA&apos;,Addmonths(Permit_Date__c,18),null))</formula>
+        <inlineHelpText>Returns true if last activity was a permit and permit has expired (24 months for TX, NM or 18 months for OK)</inlineHelpText>
+        <label>Permit Expired</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Production_Actual_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Production Actual Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Rig_Release_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Rig Release Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Source__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Source of the well information (IHS, DrillingInfo, etc.)</inlineHelpText>
+        <label>Source</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Spud_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Spud Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <externalId>false</externalId>
+        <label>State</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status_Current__c</fullName>
+        <externalId>false</externalId>
+        <label>Status - Current</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status_Final__c</fullName>
+        <externalId>false</externalId>
+        <label>Status - Final</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Depth_TVD__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Depth TVD</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Depth__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Depth</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Rev_Last_3_Months_Net__c</fullName>
+        <description>Total Net Revenues from Well for most recent 3 months</description>
+        <externalId>false</externalId>
+        <formula>Gas_Rev_Last_3_Months_Net__c +  Oil_Rev_Last_3_Months_Net__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Total Net Revenues from Well for most recent 3 months</inlineHelpText>
+        <label>Total Rev Last 3 Months (Net)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Rev_Last_3_Months__c</fullName>
+        <description>Oil Revenue last 3 months + Gas Revenue Last 3 months</description>
+        <externalId>false</externalId>
+        <formula>Oil_Rev_Last_3_Months__c +  Gas_Rev_Last_3_Months__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Oil Revenue last 3 months + Gas Revenue Last 3 months</inlineHelpText>
+        <label>Total Rev Last 3 Months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Rev_Last_Month_Net__c</fullName>
+        <description>Net Oil Revenues Last Month + Net Gas Revenues Last Month</description>
+        <externalId>false</externalId>
+        <formula>Oil_Rev_Last_Month_Net__c +  Gas_Rev_Last_Month_Net__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Net Oil Revenues Last Month + Net Gas Revenues Last Month</inlineHelpText>
+        <label>Total Rev Last Month (Net)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Revenue_Allocated__c</fullName>
+        <description>Actual total revenue received to-date</description>
+        <externalId>false</externalId>
+        <label>Actual Total Revenue (To-Date)</label>
+        <precision>11</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Unit__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Unit</label>
+        <referenceTo>Unit__c</referenceTo>
+        <relationshipLabel>Wells</relationshipLabel>
+        <relationshipName>Wells</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>dataBasin__c</fullName>
+        <description>Link to DataBasin application</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;https://databasin.strongholdresourcepartners.com/wells/&quot; &amp;  API10__c, &quot;View Raw Data&quot; , &quot;_blank&quot;)</formula>
+        <inlineHelpText>Link to DataBasin application</inlineHelpText>
+        <label>DataBasin</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>insights__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;https://insights.strongholdresourcepartners.com/wells/&quot; &amp; API10__c, &quot;View in Insights&quot; , &quot;_blank&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Insights</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>lateralLength__c</fullName>
+        <externalId>false</externalId>
+        <label>Lateral Length (DI)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>wellStatus__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  NOT(ISBLANK(First_Production_Month__c)) ,&apos;Producing&apos;, IF(  AND(NOT(ISBLANK(Spud_Date__c)),Today() - Spud_Date__c&gt;=730),&apos;Shut-In&apos;,IF(NOT(ISBLANK(Spud_Date__c)) ,&apos;DUC&apos;,IF(  TODAY() -  Permit_Date__c &gt;= 730 ,&apos;Expired Permits&apos; , IF(  NOT(ISBLANK(Permit_Date__c)) ,&apos;Permit&apos; ,&apos;&apos;)))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Well Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Well</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>API10__c</columns>
+        <columns>Hole_Direction__c</columns>
+        <columns>Current_Operator__c</columns>
+        <columns>Is_Permit__c</columns>
+        <columns>Last_Activity_Date__c</columns>
+        <columns>Last_Activity_Type__c</columns>
+        <columns>Last_Production_Date__c</columns>
+        <columns>Permit_Date__c</columns>
+        <columns>Spud_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Missing_Operator</fullName>
+        <columns>Current_Operator_Name__c</columns>
+        <columns>Current_Operator__c</columns>
+        <columns>NAME</columns>
+        <columns>API10__c</columns>
+        <columns>Hole_Direction__c</columns>
+        <columns>Is_Permit__c</columns>
+        <columns>Last_Activity_Date__c</columns>
+        <columns>Last_Activity_Type__c</columns>
+        <columns>Last_Production_Date__c</columns>
+        <columns>Permit_Date__c</columns>
+        <columns>Spud_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Current_Operator__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Current_Operator_Name__c</field>
+            <operation>contains</operation>
+            <value>arrow oil</value>
+        </filters>
+        <label>All - Missing Operator</label>
+    </listViews>
+    <listViews>
+        <fullName>ERC_Animal_Wells</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>equals</operation>
+            <value>grantham</value>
+        </filters>
+        <label>ERC Animal Wells</label>
+    </listViews>
+    <listViews>
+        <fullName>Wells_Missing_Units</fullName>
+        <columns>NAME</columns>
+        <columns>API10__c</columns>
+        <columns>Unit__c</columns>
+        <columns>Hole_Direction__c</columns>
+        <columns>Current_Operator__c</columns>
+        <columns>Is_Permit__c</columns>
+        <columns>Last_Production_Date__c</columns>
+        <columns>Permit_Date__c</columns>
+        <columns>Spud_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Unit__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Hole_Direction__c</field>
+            <operation>equals</operation>
+            <value>HORIZONTAL</value>
+        </filters>
+        <label>Wells Missing Units (Horizontal Only)</label>
+    </listViews>
+    <nameField>
+        <label>Well Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Wells</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>API10__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>State__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>County__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Hole_Direction__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Unit__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

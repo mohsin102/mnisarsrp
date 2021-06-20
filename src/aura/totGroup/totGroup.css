@@ -1,0 +1,52 @@
+.THIS .totGroup{
+    border-width:thin;
+    border-color:black;
+    border-style:solid;
+    background:#ccc;
+}
+
+.THIS .last-row-bold table tr:last-child * {
+    font-weight:700;
+}
+
+.THIS.last-row-bold table tr:last-child * {
+    font-weight:700;
+}
+
+.THIS .slds-button_icon-bare{
+    display: none;
+}
+
+.THIS .slds-input {
+    border:none !important;
+    padding:0 !important;
+}
+
+.THIS .totCell {
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+    display:block;
+}
+
+.THIS .slds-button {
+    white-space:nowrap;
+}
+
+
+.THIS .totCellRight {
+    text-align:right;
+}
+
+.THIS .noPaddingMargin {
+    margin:0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+.THIS .labelPadding {
+    padding: 0px 0px 0px 20px;
+}
+
+.THIS .totCard {
+    height:200px;
+}

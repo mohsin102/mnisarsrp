@@ -1,0 +1,21 @@
+<aura:component implements="lightning:recordHomeTemplate" description="Full-width header above a main column and right sidebar above a full width section.">
+	<aura:attribute name="header" type="Aura.Component[]" description="Header region"/>
+    <aura:attribute name="detail" type="Aura.Component[]" description="Detail region"/>
+    <aura:attribute name="sidebar" type="Aura.Component[]" description="Sidebar region"/>
+	<aura:attribute name="lowerRegion" type="Aura.Component[]" description="Lower full width region"/>
+
+	<div>
+        <div>{!v.header}</div>
+        <lightning:layout class = "slds-p-bottom_small slds-p-top_small">
+				<lightning:layoutItem flexibility="auto" class="slds-p-right_small" >
+					{!v.detail}
+				</lightning:layoutItem>
+				<lightning:layoutItem>
+				</lightning:layoutItem>
+				<lightning:layoutItem size="4">
+					{!v.sidebar}
+				</lightning:layoutItem>
+        </lightning:layout>
+		<div>{!v.lowerRegion}</div>
+    </div>
+</aura:component>

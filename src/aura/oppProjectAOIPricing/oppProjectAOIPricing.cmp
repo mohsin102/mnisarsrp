@@ -1,0 +1,41 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" controller="oppProjectAOIPricingAura">
+    <aura:attribute name="recordId" type="string"/>
+	<aura:attribute name="percentCovered" type="Double" default="0"/>
+	<aura:attribute name="suggestedPPA" type="Double" default="0"/>
+	<aura:attribute name="suggestedPricing" type="Double" default="0"/>
+	<aura:attribute name="targetPPA" type="Double" default="0"/>
+	<aura:attribute name="targetPricing" type="Double" default="0"/>
+	<aura:attribute name="maxPPA" type="Double" default="0"/>
+	<aura:attribute name="maxPricing" type="Double" default="0"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+    <aura:attribute name="title" type="Aura.Component[]">
+        <lightning:icon iconName="custom:custom33" alternativeText="Tract Project AOIs" />
+        &nbsp; <b style="font-size: 15px;"> Project AOI Pricing</b>
+    </aura:attribute>
+	
+
+	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
+	
+	<lightning:card title="{!v.title}">
+		<div class="slds-grid  slds-grid_align-space slds-box">
+			<div class="slds-col slds-size_1-of-2">
+				<lightning:formattedText value="% Covered by AOI Pricing"/><br/>
+				<!--<lightning:formattedText value="Suggested OTG Cost Per Acre"/><br/>
+				<lightning:formattedText value="Suggested Total OTG Cost"/><br/> -->
+				<lightning:formattedText value="Target OTG Cost Per Acre"/><br/>
+				<lightning:formattedText value="Target Total OTG Cost"/><br/>
+				<lightning:formattedText value="Max OTG Cost Per Acre"/><br/>
+				<lightning:formattedText value="Max Total OTG Cost"/><br/>
+			</div>
+			<div class="slds-col slds-size_1-of-2">
+				<lightning:formattedNumber style="percent" value="{!v.percentCovered}"/><br/>
+				<!--<lightning:formattedNumber style="currency" value="{!v.suggestedPPA}" maximumFractionDigits="2" minimumFractionDigits="2"/><br/>
+				<lightning:formattedNumber style="currency" value="{!v.suggestedPricing}" maximumFractionDigits="2" minimumFractionDigits="2"/><br/> -->
+				<lightning:formattedNumber style="currency" value="{!v.targetPPA}" maximumFractionDigits="2" minimumFractionDigits="2"/><br/>
+				<lightning:formattedNumber style="currency" value="{!v.targetPricing}" maximumFractionDigits="2" minimumFractionDigits="2"/><br/>
+				<lightning:formattedNumber style="currency" value="{!v.maxPPA}" maximumFractionDigits="2" minimumFractionDigits="2"/><br/>
+				<lightning:formattedNumber style="currency" value="{!v.maxPricing}" maximumFractionDigits="2" minimumFractionDigits="2"/><br/>
+			</div>
+		</div>
+	</lightning:card>
+</aura:component>

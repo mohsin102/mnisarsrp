@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Inventory_Asset_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Inventory_Asset_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>New</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>New</fullName>
+        <fields>Name</fields>
+        <fields>inventoryOwnerName__c</fields>
+        <label>New</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>accountingInvestment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Accounting Investment</label>
+        <referenceTo>AccountingInvestment__c</referenceTo>
+        <relationshipLabel>Inventory Assets</relationshipLabel>
+        <relationshipName>InventoryAssets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>acquisitionCloseDate__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetAcquisitionOverride__c != null, assetAcquisitionOverride__r.Opportunity__r.CloseDate, assetAcquisition__r.Opportunity__r.CloseDate)</formula>
+        <label>Acquisition Close Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>acquisitionEffectiveDate__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetAcquisitionOverride__c != null, assetAcquisitionOverride__r.Opportunity__r.Effective_Date__c, assetAcquisition__r.Opportunity__r.Effective_Date__c )</formula>
+        <label>Acquisition Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>acquisitionOpportunityId__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetAcquisitionOverride__c != null,  CASESAFEID( assetAcquisitionOverride__r.Opportunity__c ), CASESAFEID( assetAcquisition__r.Opportunity__c) )</formula>
+        <label>Acquisition Opportunity Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>acquisitionOpportunityName__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetAcquisitionOverride__c != null,  assetAcquisitionOverride__r.Opportunity__r.Name ,  assetAcquisition__r.Opportunity__r.Name  )</formula>
+        <label>Acquisition Opportunity Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>acquisitionOverrideOpportunity__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot; + assetAcquisitionOverride__r.Opportunity__c , assetAcquisitionOverride__r.Opportunity__r.Name, &quot;_self&quot;)</formula>
+        <label>Acquisition Override Opportunity</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>acquisitionTotalPrice__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetAcquisitionOverride__c != null, assetAcquisitionOverride__r.totalPrice__c, assetAcquisition__r.totalPrice__c ) * -1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Acquisition Total Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>acquisitionUnitPrice__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetAcquisitionOverride__c != null, assetAcquisitionOverride__r.unitPrice__c, assetAcquisition__r.unitPrice__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Acquisition Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>assetAcquisitionOverride__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>select any OT to calculate inventory related statistics</description>
+        <externalId>false</externalId>
+        <label>Asset Acquisition Override</label>
+        <referenceTo>Opportunity_Tract__c</referenceTo>
+        <relationshipLabel>Acquisition Overrides</relationshipLabel>
+        <relationshipName>AssetAcquisitionOverrides</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>assetAcquisition__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Asset Acquisition</label>
+        <referenceTo>Opportunity_Tract__c</referenceTo>
+        <relationshipLabel>Asset Acquisitions</relationshipLabel>
+        <relationshipName>AssetAcquisitions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>assetSaleOverride__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Asset Sale Override</label>
+        <referenceTo>Opportunity_Tract__c</referenceTo>
+        <relationshipLabel>Asset Sale Overrides</relationshipLabel>
+        <relationshipName>AssetSaleOverrides</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>assetSale__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Asset Sale</label>
+        <referenceTo>Opportunity_Tract__c</referenceTo>
+        <relationshipLabel>Asset Sales</relationshipLabel>
+        <relationshipName>AssetSales</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>buyerNextOwnerId__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetSaleOverride__c != null,  CASESAFEID( assetSaleOverride__r.Opportunity__r.Acquiring_Entity__c) ,  CASESAFEID( assetSale__r.Opportunity__r.Acquiring_Entity__c ))</formula>
+        <label>Buyer (Next Owner) Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>buyerNextOwnerName__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetSaleOverride__c != null, assetSaleOverride__r.Opportunity__r.Acquiring_Entity__r.Name , assetSale__r.Opportunity__r.Acquiring_Entity__r.Name )</formula>
+        <label>Buyer (Next Owner) Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>daysHeld__c</fullName>
+        <externalId>false</externalId>
+        <formula>saleCloseDate__c - acquisitionCloseDate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Held</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>gainLoss__c</fullName>
+        <externalId>false</externalId>
+        <formula>saleTotalPrice__c +  acquisitionTotalPrice__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Gain/Loss</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>inventoryOwnerId__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(assetAcquisition__r.Opportunity__r.Acquiring_Entity__c)</formula>
+        <label>Inventory Owner Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>inventoryOwnerName__c</fullName>
+        <externalId>false</externalId>
+        <formula>assetAcquisition__r.Opportunity__r.Acquiring_Entity__r.Name</formula>
+        <label>Inventory Owner Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>saleCloseDate__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetSaleOverride__c != null, assetSaleOverride__r.Opportunity__r.CloseDate, assetSale__r.Opportunity__r.CloseDate)</formula>
+        <label>Sale Close Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>saleEffectiveDate__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetSaleOverride__c != null, assetSaleOverride__r.Opportunity__r.Effective_Date__c, assetSale__r.Opportunity__r.Effective_Date__c)</formula>
+        <label>Sale Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>saleOpportunityId__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetSaleOverride__c != null,  CASESAFEID(assetSaleOverride__r.Opportunity__c) ,  CASESAFEID(assetSale__r.Opportunity__c ))</formula>
+        <label>Sale Opportunity Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>saleOpportunityName__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetSaleOverride__c != null, assetSaleOverride__r.Opportunity__r.Name , assetSale__r.Opportunity__r.Name )</formula>
+        <label>Sale Opportunity Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>saleTotalPrice__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetSaleOverride__c != null, assetSaleOverride__r.totalPrice__c, assetSale__r.totalPrice__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sale Total Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>saleUnitPrice__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetSaleOverride__c != null, assetSaleOverride__r.unitPrice__c, assetSale__r.unitPrice__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sale Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>sellerPreviousOwnerId__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetAcquisitionOverride__c != null,  CASESAFEID( assetAcquisitionOverride__r.Opportunity__r.AccountId) ,  CASESAFEID( assetAcquisition__r.Opportunity__r.AccountId ))</formula>
+        <label>Seller (Previous Owner) Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>sellerPreviousOwnerName__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( assetAcquisitionOverride__c != null, assetAcquisitionOverride__r.Opportunity__r.Account.Name , assetAcquisition__r.Opportunity__r.Account.Name )</formula>
+        <label>Seller (Previous Owner) Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>sellingEntityOverride__c</fullName>
+        <externalId>false</externalId>
+        <formula>assetSaleOverride__r.Opportunity__r.Account.Name</formula>
+        <label>Selling Entity Override</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>sellingEntity__c</fullName>
+        <externalId>false</externalId>
+        <formula>/*IF( assetSaleOverride__c != null, assetSaleOverride__r.Opportunity__r.Account.Name, assetSale__r.Opportunity__r.Account.Name )*/
+assetSale__r.Opportunity__r.Account.Name</formula>
+        <label>Selling Entity</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Inventory Asset</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>assetAcquisition__c</columns>
+        <columns>assetAcquisitionOverride__c</columns>
+        <columns>assetSale__c</columns>
+        <columns>assetSaleOverride__c</columns>
+        <columns>accountingInvestment__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>IA-{0000000000}</displayFormat>
+        <label>Inventory Asset Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Inventory Assets</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
+</CustomObject>
