@@ -1,6 +1,7 @@
 public class AccountRelatedListAura {
 	@AuraEnabled
     public static List<SObject> getData(String recordId, Integer recordOffset, String relatedObject){
+	 //Deployment test
         //system.debug(inputStr);
         //inputWrapper input = (inputWrapper)JSON.deserialize(inputStr,inputWrapper.class);
 		switch on relatedObject{
