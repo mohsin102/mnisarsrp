@@ -57,7 +57,8 @@
     <!-- Shows deploying code & running tests for code in directory -->
     <target name="deployCode">
       <!-- Upload the contents of the "codepkg" directory, running the tests for just 1 class -->
-      <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="${sf.deployRoot}" testLevel="RunLocalTests" rollbackOnError="true">
+      <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="${sf.deployRoot}" testLevel="RunSpecifiedTests" rollbackOnError="true">
+	    <runtest>AccountingInvestmentControllerTest</runtest> 
       </sf:deploy>
     </target>
 	
