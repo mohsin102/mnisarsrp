@@ -1,5 +1,5 @@
 public class AccountingInvestmentController {
- 
+ // test July 12, 2021
     @AuraEnabled
     public static  List<AccountingTransaction__c> getAccountingTransaction(Id recordId){
         List<AccountingTransaction__c> accountingTransactionList = new List<AccountingTransaction__c>();
