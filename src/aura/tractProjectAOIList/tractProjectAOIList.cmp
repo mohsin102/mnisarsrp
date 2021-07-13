@@ -1,0 +1,34 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" controller="tractProjectAOIListAura">
+    
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+	<aura:attribute name="percentCovered" type="String" default="0"/>
+	<aura:attribute name="targetPrice" type="String" default="0"/>
+	<aura:attribute name="maxPrice" type="String" default="0"/>
+	<aura:attribute name="netAcres" type="String" default="0"/>
+	<aura:attribute name="targetPPA" type="String" default="0"/>
+	<aura:attribute name="maxPPA" type="String" default="0"/>
+    <aura:attribute name="sortBy" type="String" />
+    <aura:attribute name="sortDirection" type="String" />
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+    <aura:attribute name="title" type="Aura.Component[]">
+        <lightning:icon iconName="custom:custom33" alternativeText="Tract Project AOIs" />
+        &nbsp; <b style="font-size: 15px;"> Project AOI Tracts (% Covered - {!v.percentCovered}, Target Price - {!v.netAcres} acres @ {!v.targetPPA} = {!v.targetPrice}, Max Price - {!v.netAcres} acres @ {!v.maxPPA} = {!v.maxPrice})</b>
+    </aura:attribute>
+	
+
+	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
+	
+	<lightning:card title="{!v.title}">
+		<div class="dataTable">
+			<c:srpDataTable
+				data="{!v.data}" columns="{!v.columns}"
+				keyField="projectTractId" hideCheckboxColumn="true" sortedBy="{!v.sortBy}" 
+				sortedDirection="{!v.sortDirection}" 
+				onsort="{!c.handleSort}"
+				onrowaction="{!c.handleRowAction}"
+				resize-column-disabled=""/>
+		</div>
+	</lightning:card>
+</aura:component>

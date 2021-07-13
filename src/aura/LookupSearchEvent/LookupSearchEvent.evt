@@ -1,0 +1,3 @@
+<aura:event access="global" type="APPLICATION" description="Component event associated with the Lookup component. Fired when a search needs to be performed on the server-side.">
+
+</aura:event>

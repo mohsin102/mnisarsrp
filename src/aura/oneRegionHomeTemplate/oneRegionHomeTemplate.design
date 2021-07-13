@@ -1,0 +1,5 @@
+<design:component label="1 Column Page">
+    <flexipage:template >
+      <flexipage:region name="column1" defaultWidth="Medium" />
+  </flexipage:template>
+</design:component>

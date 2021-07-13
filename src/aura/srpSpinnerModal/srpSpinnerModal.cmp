@@ -1,0 +1,6 @@
+<aura:component>
+	<div>
+		<!--<lightning:spinner alternativeText="Loading" size="large" />-->
+		<img src="{!$Resource.srpLoading}" class="slds-align_absolute-center"/>
+	</div>
+</aura:component>

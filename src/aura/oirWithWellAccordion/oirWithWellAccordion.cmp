@@ -1,0 +1,25 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" controller="OwnerInterestRevenueController">
+    
+    <aura:attribute name="Wells" type="List"/>
+    <aura:attribute name="activeSections" type="List" default="[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="modalEvent" event="c:modalEvent" action="{!c.handleComponentEvent}"/>
+    <lightning:card iconName="custom:custom41" >
+        <aura:set attribute="title">
+            <b>Well Revenue</b>
+        </aura:set>
+        <aura:set attribute="actions">
+            <lightning:button aura:id="buttonId" variant="base" class="slds-hide"
+                              label="Collapse All" onclick="{!c.collapseAll}"/>
+        </aura:set>
+        <lightning:accordion aura:id="accordion" allowMultipleSectionsOpen="true"
+                             activeSectionName="{! v.activeSections }"
+                             onsectiontoggle="{!c.onToggle}">
+            <aura:iteration items="{!v.Wells}" var="well">
+                <lightning:accordionSection name="{!well.wellName}" label="{!well.wellName + ' ('+well.oirCount+')'}">
+                    <c:OIRRelatedList recordId="{!well.wellId}" suaId="{!v.recordId}" disabled="{!well.inactive}"/>
+                </lightning:accordionSection>
+            </aura:iteration>
+        </lightning:accordion>
+    </lightning:card>
+</aura:component>

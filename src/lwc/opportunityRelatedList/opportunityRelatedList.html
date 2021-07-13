@@ -1,0 +1,15 @@
+<template>
+    <lightning-card class="slds-text-heading_small slds-card_boundary" title={title} icon-name='standard:opportunity' if:true={hasOpps}>
+        <div class="lwc-dt-row">
+                <lightning-datatable
+                        key-field="Id"
+                        data={oppData}
+                        hide-checkbox-column
+                        onsort={updateColumnSorting}
+                        sorted-by={sortCol}
+                        sorted-direction={sortDir}
+                        columns={columns}>
+                </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

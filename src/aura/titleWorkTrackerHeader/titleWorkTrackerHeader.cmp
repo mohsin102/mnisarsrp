@@ -1,0 +1,67 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
+	<aura:attribute name="recordId" type="String" default=""/>
+	<aura:attribute name="twtRecord" type="Object"/>
+	<aura:attribute name="recordLoadError" type="String"/>
+	<aura:attribute name="showButtons" type="Boolean" default="true"/>
+	<aura:attribute name="currentStatus" type="String" default="String"/>
+	<aura:attribute name="trackerName" type="String"/>
+	<aura:attribute name="landGridTractId" type="String"/>
+	<aura:attribute name="reloadForm" type="boolean" default="true" />
+	<aura:handler event="force:refreshView" action="{!c.forceRefresh}" />
+	<force:recordData aura:id="recordLoader"
+    recordId="{!v.recordId}"
+    fields="Id, status__c, link__c, OwnerId"
+    targetFields="{!v.twtRecord}"
+    targetError="{!v.recordLoadError}"
+    />
+
+    <div>
+		<lightning:recordEditForm recordId = "{!v.recordId}" objectApiName="TitleWorkTracker__c" aura:id="titleWorkTrackerHeaderForm" onload="{!c.handleLoad}">
+			<div class="slds-grid slds-page-header slds-wrap">
+				<!--<lightning:button label="Refresh data" onclick="{!c.forceRefresh}"/>{!'Status is: ' + v.twtRecord.status__c}-->
+				<aura:if isTrue="{!v.reloadForm}">
+					<aura:if isTrue="{!v.showButtons}">
+						<div class="slds-col slds-size_1-of-1">
+							<lightning:buttonGroup class="slds-float_right">
+							
+								<aura:if isTrue="{!v.currentStatus=='Not Started'?true:false}">
+										<!--<lightning:button label="Start Tracker" onclick="{!c.startTracker}" />-->
+									<aura:set attribute="else">
+										<lightning:button label="Edit" onclick="{!c.editTracker}"/>
+										<aura:if isTrue="{!v.currentStatus!='Complete'?true:false}">
+											<lightning:button label="Mark Complete" onclick="{!c.completeTracker}" disabled="{!v.currentStatus =='Complete'?true:false}"/>
+										</aura:if>
+									</aura:set>
+								</aura:if>
+							</lightning:buttonGroup>
+						</div>
+					</aura:if>
+				
+					<div class="slds-col slds-size_1-of-7">
+						<lightning:outputField fieldName="link__c" />
+					</div>
+					<div class="slds-col slds-size_1-of-7">
+						<lightning:outputField fieldName="status__c" />
+						
+					</div>
+					<div class="slds-col slds-size_1-of-7">
+						<lightning:outputField fieldName="startDate__c" />
+					</div>
+					<div class="slds-col slds-size_1-of-7">
+						<lightning:outputField fieldName="completionDate__c" />
+					</div>
+					<div class="slds-col slds-size_1-of-7">
+						<lightning:outputField fieldName="projectAOI__c" />
+					</div>
+					<div class="slds-col slds-size_1-of-7">
+						<lightning:outputField fieldName="OwnerId" />
+					</div>
+					<div class="slds-col slds-size_1-of-7">
+						<lightning:outputField fieldName="landGridTract__c" />
+					</div>
+				</aura:if>
+			</div>		
+		</lightning:recordEditForm>
+	</div>
+	<div aura:id="modalArea" ></div>
+</aura:component>

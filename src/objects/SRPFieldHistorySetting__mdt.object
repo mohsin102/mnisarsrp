@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Used for determining level of detail recorded by Object in SRP Field History.</description>
+    <fields>
+        <fullName>blacklist__c</fullName>
+        <description>Specific list of fields by api name to exclude in SRP History separated by |.  Example Name|Id|customField__c..</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Please use api names separated by the pipe (|) character. This will override fields listed in whitelist.</inlineHelpText>
+        <label>Blacklist</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>excludeFormulaFields__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Check to automatically exclude all formula fields.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Check to automatically exclude all formula fields.  This will override fields listed in whitelist.</inlineHelpText>
+        <label>Exclude Formula Fields</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>objectAPIName__c</fullName>
+        <description>API Name of the object that this setting is for.  Example Opportunity or Tract__c</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Object API Name</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>whitelist__c</fullName>
+        <description>Specific list of fields by api name to include in SRP History separated by |.  Example Name|Id|customField__c.  Leave blank to include all fields.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Please use api names separated by the pipe (|) character. Leave blank to include all fields.</inlineHelpText>
+        <label>Whitelist</label>
+        <length>13072</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <label>SRP Field History Setting</label>
+    <pluralLabel>SRP Field Histories Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

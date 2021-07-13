@@ -1,0 +1,14 @@
+.THIS .totGroups>article:nth-child(even){
+    background: #f2f2f2;
+}
+
+.THIS.totGroups:nth-child(even){
+    background: #CCC;
+}
+
+.THIS .slds-button_icon-bare{
+    display: none;
+}
+.THIS .buttonMargin {
+    margin: 10px 10px 10px 20px;
+}

@@ -1,0 +1,31 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" description="List of Files Related to Wells" controller="unitRelatedWellFilesAura">
+
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+	<aura:attribute name="data" type="List"/>
+	<aura:attribute name="title" type="Aura.Component[]">
+        <lightning:icon iconName="standard:file" alternativeText="GIS Map" />
+        &nbsp; <b style="font-size: 15px;"> Related Well Files</b>
+		
+		
+    </aura:attribute>
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+    <!--<aura:html tag="div" class="maphoverInfo" id="{!'mho'+v.recordId}" aura:id="{!'mho'+v.recordId}" />-->
+	<lightning:card title="{!v.title}" >	
+		<aura:if isTrue="{!v.isWaiting}">
+			<div>
+				<lightning:spinner alternativeText="Loading" size="large" />
+			</div>
+		</aura:if>
+		<aura:if isTrue="{!v.data.length > 0}">
+			<aura:iteration items="{!v.data}" var="file" indexVar="i">
+				<c:fileResult record="{!file}"/>
+			</aura:iteration>
+			<aura:set attribute="else">
+				<h1 class="slds-p-around_medium">
+					<lightning:formattedText class="slds-text-heading_medium bold" value="No Related Files Found"/>
+				</h1>
+			</aura:set>
+		</aura:if>
+	</lightning:card>
+</aura:component>

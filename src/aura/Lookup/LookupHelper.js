@@ -1,0 +1,90 @@
+({
+    updateSearchTerm : function(component, searchTerm) {
+        // Cleanup new search term
+		console.log('updateSearchTerm called.');
+        const updatedSearchTerm = searchTerm.trim().replace(/\*/g).toLowerCase();
+
+        // Compare clean new search term with current one and abort if identical
+        const curSearchTerm = component.get('v.searchTerm');
+        if (curSearchTerm === updatedSearchTerm) {
+            return;
+        }
+
+        // Update search term
+        component.set('v.searchTerm', updatedSearchTerm);
+
+        // Ignore search terms that are too small
+        if (updatedSearchTerm.length < 2) {
+            component.set('v.searchResults', []);
+            return;
+        }
+
+        // Apply search throttling (prevents search if user is still typing)
+        let searchTimeout = component.get('v.searchThrottlingTimeout');
+        if (searchTimeout) {
+            clearTimeout(searchTimeout);
+        }
+        searchTimeout = window.setTimeout(
+            $A.getCallback(function() {
+                // Send search event if it long enougth
+                const searchTerm = component.get('v.searchTerm');
+                if (searchTerm.length >= 2) {
+                    const searchEvent = component.getEvent('onSearch');
+                    searchEvent.fire();
+                }
+                component.set('v.searchThrottlingTimeout', null);
+            }),
+            300
+        );
+        component.set('v.searchThrottlingTimeout', searchTimeout);
+    },
+
+    selectResult : function(component, recordId) {
+        // Save selection
+        const searchResults = component.get('v.searchResults');
+        const selectedResult = searchResults.filter(function(result) { return result.id === recordId; });
+        if (selectedResult.length > 0) {
+            const selection = component.get('v.selection');
+            selection.push(selectedResult[0]);
+            component.set('v.selection', selection);
+        }
+        // Reset search
+        const searchInput = component.find('searchInput');
+        searchInput.getElement().value = '';
+        component.set('v.searchTerm', '');
+        component.set('v.searchResults', []);
+    },
+
+    getSelectedIds : function(component) {
+        const selection = component.get('v.selection');
+        return selection.map(function(element) { return element.id; });
+    },
+
+    removeSelectedItem : function(component, removedItemId) {
+        const selection = component.get('v.selection');
+        const updatedSelection = selection.filter(function(item) { return item.id !== removedItemId; });
+        component.set('v.selection', updatedSelection);
+    },
+
+    clearSelection : function(component, itemId) {
+        component.set('v.selection', []);
+		var selEvent = $A.get('e.c:LandGridTractSelected');
+        //console.log('event:'+selEvent);
+        selEvent.setParam('selId','');
+		selEvent.setParam('parentId', component.get('v.parentId'));
+        selEvent.fire();
+    },
+
+    isSelectionAllowed : function(component) {
+		console.log('selection length is: ' + component.get('v.selection').length);
+        return component.get('v.isMultiEntry') || component.get('v.selection').length === 0;
+    },
+
+    toggleSearchSpinner : function(component) {
+        const spinner = component.find('spinner');
+        const searchIcon = component.find('search-icon');
+
+        $A.util.toggleClass(spinner, 'slds-hide');
+        $A.util.toggleClass(searchIcon, 'slds-hide');
+    }
+})

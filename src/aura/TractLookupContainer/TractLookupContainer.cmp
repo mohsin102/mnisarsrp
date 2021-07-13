@@ -1,0 +1,22 @@
+<aura:component access="global" controller="GridLookupController">
+    <aura:attribute access="public" type="String" name="objName" default=""/>
+    <aura:attribute access="public" type="String" name="parentId" default=""/>
+    <aura:attribute access="private" type="List" name="selection" default="[]"/>
+
+
+    <div>
+
+<c:Lookup aura:id="lookup" selection="{!v.selection}" onSearch="{!c.lookupSearch}"
+                  label="" placeholder="" isMultiEntry="{!v.objName == 'Case'}" parentId="{!v.parentId}"/>
+
+        <aura:if isTrue="{!v.objName == 'Tract__c'}">
+            <ui:button label="Link" class="button" press="{!c.linkGridToTract}" />
+            <ui:button label="Cancel" />
+        </aura:if>
+
+        <aura:if isTrue="{!v.objName == 'Case'}">
+            <ui:button label="Add" class="button" press="{!c.linkGridToTract}" />
+            <ui:button label="Cancel" />
+        </aura:if>
+    </div>
+</aura:component>

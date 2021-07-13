@@ -1,0 +1,183 @@
+<apex:page id="NewTractWizard" standardController="Tract__c" extensions="NewTractWizardExtension"
+           sidebar="false" showHeader="true" lightningStylesheets="true" cache="false" tabStyle="Opportunity">
+    <apex:includeLightning />
+
+    <script>
+//          Uncomment if users want to get a warning before cancel
+
+//          function confirmCancel() {
+//              var isCancel = confirm("Are you sure you wish to cancel?");
+//              if (isCancel) return true;
+//
+//             return false;
+//          }
+          $Lightning.use("c:TractLookupApp", function() {});
+          function stopRKey(evt) {
+               var evt = (evt) ? evt : ((event) ? event : null);
+               var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+               if ((evt.keyCode == 13) && (node.type=="text")) {return false;}
+          }
+
+          document.onkeypress = stopRKey;
+
+    </script>
+
+    <apex:sectionHeader title="New Tract"/>
+    <apex:form id="form1">
+        <apex:actionFunction name="setLandGridTractId" action="{!setId}" immediate="true" reRender="next,ltdetail,sub">
+            <apex:param id="selectedValue" name="selectedValue" value=""/>
+        </apex:actionFunction>
+        <apex:actionFunction name="setOpportunityId" action="{!setOppId}" immediate="true" reRender="next,ltdetail,sub">
+            <apex:param id="selectedOppValue" name="selectedOppValue" value=""/>
+        </apex:actionFunction>
+
+        <apex:outputPanel id="errmsg">
+            <apex:pageMessages id="msg" />
+        </apex:outputPanel>
+
+
+        <apex:pageBlock title="Create a new Tract" mode="edit" id="pb1">
+            <apex:pageBlockButtons location="both" id="pbb">
+                <apex:commandButton id="cancel" action="{!cancel}" value="Cancel" onclick="" immediate="true" />
+                <apex:commandButton id="saveNew" action="{!saveNew}" value="Save & New" reRender="detail,sub,inst,errmsg"/>
+                <apex:commandButton id="save" action="{!save}" value="Save" reRender="detail,sub,inst,errmsg"/>
+            </apex:pageBlockButtons>
+            <!-- The pageBlockButtons tag defines the buttons that appear at the top
+                 and bottom of the pageBlock. Like a facet, it can appear anywhere in
+                 a pageBlock, but always defines the button areas.-->
+            <!-- The Next button contained in this pageBlockButtons area
+                 calls the step2 controller method, which returns a pageReference to
+                 the next step of the wizard. -->
+            <!-- onclick="return confirmCancel()" will prompt for confirmation on cancel-->
+            <apex:pageBlockSection columns="1" title="LandGridTract (Required)">
+                <div id="lightning" style="height:56px;width:700px" />
+                <p style="color:#7c7c7c">Enter any part of a Land Grid Tract name, separated by spaces. For example: "Howard T2N 33".</p>
+                <script>
+                        window.onload = function() {
+                            $Lightning.use("c:TractLookupApp", function() {
+                              $Lightning.createComponent("c:TractLookupContainer",
+                              { objName : "NewTract" },
+                              "lightning",
+                              function() {
+                                    console.log('Search Component Loaded');
+                                    $A.eventService.addHandler({"event":"c:LandGridTractSelected","handler": landGridTractSelected});
+                                    console.log('Handler Added');
+    
+                              });
+                            });
+                            $Lightning.use("c:TractLookupApp", function() {
+                                $Lightning.createComponent("c:customLookup",
+                                    { objectAPIName : "Opportunity",
+                                    label : "Link to Opportunity" },
+                                    "opportunity",
+                                    function(cmp) {
+                                        console.log("Acquisition");
+    
+                                        $A.eventService.addHandler({ "event": "c:lightningAppExternalEvent", "handler" : setOpp }); 
+                                    }
+                                );
+                            });
+                         }
+                         var landGridTractSelected = function(event){
+    
+                        console.log('event fired/tract selected');
+                        console.log(event.getParam('selId'));
+                        var selLandGridTractId = event.getParam('selId');
+                        setLandGridTractId(encodeURIComponent(selLandGridTractId));
+                        }
+                        function setOpp (event){
+                            console.log('This message is from visualforce function!!!!');
+                            console.log('Data which is coming from MY lightning component',event.getParam('selectedValue'));
+                            setOpportunityId(encodeURIComponent(event.getParam('selectedValue').Id))
+                        }
+                        
+                    </script>
+            </apex:pageBlockSection>
+            <apex:outputPanel id="detail">
+                <apex:pageBlockSection columns="2" title="Details">
+                    <apex:pageBlockSection columns="1">
+                        <apex:inputField value="{! newTract.Quarter_Call__c}" />
+                        <apex:inputField value="{! newTract.Lots__c}" />
+
+                        <apex:inputField value="{! newTract.Instrument_Type__c}">
+                            <!--<apex:actionSupport event="onchange" reRender="inst,sub" action="{!updateInstrument}"/>-->
+                        </apex:inputField>
+                        <apex:inputField value="{! newTract.Account__c}" />
+                        <apex:inputField value="{! newTract.Tract_Legal__c}" />
+
+                        <apex:inputField value="{! newTract.Grid_Exception__c}" />
+
+                        <!--<apex:inputField value="{! newTract.SRP_Responsible_Entity__c}" />-->
+                        <!--<apex:inputField value="{! newTract.Ford_Tract_Status__c}" />
+                        <apex:inputField value="{! newTract.Ford_Mineral_Owner__c}" />-->
+                        <div id="opportunity" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="1">
+                        <apex:inputField value="{! newTract.Notes__c}"/>
+                    </apex:pageBlockSection>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection columns="2" title="Ownership">
+                    <apex:inputField value="{! newTract.Gross_Acres__c}">
+                    </apex:inputField>
+                    <apex:inputField value="{! newTract.netAcres__c}">
+                    </apex:inputField>
+                    <apex:inputField value="{! newTract.netAcreageUnits__c}">
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <!--<apex:pageBlockSection columns="2" title="Pricing">
+                    <apex:inputField value="{! newTract.OTG_Cost_Per_Acre__c}"/>
+                    <apex:inputField value="{! newTract.Value_Per_Acre__c}"/>
+                    <apex:inputField value="{! newTract.Commission_Amount__c}"/>
+                    <apex:inputField value="{! newTract.Title_Cost__c}"/>
+                    <apex:inputField value="{! newTract.Other_Capitalized_Costs__c}"/>
+                    
+                </apex:pageBlockSection>-->
+
+                
+
+
+            </apex:outputPanel>
+
+            <apex:outputPanel id="sub">
+                <apex:PageBlockSection columns="1" title="Subtract">
+                    A matching Subtract will be automatically created and linked to this Tract.
+                </apex:PageBlockSection>
+            </apex:outputPanel>
+
+
+            <!--<apex:outputPanel id="inst">
+                <apex:PageBlockSection columns="1" title="Instrument" rendered="{! showInstrument }">
+                    Instrument information is required for all instrument types other than Surface. This instrument will be linked to the auto-generated Subtract.
+                    <apex:commandLink value="Use Existing/No Instrument" action="{!useExisting}" immediate="true" reRender="inst" rendered="{! showNewInstrument}" />
+                    <apex:commandLink value="Create New Instrument" action="{!useNewInstrument}" immediate="true" reRender="inst" rendered="{! showExisting}"/>
+                </apex:PageBlockSection>
+                <apex:PageBlockSection columns="2" rendered="{! showExisting }">
+                    <apex:outputText value="Select an existing Instrument or leave blank for none (no instrument will be created)." />
+                    <apex:outputText value="" />
+                    <apex:inputField value="{! newSubtract.Instrument__c }" required="false" style="text-align:left;" />
+                </apex:PageBlockSection>
+                <apex:PageBlockSection columns="2"  rendered="{! showNewInstrument }">
+                    <apex:inputField value="{! newInstrument.Lessor__c }" />
+                    <apex:inputField value="{! newInstrument.Lease_Status__c }" />
+                    <apex:inputField value="{! newInstrument.Lessee__c }" />
+                    <apex:inputField value="{! newInstrument.Lease_Royalty__c }" />
+                    <apex:inputField value="{! newInstrument.Lease_Name__c }" />
+                    <apex:inputField value="{! newInstrument.Effective_Date__c }" />
+                    <apex:inputField value="{! newInstrument.Current_Operator__c }" />
+                    <apex:inputField value="{! newInstrument.Term_Years__c }" />
+                    <apex:inputField value="{! newInstrument.Instrument_Notes__c }" />
+                    <apex:inputField value="{! newInstrument.Extension_Option__c }" />
+                </apex:PageBlockSection>
+                <apex:PageBlockSection columns="2"  rendered="{! showNewInstrument }" title="Instrument Recording Information">
+                    <apex:inputField value="{! newInstrument.Instrument_Number__c }" />
+                    <apex:inputField value="{! newInstrument.Book_Type__c }" />
+                    <apex:outputText value="" />
+                    <apex:inputField value="{! newInstrument.Book_Number__c }" />
+                    <apex:outputText value="" />
+                    <apex:inputField value="{! newInstrument.Page_Number__c }" />
+                </apex:PageBlockSection>
+            </apex:outputPanel>-->
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

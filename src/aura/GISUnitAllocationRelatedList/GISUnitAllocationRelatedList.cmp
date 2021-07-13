@@ -1,0 +1,29 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" controller="SubtractUnitAllocationController">
+    <aura:registerEvent name="modalEvent" type="c:modalEvent"/>
+    <aura:attribute name="searchString" type="string" default=""/>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col"> <div onkeyup="{! c.handleKeyUp }">
+                <lightning:input 
+                                 class="iconRight"
+                                 placeholder="Search for Account"
+                                 aura:id="enter-search"
+                                 name="enter-search"
+                                 value="{!v.searchString}"
+                                 type="search"
+                                 disabled="{! v.nonWellItem}"/>
+            </div>
+		</div>
+        <div class="slds-col"></div>
+        <div class="slds-col">
+           
+        </div><br/>
+    </div>
+    <div>
+        <br/><h3> <b>Active Unit Allocations</b></h3>
+        <c:SUARelatedList recordId="{!v.recordId}" Type="Active" acctName="{!v.searchString}" aura:id="ActiveChildComponent"/>
+    </div><br/>
+    <div>
+        <h3><b>Inactive Unit Allocations </b> </h3>
+        <c:SUARelatedList recordId="{!v.recordId}" Type="Inactive" acctName="{!v.searchString}" aura:id="InactiveChildComponent"/>
+    </div>
+</aura:component>

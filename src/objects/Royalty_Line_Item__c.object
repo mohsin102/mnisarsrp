@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Royalty_Line_Item_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Royalty check line items</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>adjustmentCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Adjustment Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>detailId__c</fullName>
+        <externalId>true</externalId>
+        <label>DetailId</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>grossAdjustmentsActual__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Gross Adjustments Actual</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>grossNetActual__c</fullName>
+        <externalId>false</externalId>
+        <label>Gross Net Actual</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>grossTaxesActual__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Gross Taxes Actual</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>grossValueActual__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Gross Value Actual</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>grossValueAfterAdjustments__c</fullName>
+        <description>Gross Value - Gross Adjustments - Gross Taxes</description>
+        <externalId>false</externalId>
+        <formula>grossValue__c -  ABS(grossTaxesActual__c)  -  ABS(grossAdjustmentsActual__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Gross Value - Gross Adjustments - Gross Taxes</inlineHelpText>
+        <label>Gross Value after Adjustments</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>grossValue__c</fullName>
+        <description>Gross Value x Price</description>
+        <externalId>false</externalId>
+        <formula>grossVolumeActual__c *  price__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Gross Value x Price</inlineHelpText>
+        <label>Gross Value Calc</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>grossVolumeActual__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Gross volume from royalty check from operator (5 decimal places)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Gross volume from royalty check from operator (5 decimal places)</inlineHelpText>
+        <label>Gross Volume Actual</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>interestType__c</fullName>
+        <externalId>false</externalId>
+        <label>Interest Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>isLastProductionMonth__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(production_Month__c =  well__r.Last_Production_Month__c , true,false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is Last Production Month</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>isNonWellLineItem__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Non Well Line Item</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>lineItemDecimal__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Royalty check line item well interest / distribution decimal from operator.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Royalty check line item well interest / distribution decimal from operator.</inlineHelpText>
+        <label>Line Item Decimal</label>
+        <precision>11</precision>
+        <required>true</required>
+        <scale>8</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>line_Item_Net_Val__c</fullName>
+        <description>Gross Value After Adjustments x Line Item Decimal</description>
+        <externalId>false</externalId>
+        <formula>ABS(grossValueAfterAdjustments__c) *  lineItemDecimal__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Gross Value After Adjustments x Line Item Decimal</inlineHelpText>
+        <label>Line Item Net Value Calc</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>net_Adjustments__c</fullName>
+        <description>Gross Adjustments x Decimal</description>
+        <externalId>false</externalId>
+        <formula>grossAdjustmentsActual__c  *  lineItemDecimal__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Gross Adjustments x Decimal</inlineHelpText>
+        <label>Net Adjustments</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>net_Taxes__c</fullName>
+        <description>Gross Taxes x Line Item Decimal</description>
+        <externalId>false</externalId>
+        <formula>grossTaxesActual__c  *  lineItemDecimal__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Gross Taxes x Line Item Decimal</inlineHelpText>
+        <label>Net Taxes</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>net_Value__c</fullName>
+        <description>Gross_Value__c * Line_Item_Decimal__c</description>
+        <externalId>false</externalId>
+        <formula>grossValue__c  *  lineItemDecimal__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Gross_Value__c * Line_Item_Decimal__c</inlineHelpText>
+        <label>Net Value Calc</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>notes__c</fullName>
+        <description>Optional field for additional information related to royalty check line item</description>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>operatorName__c</fullName>
+        <externalId>false</externalId>
+        <formula>royalty_Check__r.Operator_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Operator Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ownerAdjustmentsActual__c</fullName>
+        <externalId>false</externalId>
+        <label>Owner Adjustments Actual</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ownerNetValueActual__c</fullName>
+        <externalId>false</externalId>
+        <label>Owner Net Value Actual</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ownerTaxesActual__c</fullName>
+        <externalId>false</externalId>
+        <label>Owner Taxes Actual</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ownerValueActual__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Value before tax and deductions.  Field on royalty check can be owner value or net value</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value before tax and deductions.  Field on royalty check can be owner value or net value</inlineHelpText>
+        <label>Owner Value Actual</label>
+        <precision>9</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ownerVolumeActual__c</fullName>
+        <externalId>false</externalId>
+        <label>Owner Volume Actual</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>price__c</fullName>
+        <defaultValue>0.00</defaultValue>
+        <description>Price from operator royalty check line item (4 decimal places)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Price from operator royalty check line item (4 decimal places)</inlineHelpText>
+        <label>Price</label>
+        <precision>11</precision>
+        <required>true</required>
+        <scale>4</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>productCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>product_Category__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( NOT(ISBLANK(product__c)),if( BEGINS(product__c, &apos;1&apos;),&apos;OIL&apos;,if( BEGINS(product__c, &apos;2&apos;),&apos;GAS&apos;,if( BEGINS(product__c, &apos;3&apos;),&apos;NGL&apos;,if( UPPER(product__c) == &apos;GAS&apos; || UPPER(product__c) == &apos;PRD&apos; || UPPER(product__c) == &apos;OIL&apos; || UPPER(product__c) == &apos;PPRO&apos; ,UPPER(product__c),if(UPPER(product__c)==&apos;G&apos;,&apos;GAS&apos;, if(UPPER(product__c)==&apos;O&apos;,&apos;OIL&apos;,if(UPPER(product__c)==&apos;N&apos;,&apos;NGL&apos;, &apos;OTHER&apos; ) ) )) ) ) ),&apos;&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>product__c</fullName>
+        <description>Product type or product code from royalty check line item (ie. oil, gas, plant product, etc)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Product type or product code from royalty check line item (ie. oil, gas, plant product, etc)</inlineHelpText>
+        <label>Product</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>productionMonthCalc__c</fullName>
+        <externalId>false</externalId>
+        <formula>DATE(YEAR( production_Month__c), MONTH(production_Month__c ), 01)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Production Month (Calc)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>production_Month__c</fullName>
+        <externalId>false</externalId>
+        <label>Production Month</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>propertyName__c</fullName>
+        <externalId>true</externalId>
+        <label>Property Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>property_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Property Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>revenueAllocated__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Revenue Allocated</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>revenueProperty__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Revenue Property</label>
+        <referenceTo>revenueProperty__c</referenceTo>
+        <relationshipLabel>Royalty Line Items</relationshipLabel>
+        <relationshipName>Royalty_Line_Items</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>royalty_Check__c</fullName>
+        <description>Royalty Check</description>
+        <externalId>false</externalId>
+        <label>Royalty Check</label>
+        <referenceTo>Royalty_Check__c</referenceTo>
+        <relationshipLabel>Royalty Line Items</relationshipLabel>
+        <relationshipName>Line_Items</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>source__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(royalty_Check__r.Source__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Source</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>totalAllocatedAmount__c</fullName>
+        <description>Royalty check line item amount that has been allocated to a well interest revenue record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Royalty check line item amount that has been allocated to a well interest revenue record.</inlineHelpText>
+        <label>Total Allocated Amount</label>
+        <precision>9</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Revenue</fullName>
+                    <default>false</default>
+                    <label>Revenue</label>
+                </value>
+                <value>
+                    <fullName>Adjustment</fullName>
+                    <default>false</default>
+                    <label>Adjustment</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>wellNames__c</fullName>
+        <externalId>false</externalId>
+        <formula>revenueProperty__r.wells__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Well</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>well__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Well (Discarded)</label>
+        <referenceTo>Well__c</referenceTo>
+        <relationshipLabel>Royalty Line Items (Well)</relationshipLabel>
+        <relationshipName>Royalty_Line_Items</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Royalty Line Item</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>royalty_Check__c</columns>
+        <columns>lineItemDecimal__c</columns>
+        <columns>type__c</columns>
+        <columns>well__c</columns>
+        <columns>production_Month__c</columns>
+        <columns>ownerNetValueActual__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>LI-{000000000}</displayFormat>
+        <label>Line Item Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Royalty Line Items</pluralLabel>
+    <profileSearchLayouts>
+        <fields>NAME</fields>
+        <fields>royalty_Check__c</fields>
+        <fields>OBJECT_ID</fields>
+        <profileName>Standard User</profileName>
+    </profileSearchLayouts>
+    <searchLayouts>
+        <searchFilterFields>OBJECT_ID</searchFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

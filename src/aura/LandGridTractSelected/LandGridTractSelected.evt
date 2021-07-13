@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="LandGridTractSelected">
+    <aura:attribute access="global" name="selId" type="String" />
+    <aura:attribute access="global" name="parentId" type="String"/>
+</aura:event>

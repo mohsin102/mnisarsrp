@@ -1,0 +1,89 @@
+<aura:component controller="RoyaltyLineItemController" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="newData" type="Object"/>
+    <aura:attribute name="editColumns" type="List"/>
+    <aura:attribute name="pageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="50"/>
+    <aura:attribute name="totalPages" type="Integer" default="0"/>
+    <aura:attribute name="totalRevenueAllocated" type="Decimal" default="0"/>
+    <aura:attribute name="totalLineItems" type="Integer" default="0"/>
+    <aura:attribute name="totalAllocatedLineItems" type="Integer" default="0"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+    <aura:attribute name="isLastPage" type="Boolean" default="false"/>
+    <aura:attribute name="dataSize" type="Integer" default="0"/> 
+    <aura:attribute name="sortBy" type="String"/>
+    <aura:attribute name="sortDirection" type="String"/>
+	<aura:attribute name="searchString" type="String" default=""/>
+	<aura:attribute name="searchCounter" type="Integer" default="1"/>
+	<aura:attribute name="searchDisabled" type="Boolean" default="false"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:handler name="refEvent" event="c:RefreshComponent" action="{!c.refreshComponent}"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    
+
+    <article class="slds-card">
+        <lightning:workspaceAPI aura:id="workspace" />
+		<aura:if isTrue="{!v.isWaiting}">
+			<div class="slds-m-around_x-small" style="height: 300px">
+				<!--<lightning:spinner alternativeText="Loading" size="large" />-->
+				<img src="{!$Resource.srpLoading}" class="slds-align_absolute-center"/>
+			</div>
+			<aura:set attribute="else">
+				<div class="slds-grid slds-page-header" role="banner">
+					<div class="slds-col slds-size_1-of-6 paddingAround">
+						<div>
+							<p class="slds-page-header__title">Royalty Check Line Items</p><br/>
+						</div>
+						<!--p><b>Total Revenue Allocated: </b>$ {!v.totalRevenueAllocated}</p-->
+						<p><b>#Allocated Line Items: </b>{!v.totalAllocatedLineItems}</p>
+						<p><b>#Unallocated Line Items: </b>{!v.totalLineItems - v.totalAllocatedLineItems}</p>
+					</div>
+					<div class="slds-col slds-size_4-of-6 paddingAround">
+						<div onkeyup="{! c.handleKeyUp }">
+							<lightning:input
+												class="iconRight"
+												placeholder="Search for Line Items"
+												aura:id="enter-search"
+												name="enter-search"
+												value="{!v.searchString}"
+												type="search"
+												disabled="{! v.searchDisabled}"
+												variant="label-hidden"
+												onchange = "{!c.onSearchChange}"
+												/>
+						</div>
+					</div>
+					<div class="slds-col slds-size_1-of-6 paddingAround">     
+						<lightning:button label="New Line Item" onclick="{!c.createNewLI}"/>
+					</div>
+				</div>
+				<div>
+            
+					<lightning:datatable aura:id = "accDT"
+										 columns = "{!v.columns}"
+										 data = "{!v.data}"
+										 keyField = "Id"
+										 selectedRows = "{!v.selectedRowList}"
+										 sortedBy="{!v.sortBy}"
+										 sortedDirection="{!v.sortDirection}"
+										 onsort="{!c.handleSort}"
+										 onrowaction="{!c.handleRowAction}"
+										 hideCheckboxColumn="true"/>
+            
+					<div class="slds-clearfix">
+						<div class="slds-page-header" role="banner">
+							<div class="slds-float_right">            
+								<lightning:button label="Prev" iconName="utility:chevronleft" iconPosition="left"
+												  onclick="{!c.handlePrev}" disabled="{! v.pageNumber == 1}"/>
+								<lightning:button label="Next" iconName="utility:chevronright" iconPosition="right"
+												  disabled="{! v.isLastPage}" onclick="{!c.handleNext}"/>
+							</div>
+							<p class="slds-page-header__title">Page {!v.pageNumber} of {!v.totalPages} | Total Line Items {!v.totalLineItems }</p>
+						</div>
+					</div>
+				</div>
+			</aura:set>
+		</aura:if>
+    </article>
+</aura:component>

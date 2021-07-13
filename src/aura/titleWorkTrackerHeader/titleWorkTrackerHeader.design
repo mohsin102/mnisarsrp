@@ -1,0 +1,5 @@
+<design:component label="Title Work Tracker Header">
+	<sfdc:objects>
+        <sfdc:object>TitleWorkTracker__c</sfdc:object>
+    </sfdc:objects>
+</design:component>

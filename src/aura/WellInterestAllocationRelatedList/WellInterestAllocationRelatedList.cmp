@@ -1,0 +1,29 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" controller="WellInterestAllocationListController">
+    
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="wellInterstList" type="list"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="sortBy" type="String" />
+    <aura:attribute name="height" type="Integer" />
+    <aura:attribute name="width" type="Integer" />
+    <aura:attribute name="sortDirection" type="String" />
+    <aura:attribute name="WellListlength" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div aria-labelledby="newexpenseform" width="100%">
+        <fieldset class="slds-box slds-theme--default slds-container--xx-large" width="100%">
+            
+            <lightning:icon iconName="custom:custom96" alternativeText="opportunity" style="width:35px;height:28px;"/>
+            &nbsp; <b style="font-size: 15px;"> Well Interest Allocations ({!v.WellListlength})</b>
+            <div class="slds-scrollable" style="height:15rem;">  <span style="height:15px;" ></span>
+                <lightning:datatable
+                                     data="{!v.wellInterstList}" columns="{!v.mycolumns}"
+                                     keyField="id" hideCheckboxColumn="true" sortedBy="{!v.sortBy}" 
+                                     sortedDirection="{!v.sortDirection}" 
+                                     onsort="{!c.handleSort}" style="width: 100%" 
+                                     onrowaction="{!c.handleRowAction}"
+                                     resize-column-disabled=""/>
+            </div>
+        </fieldset>
+    </div>
+</aura:component>

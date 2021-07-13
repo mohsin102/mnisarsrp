@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <fields>
+        <fullName>action__c</fullName>
+        <description>What type of action was taken on the primary record - usually either update or delete.</description>
+        <externalId>false</externalId>
+        <label>Action</label>
+        <length>10</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>changedBy__c</fullName>
+        <description>Lookup value to the user that initiated the record change.</description>
+        <externalId>false</externalId>
+        <label>Changed By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>boSRPFieldHistories</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>fieldLabel__c</fullName>
+        <description>The label of the updated field.  Please note this value will be stored as a text representation and will not reflect updates to the field label after the history record is created.</description>
+        <externalId>false</externalId>
+        <label>Field Label</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fieldNameIndex__c</fullName>
+        <description>Stores the first 40 characters of the field name for index purposes. If a delete operation, populate with &quot;NA&quot; as the entire record will be deleted, but this field will be necessary for the index portion of a custom big object.</description>
+        <externalId>false</externalId>
+        <label>Field Name Index</label>
+        <length>30</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>fieldName__c</fullName>
+        <description>Used to store the API Name of the field referenced.</description>
+        <externalId>false</externalId>
+        <label>Field Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>historyCreatedDate__c</fullName>
+        <description>Populate with same value as normal Created Date - necessary for index on Big Object.</description>
+        <externalId>false</externalId>
+        <label>History Created Date</label>
+        <required>true</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>isReference__c</fullName>
+        <description>Field would normally be a checkbox field type which relates to a boolean field.  Neither option is available on Big Objects, so utilizing text field that should be populated with &quot;true&quot; or &quot;false&quot;</description>
+        <externalId>false</externalId>
+        <label>Is Reference</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>newId__c</fullName>
+        <description>Used when the update involves a reference or lookup field being changed.  Should only be populated when isReference is also &quot;true&quot;. Stores the Id of the newly referenced object.</description>
+        <externalId>false</externalId>
+        <label>New Id</label>
+        <length>18</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>newValue__c</fullName>
+        <description>Holds the updated value from the record or if the field is a reference or lookup field, the value from the name field of the new referenced object.</description>
+        <externalId>false</externalId>
+        <label>New Value</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>oldId__c</fullName>
+        <description>Used when the update involves a reference or lookup field being changed. Should only be populated when isReference is also &quot;true&quot;.  Stores the Id of the previous referenced object.</description>
+        <externalId>false</externalId>
+        <label>Old Id</label>
+        <length>18</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>oldValue__c</fullName>
+        <description>Holds the previous value from the record or if the field is a reference or lookup field, the value from the name field of the previously referenced object.</description>
+        <externalId>false</externalId>
+        <label>Old Value</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>recordId__c</fullName>
+        <description>Stores the record Id of the primary object being modified.</description>
+        <externalId>false</externalId>
+        <label>Record Id</label>
+        <length>18</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>recordName__c</fullName>
+        <description>Stores the Name of the primary record being modified at time of modification.  Will not capture future updates to the record&apos;s name.</description>
+        <externalId>false</externalId>
+        <label>Record Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>referenceSObjectType__c</fullName>
+        <description>Stores the type of referenced object.  Should only be populated if Is Reference value is true.</description>
+        <externalId>false</externalId>
+        <label>Reference SObject Type</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>sObjectNameIndex__c</fullName>
+        <description>Stores the type of the primary object.</description>
+        <externalId>false</externalId>
+        <label>SObject Name</label>
+        <length>30</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>sObjectName__c</fullName>
+        <description>Stores the type of the primary object.</description>
+        <externalId>false</externalId>
+        <label>SObject Name</label>
+        <length>80</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <indexes>
+        <fullName>srpFieldHistoryIndex</fullName>
+        <fields>
+            <name>sObjectNameIndex__c</name>
+            <sortDirection>ASC</sortDirection>
+        </fields>
+        <fields>
+            <name>recordId__c</name>
+            <sortDirection>ASC</sortDirection>
+        </fields>
+        <fields>
+            <name>historyCreatedDate__c</name>
+            <sortDirection>DESC</sortDirection>
+        </fields>
+        <fields>
+            <name>action__c</name>
+            <sortDirection>ASC</sortDirection>
+        </fields>
+        <fields>
+            <name>fieldNameIndex__c</name>
+            <sortDirection>ASC</sortDirection>
+        </fields>
+        <label>SRP Field History Index</label>
+    </indexes>
+    <label>SRP Field History</label>
+    <pluralLabel>SRP Field Histories</pluralLabel>
+</CustomObject>

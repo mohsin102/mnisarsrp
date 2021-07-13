@@ -1,0 +1,6 @@
+<design:component label="Home Title Work Trackers">
+    <design:attribute name="title" label="Component Title" description="Title to be displayed at the top of the component" />
+    <design:attribute name="showButtons" label="Show the edit and complete buttons" />
+    <design:attribute name="showNewButton" label="Show the New Title Tracker button" />
+    <design:attribute name="status" label="Status of Title Work Tracker records to include" />
+</design:component>

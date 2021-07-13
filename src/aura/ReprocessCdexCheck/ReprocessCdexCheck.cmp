@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" controller="CDEXCalloutHelper" access="global" >
+	
+    <aura:attribute name="loading" type="boolean"/>
+    
+    <br/>
+    <br/>
+    <lightning:button label="Reprocess This Check" onclick="{! c.handleClick }" variant="brand" class="slds-align_absolute-center"/>
+    <br/>
+    <br/>
+    <aura:if isTrue="{! v.loading }">
+            <lightning:spinner alternativeText="Loading" />
+    </aura:if>
+</aura:component>

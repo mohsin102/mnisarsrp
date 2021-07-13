@@ -1,0 +1,3 @@
+<design:component>
+	<design:attribute name="height" label="Set the height for the component on this page in pixels."/>
+</design:component>

@@ -1,0 +1,14 @@
+<template>
+    <div class={typeAttributes.className}>
+        <lightning:formattedNumber title={typeAttributes.title}
+                                   class={typeAttributes.className}
+                                   value={typeAttributes.value}
+                                   style={typeAttributes.style}
+                                   currencycode={typeAttributes.currencyCode}
+                                   currencydisplayas={typeAttributes.currencyDisplayAs}
+                                   minimum-integer-digits={typeAttributes.minimumIntegerDigits}
+                                   minimum-fraction-digits={typeAttributes.minimumFractionDigits}
+                                   maximum-fraction-digits={typeAttributes.maximumFractionDigits}
+                                   minimumsignificantdigits={typeAttributes.minimumSignificantDigits}>{value}</lightning:formattedNumber>
+    </div>
+</template>

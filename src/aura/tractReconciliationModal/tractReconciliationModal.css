@@ -1,0 +1,62 @@
+.THIS .totTable{
+    background-color:#F0F8FC;
+    
+}
+
+.THIS .innerTable {
+    padding:0 0 10px 0;
+    margin:1em;
+}
+
+.THIS .currentTractTable{
+    background-color:#FFFFFF;
+}
+
+.THIS .newTractTable{
+    background-color:#D9FFDF;
+}
+
+.THIS .noTractTable{
+    background-color:#979797;
+}
+
+.THIS .totHeader{
+    background-color:#0070D2;
+    color:white !important;
+    font-size:larger;
+}
+
+.THIS .currentTractHeader{
+    background-color:#000000;
+    color:white !important;
+    font-size:larger;
+}
+
+.THIS .newTractHeader{
+    background-color:#04844B;
+    color:white !important;
+    font-size:larger;
+}
+
+.THIS .noTractHeader{
+    background-color:#7f7f7f;
+    color:white !important;
+    font-size:larger;
+}
+
+.THIS .modalCell {
+    height:48px;
+    padding:5px 10px 15px 20px;
+    margin-bottom:10px;
+}
+
+.THIS .dropDown {
+    padding-top:10px;
+
+}
+
+.THIS .closeIcon {
+    background:none;
+    color:white;
+    border:none;
+}

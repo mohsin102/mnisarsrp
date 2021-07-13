@@ -1,0 +1,11 @@
+<aura:component>
+	<aura:attribute name="currentRecord" type="Object"/>
+	
+	<lightning:card>
+		<div class="leftPadding">
+			<p><lightning:formattedText class="label" value="Inventory Owner:"/></p>
+			<p><lightning:formattedText class = "value" value="{!v.currentRecord.inventoryOwnerName__c}"/></p>
+		</div>
+		
+	</lightning:card>
+</aura:component>

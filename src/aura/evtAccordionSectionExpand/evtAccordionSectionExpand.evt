@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Event fired from child component to notifiy parent to expand accordion section">
+    <!--Initial usage in IARelatedOpportunities and IARelatedOpportunity-->
+    <aura:attribute name="sectionName" type="String" />
+</aura:event>

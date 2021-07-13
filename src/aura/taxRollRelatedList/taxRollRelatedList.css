@@ -1,0 +1,15 @@
+.THIS .displayInline {
+    display:inline;
+}
+
+.THIS .maxHeight {
+    height:300px !important;
+}
+
+.THIS .noHeader header {
+    display:none
+}
+
+.THIS.noHeader header {
+    display:none
+}

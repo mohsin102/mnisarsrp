@@ -1,0 +1,55 @@
+<aura:component
+    implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName"
+    controller="CaseRelatedListAura"
+>
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="sObjectName" type="string" />
+    <aura:attribute name="data" type="Object" />
+    <aura:attribute name="mycolumns" type="List" />
+    <aura:attribute name="sortBy" type="String" />
+    <aura:attribute name="height" type="Integer" />
+    <aura:attribute name="width" type="Integer" />
+    <aura:attribute name="sortDirection" type="String" />
+    <aura:attribute name="listlength" type="String" />
+
+    <lightning:workspaceAPI aura:id="workspace" />
+    <lightning:navigation aura:id="navService" />
+    <aura:method name="refreshCmpMethod" action="{!c.refreshCmp}" access="PUBLIC"></aura:method>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:applicationEventRefresh" action="{!c.handleApplicationEvent}"/>
+    
+    <ltng:require
+        scripts="{!$Resource.jsSRPUtility}"
+        afterScriptsLoaded="{!c.jsLoaded}"
+    />
+
+    <lightning:card>
+        <div class="slds-clearfix slds-m-left_medium">
+            <lightning:icon
+                iconName="standard:case"
+                alternativeText="Cases"
+                style="width: 28px; height: 28px"
+            />
+            &nbsp;
+            <b style="font-size: 15px"> Cases ({!v.listlength})</b>
+        </div>
+        <div aura:id="tableDiv" class="slds-m-around_x-small">
+            <span style="height: 15px"></span>
+            <ui:scrollerWrapper aura:id="scrollerDiv" class="scrollerSize">
+                <lightning:datatable
+                    data="{!v.data}"
+                    columns="{!v.mycolumns}"
+                    keyField="id"
+                    hideCheckboxColumn="true"
+                    sortedBy="{!v.sortBy}"
+                    sortedDirection="{!v.sortDirection}"
+                    onsort="{!c.handleSort}"
+                    style="width: 100%"
+                    onrowaction="{!c.handleRowAction}"
+                    resize-column-disabled=""
+                />
+            </ui:scrollerWrapper>
+        </div>
+    </lightning:card>
+</aura:component>

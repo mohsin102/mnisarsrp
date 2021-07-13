@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Event fired from Modal component to notify related components Action">
+    <aura:attribute name="Action" type="String" />
+</aura:event>

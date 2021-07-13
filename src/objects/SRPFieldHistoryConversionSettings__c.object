@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Store values to control SRP Field History Conversion to Big Object SRP Field History records</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>beginDeleteId__c</fullName>
+        <externalId>false</externalId>
+        <label>BeginDeleteId</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>conversionSize__c</fullName>
+        <description>Number of records to process in a single run.</description>
+        <externalId>false</externalId>
+        <label>Conversion Size</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>cronTriggerId__c</fullName>
+        <description>Holds the value for the current CronTrigger</description>
+        <externalId>false</externalId>
+        <label>cronTriggerId</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>defaultStartTime__c</fullName>
+        <description>Default hour in military value (i.e. 10 PM would be 22) that the next process should be started if no records remain to be converted.</description>
+        <externalId>false</externalId>
+        <label>Default Start Time</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>deleteCronTriggerId__c</fullName>
+        <externalId>false</externalId>
+        <label>deleteCronTriggerId</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>deleteSObjectNameIndex__c</fullName>
+        <externalId>false</externalId>
+        <label>DeleteSObjectNameIndex</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>deleteSize__c</fullName>
+        <externalId>false</externalId>
+        <label>DeleteSize</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>emailDistribution__c</fullName>
+        <description>List of addresses that error email will be sent to if a record cannot be converted within 5 tries.  Should be formatted as &apos;email@email.com&apos;, &apos;email2@email2.com&apos;</description>
+        <externalId>false</externalId>
+        <label>Email Distribution</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>minutesBetweenRuns__c</fullName>
+        <description>Number of minutes to delay before running the next scheduled group if items remain.</description>
+        <externalId>false</externalId>
+        <label>Minutes Between Runs</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>referenceIdGroupSize__c</fullName>
+        <externalId>false</externalId>
+        <label>Reference Id Group Size</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>SRP Field History Conversion Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

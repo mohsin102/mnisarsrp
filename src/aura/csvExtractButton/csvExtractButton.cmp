@@ -1,0 +1,17 @@
+<aura:component controller="csvFileExportAura">
+	<aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+	<aura:attribute name="buttonLabel" type="String" default="Export"/>
+	<aura:attribute name="fileName" type="String" default="export"/>
+	<aura:attribute name="isExporting" type="Boolean" default="false"/>
+	
+	<aura:if isTrue="{!v.isExporting}">
+		<div>
+			<img src="{!$Resource.srpLoadingSmall}" class="slds-align_absolute-center"/>
+		</div>
+		<aura:set attribute="else">
+			<lightning:button label="{!v.buttonLabel}" onclick="{!c.exportData}" disabled="{!v.isExporting}"/>
+		</aura:set>
+	</aura:if>
+	
+</aura:component>

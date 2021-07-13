@@ -1,0 +1,92 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" controller="srpFieldHistoryRelatedListAura">
+    
+    <aura:attribute name="recordId" type="string"/>
+	<aura:attribute name="sObjectName" type="string"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="sortedBy" type="String" />
+    <aura:attribute name="sortedDirection" type="String"/>
+    <aura:attribute name="listlength" type="String" />
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+	<lightning:workspaceAPI aura:id="workspace" />
+	<lightning:navigation aura:id="navService"/>
+	<aura:attribute name="width" type="String"/>
+    <lightning:flexipageRegionInfo width="{!v.width}"/>
+	<aura:attribute name="title" type="Aura.Component[]">
+		<div class="slds-page-header">
+			<lightning:icon iconName="custom:custom95" alternativeText="SRP Field Histories" />
+			&nbsp; <span class="displayInlineTable">
+						<b style="font-size: 15px;"> SRP Field History List</b> &nbsp;{!v.data.length}&nbsp;History&nbsp;Records
+						<br/><span class="smallFont">(Up&nbsp;to&nbsp;200&nbsp;most&nbsp;recent&nbsp;history&nbsp;records)</span>
+					</span>
+		</div>
+    </aura:attribute>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:handler event="force:refreshView" action="{!c.refreshData}" />
+
+	<aura:attribute name="noRelatedObjects" type="Aura.Component[]">
+        <h2 class="slds-text-heading_medium">
+            <p class="slds-m-bottom_medium">No history records found.</p>
+        </h2>
+    </aura:attribute>
+	
+	<lightning:card title="{!v.title}" class="noPadding noMargin">	
+		
+		<aura:if isTrue="{!v.isWaiting}">
+			<div>
+				<lightning:spinner alternativeText="Loading" size="large" />
+			</div>
+			<aura:set attribute="else"> 
+				<aura:if isTrue="{!v.data.length>0}">       
+					<div aura:id="tableDiv" id="srpDataTableDiv" class="slds-scrollable__y">
+						<aura:if isTrue="{!v.width == 'SMALL'}">
+						
+							<aura:iteration items="{!v.data}" var="historyItem">
+								<!--<div class="slds-p-around_medium">-->
+									<lightning:card>
+										<dl class="slds-list_horizontal slds-wrap slds-m-left_medium">
+											<dt class="slds-item_label slds-text-color_weak slds-truncate" title="Date of the change">Date:</dt>
+											<dd class="slds-item_detail slds-truncate" >
+												<lightning:formattedDateTime value="{!historyItem.historyCreatedDate__c}" year="numeric" month="long" day="2-digit" hour="2-digit"
+													minute="2-digit"/>
+											</dd>
+											<dt class="slds-item_label slds-text-color_weak slds-truncate" title="Field that was updated">Field:</dt>
+											<dd class="slds-item_detail slds-truncate" title="{!historyItem.fieldLabel__c}">{!historyItem.fieldLabel__c}</dd>
+											<dt class="slds-item_label slds-text-color_weak slds-truncate" title="User that made the change">User:</dt>
+											<dd class="slds-item_detail slds-truncate" title="{!historyItem.userName}">
+												<lightning:button class="nameButton" variant="base" label="{!historyItem.userName}" title="Open User" onclick="{! c.handleUserClick }" value="{!historyItem.changedBy__c}"/>
+												<!--<lightning:formattedUrl value="{!history.userLink}" label="{!historyItem.userName}" target="_blank" />-->
+											</dd>
+											<dt class="slds-item_label slds-text-color_weak slds-truncate" title="Original Value">Original Value:</dt>
+											<dd class="slds-item_detail slds-truncate" title="{!historyItem.oldValue__c}">{!historyItem.oldValue__c}</dd>
+											<dt class="slds-item_label slds-text-color_weak slds-truncate" title="New Value">New Value:</dt>
+											<dd class="slds-item_detail slds-truncate" title="{!historyItem.newValue__c}">{!historyItem.newValue__c}</dd>										
+										</dl>
+									</lightning:card>
+								<!--</div>-->
+							</aura:iteration>
+							<aura:set attribute="else">
+									<c:srpDataTable
+															columns="{! v.columns }"
+															data="{! v.data }"
+															keyField="Id"
+															hideCheckboxColumn="true"
+															errors="{! v.errors }"
+															suppressBottomBar="true"
+															showRowNumberColumn="false"
+															sortedBy="{!v.sortedBy}"
+															sortedDirection = "{!v.sortedDirection}"
+															onrowaction="{!c.handleRowAction}"
+															onsort="{!c.handleSort}"/>
+							</aura:set>
+						</aura:if>
+					</div>
+					<!--<aura:set attribute="else">
+						{!v.noRelatedObjects}
+					</aura:set>-->
+				</aura:if>
+			</aura:set>
+		</aura:if>
+	</lightning:card>
+</aura:component>

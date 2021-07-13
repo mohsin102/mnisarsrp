@@ -1,0 +1,96 @@
+<aura:component controller="newTitleWorkTrackerModalAura" implements="flexipage:availableForAllPageTypes,lightning:actionOverride,force:hasRecordId,force:hasSObjectName" access="global">
+	
+	<aura:attribute name="pageReference" type="Object"/>
+	<aura:attribute name="selectedStartDate" type="Date" />
+	<aura:attribute name="selectedCompletionDate" type="Date" />
+	<aura:attribute name="workJobTypes" type="List"/>
+	<aura:attribute name="selectedWorkJobType" type="String"/>
+	<aura:attribute name="workJobStatuses" type="List"/>
+	<aura:attribute name="selectedWorkJobStatus" type="String"/>
+	<aura:attribute name="selectedOwner" type="List" default="[]" />
+	<aura:attribute name="selectedProjectAOI" type="List" default="[]" />
+	<aura:attribute name="selectedLandGridTract" type="List" default="[]"/>
+	<aura:attribute name="showLandGridTractLookup" type="Boolean" default="true"/>
+	<aura:attribute name="redirectToRecordPage" type="Boolean" default="true"/>
+	<aura:attribute name="hasError" type="Boolean" default="false"/>
+	<aura:attribute name="errorMessage" type="String" default=""/>
+	<aura:attribute name="landGridTractId" type="String" default=""/>
+	<aura:attribute name="ownerId" type="String"/>
+	<aura:attribute name="titleTrackerId" type="string"/>
+	<aura:attribute name="createTitleWorkTracker" type="Boolean" default="true"/>
+	<aura:attribute name="title" type="String" default="New Title Work Tracker"/>
+
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+	<aura:handler name="change" value="{!v.selectedLandGridTract}" action=" {!c.updateLandGridTractId}"/>
+
+	<!--navigation service-->
+	<lightning:navigation aura:id="navService"/>
+
+	<!--layout-->
+	<div>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open  slds-modal_small">
+			<div class="slds-modal__container">
+				<header class="slds-modal__header">
+					<!--<lightning:button iconName="utility:close" class="slds-button slds-button_icon slds-modal__close closeIcon slds" title="Close" onclick="{!c.handleCancel}">
+					</lightning:button>-->
+					<h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.title}</h2>
+					<!--{!v.recordId}-->
+					<aura:if isTrue="{!v.hasError}">
+						<div class="slds-form-element slds-has-error">
+							<lightning:formattedText class="slds-form-element__help" value="{!v.errorMessage}"/>
+						</div>
+					</aura:if>
+				</header>
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+					<aura:if isTrue="{!v.showLandGridTractLookup}">
+						<!--<c:customLookup objectAPIName="LandGridTract__c" label="Land Grid Tract" required="true" placeholder="Search Land Grid Tracts" selectedRecord="{!v.selectedLandGridTract}"/>-->
+						<c:Lookup aura:id="landGridTractLookup" selection="{!v.selectedLandGridTract}" onSearch="{!c.lgtLookupSearch}" label="Land Grid Tract" placeholder="Search Land Grid Tracts" isMultiEntry="false" required="true"/>
+					</aura:if>
+					<!--<aura:if isTrue="{!v.createTitleWorkTracker}">-->
+						<!--<c:customLookup objectAPIName="Project_AOI__c" label="Project Name" required="false" placeholder="Search Project AOIs" selectedRecord="{!v.selectedProjectAOI}"/>-->
+						<c:Lookup aura:id="projectAOILookup" selection="{!v.selectedProjectAOI}" onSearch="{!c.projectAOILookupSearch}" label="Project Name" placeholder="Search Project AOIs" isMultiEntry="false"/>
+						<!--<aura:set attribute="else">-->
+						<lightning:select aura:id="jobTypePicklist" name="select1"  required="true" label="Title Work Job Type" value="{!v.selectedWorkJobType}">
+							<option value="" label="Select the work type?" Disabled="true"/>
+							<aura:iteration items="{!v.workJobTypes}" var="workJobType">
+								<option value="{!workJobType.value}" Disabled="{!workJobType.disabled}" Selected="{!workJobType.value == v.selectedWorkJobType}">{!workJobType.label}</option>
+							</aura:iteration>
+						</lightning:select>
+						<lightning:select aura:id="jobStatusPicklist" name="select2"  required="true" label="Title Work Job Status" value="{!v.selectedWorkJobStatus}">
+							<option value="" label="Select the work Status?" Disabled="true"/>
+							<aura:iteration items="{!v.workJobStatuses}" var="workJobStatus">
+								<option value="{!workJobStatus.value}" Disabled="{!workJobStatus.disabled}" Selected="{!workJobStatus.value == v.selectedWorkJobStatus}">{!workJobStatus.label}</option>
+							</aura:iteration>
+						</lightning:select>
+						<aura:if isTrue="{!v.selectedWorkJobStatus != 'Not Started'}">
+							<lightning:input type="date" name="input2" label="Title Work Job Start Date" value="{!v.selectedStartDate}" dateStyle="short" required="true"/>
+						</aura:if>
+						<aura:if isTrue="{!v.selectedWorkJobStatus == 'Complete'}">
+							<lightning:input type="date" name="input2" label="Title Work Job Completion Date" value="{!v.selectedCompletionDate}" dateStyle="short" required="true"/>
+						</aura:if>
+						<!--</aura:set>-->
+	
+					<!--</aura:if>-->
+					<!--Removing start date as new trackers are now created as Not Started and will not have a start date at entry-->
+					<!--<lightning:input type="date" name="input2" label="Start Date" value="{!v.selectedStartDate}" dateStyle="short" required="true"/>-->
+					<!--<c:customLookup aura:id= "srpOwnerLookup" objectAPIName="User" label="Owner" required="true" placeholder="Search Users" selectedRecord="{!v.selectedOwner}"/>-->
+					<c:Lookup aura:id="userLookup" selection="{!v.selectedOwner}" onSearch="{!c.userLookupSearch}" label="{!v.createTitleWorkTracker? 'Owner':'Title Work Job Owner'}" placeholder="Search Users" isMultiEntry="false" required="true"/>
+					<!--Removing functionality to create a new title work integration job when creating title tracker.  This will be moved to starting the tracker-->
+					<!--<lightning:select aura:id="jobTypePicklist" name="select1"  required="true" label="Title Work Job Type" value="{!v.selectedWorkJobType}">
+						<option value="" label="Select the work type?" Disabled="true"/>
+						<aura:iteration items="{!v.workJobTypes}" var="workJobType">
+							<option value="{!workJobType.value}" Disabled="{!workJobType.disabled}">{!workJobType.label}</option>
+						</aura:iteration>
+					</lightning:select>-->
+												
+					
+                </div>    
+				<footer class="slds-modal__footer">
+					<lightning:button class="slds-button slds-button_neutral" onclick="{!c.handleCancel}">Cancel</lightning:button>
+					<button class="slds-button slds-button_brand" onclick="{!c.handleSave}">Save</button>
+				</footer>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</div>
+</aura:component>

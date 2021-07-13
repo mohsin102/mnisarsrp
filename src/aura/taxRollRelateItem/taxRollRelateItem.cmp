@@ -1,0 +1,88 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" controller="taxRollRelateItemAura" >
+
+	<!--attributes-->
+	<aura:attribute name="searchString" type="String"/>
+	<aura:attribute name="updateRecordId" type="Id"/>
+	<aura:attribute name="relatedObject" type="String"/>
+	<aura:attribute name="relatedObjectLabel" type="String"/>
+	<aura:attribute name="showSearchString" type="Boolean" default="false"/>
+	<aura:attribute name="labelSuffix" type="String" default=""/>
+	<aura:attribute name="relatedFieldName" type="String"/>
+	<aura:attribute name="currentOwner" type = "TaxRollOwner__c"/>
+	<aura:attribute name="data" type="Object"/>
+	<aura:attribute name="columns" type="List"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+	<aura:attribute name="sortedBy" type="String"/>
+	<aura:attribute name="sortedDirection" type="String"/>
+	<aura:attribute name="searchCounter" type="Integer"/>
+	<aura:attribute name="selectedRecordId" type="String"/>
+	<aura:attribute name="responseValue" type="Object"/>
+	<!--handlers-->
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+	<aura:handler name="change" value="{!v.searchString}" action="{!c.clearSearchString}"/>
+	<aura:handler name="change" value="{!v.selectedRecordId}" action="{!c.updateRelatedRecord}"/>
+	<aura:handler event="force:refreshView" action="{!c.init}" />
+	
+	<!--navigation service-->
+	<!--<lightning:navigation aura:id="navService"/>-->
+
+	<aura:registerEvent name="createAccount" type="c:modalEvent"/> 
+	<!--layout-->
+	<lightning:card class="noHeader">	
+		<aura:if isTrue="{!!v.isWaiting}">
+			<div class="slds-p-around_medium">
+				<h1 class="slds-text-heading_medium displayInline"><b>{!v.data.length}&nbsp;possible&nbsp;{!v.relatedObjectLabel}&nbsp;matches&nbsp;found{!v.labelSuffix}:</b></h1>	
+			</div>
+			<aura:if isTrue="{!v.showSearchString}">
+				<div class="slds-grid">
+					<div class="slds-col slds-size_1-of-2 slds-p-around_medium">
+						<div onkeyup="{! c.handleKeyUp }">
+							<lightning:input
+								variant="label-hidden"
+								class="iconRight"
+								placeholder="Search for Account Name"
+								aura:id="enter-search"
+								name="enter-search"
+								value="{!v.searchString}"
+								type="search"
+							/>
+						</div>
+					</div>
+				</div>
+			</aura:if>
+			<aura:if isTrue="{!v.isWaiting}">
+				<div>
+					<lightning:spinner alternativeText="Loading" size="large" />
+				</div>
+				<aura:set attribute="else"> 
+					<aura:if isTrue="{!v.data.length>0}">       
+						<div aura:id="tableDiv" id="srpDataTableDiv">
+							<c:srpDataTable
+													columns="{! v.columns }"
+													data="{! v.data }"
+													keyField="Id"
+													hideCheckboxColumn="true"
+													errors="{! v.errors }"
+													suppressBottomBar="true"
+													showRowNumberColumn="false"
+													sortedBy="{!v.sortedBy}"
+													sortedDirection = "{!v.sortedDirection}"
+													onsort="{!c.handleSort}"
+													onrowcheckaction="{!c.rowCheckAction}"/>
+						</div>
+						<!--<aura:set attribute="else">
+							{!v.noRelatedObjects}
+						</aura:set>-->
+					</aura:if>
+				</aura:set>
+			</aura:if>
+			<aura:set attribute="else">
+				<div class="defaultHeight">
+					<lightning:spinner alternativeText="Loading" size="large" />
+				</div>
+			</aura:set>
+		</aura:if>
+	
+	</lightning:card>
+	<div aura:id="taxRollOwnerAccountModal" ></div>
+</aura:component>

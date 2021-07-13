@@ -1,0 +1,148 @@
+<aura:component controller="tractReconciliationAura" implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
+	<!--attributes-->
+	<aura:attribute name="totData" type="Object"/>
+	<aura:attribute name="tractData" type="Object"/>
+	<aura:attribute name="ton" type="Object"/>
+	<aura:attribute name="tractInstrumentTypeOptions" type="List"/>
+	<aura:attribute name="tractNetAcreageUnitsOptions" type="List"/>
+	<aura:attribute name="reconciliationData" type="Object"/>
+    <aura:attribute name="totColumns" type="List"/>
+	<aura:attribute name="tractColumns" type="List"/>
+	<aura:attribute name="totSortedBy" type="String"/>
+	<aura:attribute name="totSortedDirection" type="String"/>
+	<aura:attribute name="tractSortedBy" type="String"/>
+	<aura:attribute name="tractSortedDirection" type="String"/>
+	<aura:attribute name="selectedTot" type="Object"/>
+	<aura:attribute name="selectedTract" type="Object"/>
+	<aura:attribute name="addDisabled" type="Boolean" default="true"/>
+	<aura:attribute name="compareDisabled" type="Boolean" default="true"/>
+	<aura:attribute name="addIconColor" type="String" default="iconGray"/>
+	<aura:attribute name="compareIconColor" type="String" default="iconGray"/>
+	<aura:attribute name="tonHasAccount" type="Boolean" default="false"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+	<aura:attribute name="reconciliationProcessTitle" type="Aura.Component[]">
+        <h1 class="slds-text-heading_large">
+            Reconciliation Process
+        </h1>
+    </aura:attribute>
+	<aura:attribute name="noTONAccountTitle" type="Aura.Component[]">
+        <h1 class="slds-text-heading_large">
+            TON must have an Account associated to begin reconciling
+        </h1>
+    </aura:attribute>
+
+
+	<!--handlers-->
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+	<aura:handler event="force:refreshView" action="{!c.init}" />
+	<aura:handler name="render" value="{!this}" action="{!c.populateCheckBoxes}"/>
+	<aura:handler name="reconciliationResponse" event="c:tractReconciliationStatus" action="{!c.handleModalClose}"/>
+
+	<!--Component UI-->
+	<aura:if isTrue="{!v.isWaiting}">
+		<div>
+			<lightning:spinner alternativeText="Loading" size="large" />
+		</div>
+		<aura:set attribute="else">
+			<aura:if isTrue="{!v.tonHasAccount}">
+				<lightning:card title="{!v.reconciliationProcessTitle}">
+					<div class="slds-grid">
+						<div class="slds-col slds-size_1-of-2">
+							<div class="slds-grid slds-gutters">
+								<div class="slds-col slds-size_11-of-12 leftColumn">
+									<div class="slds-grid slds-gutters">
+										<div class="slds-col slds-size_8-of-12">
+											<h1 class="slds-text-heading_medium fontMedium">
+												Targeted Ownership Tracts (TOT)
+											</h1>
+											<h2>
+												List of TOTS for {!v.ton.account__r.Name}
+											</h2>
+										</div>
+										<div class="slds-col slds-size_4-of-12">
+											<div class="slds-float_left">
+												<lightning:button label="Click Add Icon to create a Tract from TOT " iconName="utility:add" iconPosition="left" class="{!v.addIconColor + ' headerButton'}" disabled="{!v.addDisabled}" aura:id="addButton" onclick="{!c.addTract}"/>
+											</div>
+											<div class="slds-float_left">
+												<lightning:button label="Click Compare icon to compare a TOT to Tract" iconName="utility:relate" iconPosition="left" class="{!v.compareIconColor +  ' headerButton'}" disabled="{!v.compareDisabled}"  aura:id="compareButton" onclick="{!c.compareTract}"/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="slds-col slds-size_1-of-12 centerColumn">
+								</div>
+							</div>
+						</div>
+						<div class="slds-col slds-size_1-of-2">
+							<div class="slds-col slds-size_1-of-1 rightColumn">
+								<h1 class="slds-text-heading_medium fontMedium">
+									Salesforce Tract
+								</h1>
+								<h2>
+									List of Tracts for {!v.ton.account__r.Name}
+								</h2>
+				
+							</div>
+						</div>
+					</div>
+					<div class="slds-grid">
+						<div class="slds-col slds-size_1-of-2">
+							<div class="slds-grid slds-gutters">
+								<div class="slds-col slds-size_11-of-12 leftColumn">
+									<lightning:card >
+										<c:srpDataTable
+											aura:id="totTable"
+											columns="{! v.totColumns }"
+											data="{! v.totData }"
+											
+											keyField="Id"
+											errors="{! v.errors }"
+											draftValues="{! v.totDraftValues }"
+											hideCheckboxColumn="false"
+											suppressBottomBar="true"
+											showRowNumberColumn="false"
+											sortedBy="{!v.totSortedBy}"
+											sortedDirection = "{!v.totSortedDirection}"
+											onsort="{!c.updateTOTSorting}"
+											onrowselection="{!c.updateTotSelection}"/>
+									</lightning:card>
+								</div>
+								<div class="slds-col slds-size_1-of-12 centerColumn">
+									<!--comparison icons in this column-->
+								</div>
+							</div>
+						</div>
+						<div class="slds-col slds-size_1-of-2">
+							<div class="slds-col rightColumn">
+								<lightning:card>
+                                    <!--class="reconTable"-->
+									<c:srpDataTable
+										aura:id="tractTable"
+										columns="{! v.tractColumns }"
+										data="{! v.tractData }"
+										
+										keyField="Id"
+										errors="{! v.tractErrors }"
+										draftValues="{! v.tractDraftValues }"
+										hideCheckboxColumn="false"
+										suppressBottomBar="true"
+										showRowNumberColumn="false"
+										minColumnWidth="25"
+										maxColumnWidth="300"
+										sortedBy="{!v.tractSortedBy}"
+										sortedDirection = "{!v.tractSortedDirection}"
+										onsort="{!c.updateTractSorting}"
+										onrowselection="{!c.updateTractSelection}"/>
+								</lightning:card>
+							</div>
+						</div>
+					</div>
+				</lightning:card>
+				<aura:set attribute="else">
+					<lightning:card title="{!v.noTONAccountTitle}"/>
+				</aura:set>
+			</aura:if>
+		</aura:set>
+	</aura:if>
+	<div aura:id="reconciliationModal" ></div>
+</aura:component>

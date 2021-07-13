@@ -1,0 +1,8 @@
+.THIS .slds-button__icon{
+    display:none;
+}
+
+.THIS .dataTable th:nth-child(n+5) {
+    direction:rtl !important;
+    text-align:right !important;
+}

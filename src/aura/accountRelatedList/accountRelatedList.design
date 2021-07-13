@@ -1,0 +1,6 @@
+<design:component>
+	<sfdc:objects>
+        <sfdc:object>Account</sfdc:object>
+    </sfdc:objects>
+    <design:attribute name="relatedObject" label="Object API Name for the list of related Objects " required="true" datasource="Tract__c, unitAllocation__c"/>
+</design:component>

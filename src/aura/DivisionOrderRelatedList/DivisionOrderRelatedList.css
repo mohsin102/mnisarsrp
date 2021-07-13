@@ -1,0 +1,27 @@
+.THIS .slds-button {
+    height: 10px !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: contents;
+}
+
+.THIS.slds-button {
+    height: 10px !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: contents;
+}
+
+.THIS.hideCmp {
+    display: none;
+}
+
+.THIS .maxHeight {
+	height: 400px;
+    overflow: auto;
+}
+
+.THIS .scrollerSize {
+	height: 200px;
+    overflow: auto;
+}

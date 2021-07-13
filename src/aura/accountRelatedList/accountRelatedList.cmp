@@ -1,0 +1,49 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="AccountRelatedListAura">
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="sortedBy" type="String"/>
+    <aura:attribute name="sortedDirection" type="String"/>
+    <aura:attribute name="defaultSortDirection" type="String"/>
+    <aura:attribute name="loadMoreStatus" type="String" default="Please scroll down to load more data"/>
+    <aura:attribute name="enableInfiniteLoading" type="Boolean" default="true"/>
+    <aura:attribute name="totalNumberOfRows" type="Integer" default="0"/>
+    <aura:attribute name="currentCount" type="Integer" default="0"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+	<aura:attribute name="relatedObject" type="String" default=""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <ltng:require scripts="{!$Resource.jsSRPUtility}" afterScriptsLoaded="{!c.jsLoaded}" />
+	<lightning:card>
+		<aura:if isTrue="{!v.isWaiting}">
+			<div class="slds-m-around_x-small" style="height: 300px">
+				<!--<lightning:spinner alternativeText="Loading" size="large" />-->
+				<img src="{!$Resource.srpLoading}" class="slds-align_absolute-center"/>
+			</div>
+			<aura:set attribute="else">
+				<div class="slds-m-around_x-small" style="height: 300px">
+					<c:srpDataTable
+						aura:id="datatable" 
+						columns="{!v.columns}"
+						data="{!v.data}"
+						keyField="Id"
+						hideCheckboxColumn="true"
+						enableInfiniteLoading="{!v.enableInfiniteLoading}"
+						sortedBy="{!v.sortedBy}"
+						sortedDirection="{!v.sortedDirection}"
+						defaultSortDirection="{!v.defaultSortDirection }"
+						onsort="{!c.handleColumnSorting}"
+						onloadmore="{!c.handleLoadMore}"/>
+					<!--<br/>
+					<br/>-->	
+				</div>		
+		
+				<!--<div class="slds-float_right slds-m-top_small slds-m-bottom_small">-->
+				<div class="slds-clearfix">
+					<div class="slds-float_right slds-m-top_small">
+						<p><strong>{!v.loadMoreStatus}</strong></p>
+					</div>
+				</div>
+			</aura:set>
+		</aura:if>
+	</lightning:card>
+</aura:component>

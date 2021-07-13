@@ -1,0 +1,6 @@
+<design:component>
+	<design:attribute name="Type"
+                    label="Type"
+                    datasource="Active,Inactive,Both" />
+    <design:attribute name="showButton" label="Display button(s)?" />
+</design:component>
