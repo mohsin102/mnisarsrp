@@ -1,0 +1,17 @@
+.THIS .modalHeight{
+    height: 25rem;
+}
+
+.THIS .paddingAround {
+    padding: 10px 10px 0px 10px;
+    margin: 20px 20px 0px 20px;
+}
+
+.THIS .paddingTop {
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.THIS .paddingNone {
+    padding: 0px 0px 0px 0px;
+}

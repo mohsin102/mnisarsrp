@@ -1,0 +1,6 @@
+<design:component>
+    <sfdc:objects>
+        <sfdc:object>InventoryAsset__c</sfdc:object>
+    </sfdc:objects>
+	<design:attribute name="relatedType" label="Related Type" datasource="Asset Acquisition, Asset Acquisition Override, Asset Sale, Asset Sale Override" required="True" />
+</design:component>

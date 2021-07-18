@@ -1,0 +1,45 @@
+<aura:component controller="taxRollRelateItemAura">
+	<aura:attribute name="fields" type="String" default="['Name']"/>
+	<aura:attribute name="taxRollOwner" type="Object"/>
+	<aura:attribute name="taxRollOwnerId" type="String"/>
+	<aura:attribute name="pageReference" type="Object"/>
+	<aura:attribute name="relatedFieldName" type="String"/>
+
+	<!--<aura:handler name="init" value="{! this }" action="{! c.init }"/>-->
+	
+
+	<!--layout-->
+	<div>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open  slds-modal_medium">
+			<div class="slds-modal__container">
+				<header class="slds-modal__header">
+					<!--<lightning:button iconName="utility:close" class="slds-button slds-button_icon slds-modal__close closeIcon slds" title="Close" onclick="{!c.handleCancel}">
+				  </lightning:button>-->
+				  <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Create New Account for {!v.taxRollOwner.ownerName__c}</h2>
+				</header>
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p class="slds-p-around_medium largeFont" style="font-size:large">
+                        Tax Roll Owner Name: {!v.taxRollOwner.ownerName__c}<br/>
+                        Tax Roll Owner Address: {!v.taxRollOwner.ownerAddress__c}<br/>
+                    </p>
+					<lightning:recordEditForm aura:id="recordViewForm"
+                                     objectApiName="Account" onsuccess="{!c.handleSuccess}">
+						<lightning:messages />
+						<lightning:inputField fieldName="Name" value="{!v.ton.ownerName__c}"/>
+						<lightning:inputField fieldName="BillingAddress" />
+						<lightning:inputField fieldName="Type" />
+						<lightning:inputField fieldName="ParentId" />
+						<lightning:inputField fieldName="Ford_Owner_Location__c" />
+						<lightning:inputField fieldName="FocalPoint_Cohort__c" />
+						<!--<lightning:button aura:id="submit" type="submit" label="Update record" class="slds-m-top_medium" />-->
+					</lightning:recordEditForm>
+				</div>
+				<footer class="slds-modal__footer">
+					<lightning:button class="slds-button slds-button_neutral" onclick="{!c.handleCancel}">Cancel</lightning:button>
+					<button class="slds-button slds-button_brand" onclick="{!c.handleSave}">Save and Associate</button>
+				</footer>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</div>
+</aura:component>

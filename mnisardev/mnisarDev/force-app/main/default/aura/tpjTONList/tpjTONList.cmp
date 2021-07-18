@@ -1,0 +1,65 @@
+<aura:component controller="tpjTONListAura" implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
+	
+	<!--attributes-->
+	<aura:attribute name="recordId" type="String"/>
+	<aura:attribute name="sObjectName" type="String"/>
+    <aura:attribute name="data" type="Object"/>
+	<aura:attribute name="columns" type="List"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+	<aura:attribute name="sortedBy" type="String"/>
+	<aura:attribute name="sortedDirection" type="String"/>
+	<aura:attribute name="pageReference" type="Object"/>
+	<aura:attribute name="selectedTonId" type="String"/>
+	<aura:attribute name="unassignedTORTitle" type="Aura.Component[]">
+        <h2 class="slds-text-heading_small">
+            <p class="slds-m-bottom_medium">Instructions: Click on a TON name to search for a Salesforce Account Name.</p>
+			<p>Targeted Ownership Names (TON) for {!v.data[0].tpjName}</p>
+        </h2>
+		<h2 class="slds-text-body_small">
+            <p>List of TONs for LandGrid Tract {!v.data[0].landGridTractName}</p>
+        </h2>
+    </aura:attribute>
+
+
+	<!--navigation service-->
+	<lightning:navigation aura:id="navService"/>
+	
+	<!--handlers-->
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+	<aura:handler event="force:refreshView" action="{!c.init}" />
+	<aura:handler name="createAccount" event="c:modalEvent" action="{!c.handleAddAccount}"/>
+
+
+	<lightning:card>	
+		<div class="slds-p-around_medium">
+			<h1 class="slds-text-heading_large"><b>TON Name List</b></h1>
+		</div>
+		<aura:if isTrue="{!v.isWaiting}">
+			<div>
+				<lightning:spinner alternativeText="Loading" size="large" />
+			</div>
+			<aura:set attribute="else">
+				<lightning:card title="{!v.unassignedTORTitle}" >
+					<c:srpDataTable
+						columns="{! v.columns }"
+						data="{! v.data }"
+						keyField="tonId"
+						errors="{! v.errors }"
+						draftValues="{! v.draftValues }"
+						oncellchange="{! c.updateDataValues }"
+						hideCheckboxColumn="true"
+						suppressBottomBar="true"
+						showRowNumberColumn="false"
+						minColumnWidth="25"
+						maxColumnWidth="300"
+						sortedBy="{!v.sortedBy}"
+						sortedDirection = "{!v.sortedDirection}"
+						onsort="{!c.updateSorting}"
+						onrowaction="{!c.displayModal}"/>
+				</lightning:card>
+			</aura:set>
+		</aura:if>
+	</lightning:card>
+	<div aura:id="tpjTONAssociationModal" ></div>
+
+</aura:component>

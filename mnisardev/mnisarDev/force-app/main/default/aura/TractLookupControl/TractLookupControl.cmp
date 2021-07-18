@@ -1,0 +1,37 @@
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:actionOverride,force:hasRecordId,force:hasSObjectName" access="global">
+    <aura:attribute name="sobjecttype" type="String" default="{!v.sObjectName}"/>
+    <aura:attribute name="recordId" type="Id" />
+	<div class="slds-page-header" style="border-bottom: 1px solid #dddbda; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);">
+
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <lightning:icon iconName="utility:search" size="normal" alternativeText="Search icon"/>
+            </div>
+            <div class="slds-media__body">
+
+                    <aura:if isTrue="{!v.sobjecttype == 'Case'}">
+                        <h1 class="slds-page-header__title slds-truncate slds-align-middle">Add Tracts to Case</h1>
+                        <p class="slds-text-body_small slds-line-height_reset">Enter any part of a Land Grid Tract name, separated by spaces.  For example: "Howard T2N 33".
+                        Multiple selections may be made.  Once All Land Grid Tracts have been selected, click Add to create tracts associated with the Case.</p>
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!v.sobjecttype == 'Tract__c'}">
+                                <h1 class="slds-page-header__title slds-truncate slds-align-middle">Link Land Grid Tract</h1>
+                                <p class="slds-text-body_small slds-line-height_reset">Enter any part of a Land Grid Tract name, separated by spaces.  For example: "Howard T2N 33".
+                                Once selected, click Link to associate the Land Grid Tract to the current Tract.</p>
+                                <aura:set attribute="else">
+                                    <h1 class="slds-page-header__title slds-truncate slds-align-middle">Find a Land Grid Tract</h1>
+                                    <p class="slds-text-body_small slds-line-height_reset">Enter any part of a Land Grid Tract name, separated by spaces.  For example: "Howard T2N 33"</p>
+                                </aura:set>
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+
+
+
+                    <c:TractLookupContainer objName="{!v.sobjecttype}" parentId="{!v.recordId}"/>
+
+
+            </div>
+        </div>
+    </div>
+</aura:component>

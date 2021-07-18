@@ -1,0 +1,43 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" controller="titleWorkTrackerAura">
+    
+    <aura:attribute name="recordId" type="string"/>
+	<aura:attribute name="sObjectName" type="string"/>
+    <aura:attribute name="data" type="Object"/>
+	<aura:attribute name="hasTrackerInProgress" type="Boolean" default="false"/>
+	<aura:attribute name="createTrackerTitle" type="String" default="Create new Title Work Tracker"/>
+
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="sortedBy" type="String" />
+    <aura:attribute name="sortedDirection" type="String"/>
+    <aura:attribute name="listlength" type="String" />
+	<aura:attribute name="isWaiting" type="Boolean" default="false"/>
+	<aura:attribute name="showButton" type="Boolean" default="false"/>
+	<aura:attribute name="buttonLabel" type="String" default=""/>
+	<aura:attribute name="buttonAction" type="String" default=""/>
+	<aura:attribute name="relatedObject" type="String" default=""/>
+	<aura:attribute name="cardLabel" type="String" default="Related List"/>
+	<aura:attribute name="activeSections" type="List"/>
+    <aura:attribute name="activeSectionsMessage" type="String" default="" />
+	<lightning:quickActionAPI aura:id="quickActionAPI" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:handler event="force:refreshView" action="{!c.refreshData}" />
+	
+	<!--navigation service-->
+	<lightning:navigation aura:id="navService"/>
+	
+	<lightning:card>
+		<aura:if isTrue="{!v.isWaiting}">
+			<div>
+				<lightning:spinner alternativeText="Loading" size="large" />
+			</div>
+			<aura:set attribute="else"> 
+				<aura:iteration items="{!v.data}" var="titleWorkTracker" indexVar="i">
+					<div class=" slds-p-around_medium">
+						<c:titleWorkTrackingCard titleTrackingRecord="{!titleWorkTracker}" />
+					</div>
+				</aura:iteration>
+			</aura:set>
+		</aura:if>
+	</lightning:card>
+	<div aura:id="modalArea" ></div>
+</aura:component>

@@ -1,0 +1,146 @@
+<aura:component controller="tractReconciliationAura" implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
+	<!--attributes-->
+	<aura:attribute name="ton" type="Object"/>
+	<aura:attribute name="reconciliationData" type="Object"/>
+    <aura:attribute name="totColumns" type="List"/>
+	<aura:attribute name="tractColumns" type="List"/>
+	<aura:attribute name="reconciledColumns" type="List"/>
+	<aura:attribute name="sortedBy" type="String"/>
+	<aura:attribute name="sortedDirection" type="String"/>
+	<aura:attribute name="hasReconciledItems" type="Boolean" default="false"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+	<aura:attribute name="reconciliationProcessTitle" type="Aura.Component[]">
+        <h1 class="slds-text-heading_large">
+            Reconciled TOTs/Tracts
+        </h1>
+    </aura:attribute>
+	<aura:attribute name="noReconcilationsTitle" type="Aura.Component[]">
+        <h1 class="slds-text-heading_large">
+            No Reconciliations have been completed for this TON
+        </h1>
+    </aura:attribute>
+
+
+
+	<!--handlers-->
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+	<aura:handler event="force:refreshView" action="{!c.init}" />
+
+	<!--Component UI-->
+	<aura:if isTrue="{!v.isWaiting}">
+		<div>
+			<lightning:spinner alternativeText="Loading" size="large" />
+		</div>
+		<aura:set attribute="else">	
+			<aura:if isTrue="{!v.hasReconciledItems}">
+				<lightning:card title="{!v.reconciliationProcessTitle}">
+					<div class="slds-grid">
+						<div class="slds-col slds-size_1-of-2">
+							<div class="slds-grid slds-gutters">
+								<div class="slds-col slds-size_11-of-12 leftColumn">
+									<div class="slds-grid slds-gutters">
+										<div class="slds-col slds-size_8-of-12">
+											<h1 class="slds-text-heading_medium fontMedium">
+												Targeted Ownership Tracts (TOT)
+											</h1>
+											<h2>
+												List of TOTS for {!v.ton.account__r.Name}
+											</h2>
+										</div>
+										<div class="slds-col slds-size_4-of-12">
+										</div>
+									</div>
+								</div>
+								<div class="slds-col slds-size_1-of-12 centerColumn">
+								</div>
+							</div>
+						</div>
+						<div class="slds-col slds-size_1-of-2">
+							<div class="slds-col slds-size_1-of-1 rightColumn">
+								<h1 class="slds-text-heading_medium fontMedium">
+									Salesforce Tract
+								</h1>
+								<h2>
+									List of Tracts for {!v.ton.account__r.Name}
+								</h2>
+				
+							</div>
+						</div>
+					</div>
+					<div class="slds-grid">
+						<div class="slds-col slds-size_1-of-2">
+							<div class="slds-grid">
+								<div class="slds-col slds-size_11-of-12 leftColumn">
+									<lightning:card >
+                                        <!--class="reconTable"-->
+										<c:srpDataTable
+											aura:id="totTable"
+											columns="{! v.totColumns }"
+											data="{! v.reconciliationData }"
+											keyField="reconciliationId"
+											errors="{! v.errors }"
+											draftValues="{! v.totDraftValues }"
+											hideCheckboxColumn="true"
+											suppressBottomBar="true"
+											showRowNumberColumn="false"
+											minColumnWidth="20"
+											sortedBy="{!v.sortedBy}"
+											sortedDirection = "{!v.sortedDirection}"
+											onsort="{!c.updateSorting}"
+											onrowaction="{!c.displayModal}"/>
+									</lightning:card>
+								</div>
+								<div class="slds-align_absolute-center slds-table slds-table_cell-buffer slds-table_header-hidden">
+									<lightning:card >
+										<c:srpDataTable
+											aura:id="reconTable"
+											columns="{! v.reconciledColumns }"
+											data="{! v.reconciliationData}"
+											class="reconTable"
+											keyField="reconciliationId"
+											errors="{! v.errors }"
+											draftValues="{! v.totDraftValues }"
+											hideCheckboxColumn="true"
+											suppressBottomBar="true"
+											showRowNumberColumn="false"
+											sortedBy="{!v.sortedBy}"
+											sortedDirection = "{!v.sortedDirection}"
+											onsort="{!c.updateSorting}"
+                                            onrowaction="{!c.displayModal}"/>
+									</lightning:card>
+								</div>
+							</div>
+						</div>
+						<div class="slds-col slds-size_1-of-2">
+							<div class="slds-col rightColumn">
+								<lightning:card>
+									<c:srpDataTable
+										aura:id="tractTable"
+										columns="{! v.tractColumns }"
+										data="{! v.reconciliationData }"
+										keyField="reconciliationId"
+										errors="{! v.tractErrors }"
+										draftValues="{! v.tractDraftValues }"
+										hideCheckboxColumn="true"
+										suppressBottomBar="true"
+										showRowNumberColumn="false"
+										minColumnWidth="25"
+										maxColumnWidth="300"
+										sortedBy="{!v.sortedBy}"
+										sortedDirection = "{!v.sortedDirection}"
+										onsort="{!c.updateSorting}"/>
+								</lightning:card>
+							</div>
+						</div>
+					</div>
+				</lightning:card>
+				<aura:set attribute="else">
+					<lightning:card title="{!v.noReconcilationsTitle}"/>
+				</aura:set>
+			</aura:if>
+		</aura:set>
+	</aura:if>
+	<div aura:id="reconciliationModal" ></div>
+	
+	
+</aura:component>

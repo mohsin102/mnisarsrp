@@ -1,0 +1,37 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global" controller="GISUpdateRequestController">
+	<aura:attribute name="gisUpdateRequestRecord" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+	<aura:attribute name="statusIcon" type="String" default="order_item"/>
+	<aura:attribute name="status" type="String" default="Open"/>
+	<aura:attribute name="canComplete" type="Boolean" default="false"/>
+	<aura:attribute name="canUpdateShape" type="Boolean" default="false"/>
+
+	<aura:attribute name="title" type="Aura.Component[]">
+        <lightning:icon iconName="{!'standard:' + v.statusIcon}" alternativeText="Update Status" />
+        &nbsp; <b style="font-size: 15px;"> GIS Update Request Status - {!v.status}</b>	
+    </aura:attribute>
+
+	<!--<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>-->
+	<force:recordData aura:id="recordLoader"
+    recordId="{!v.recordId}"
+    fields="Completed_By__c,Completion_Date__c,Shape_UpdatedBy__c,Shape_Updated_Date__c"
+    targetFields="{!v.gisUpdateRequestRecord}"
+    targetError="{!v.recordLoadError}"
+	recordUpdated="{!c.handleRecordUpdated}"
+    />
+
+
+	<lightning:card title="{!v.title}" >
+		<aura:set attribute = "actions">
+			<aura:if isTrue="{!v.canComplete}">
+				<lightning:button variant="brand" label="Complete" title="Mark Request Complete" onclick="{! c.completeClick }" />
+			</aura:if>
+			<aura:if isTrue="{!v.canUpdateShape}">
+				<lightning:button variant="brand" label="Shape Updated" title="Mark Request as Shape Updated" onclick="{! c.shapeUpdatedClick }" />	
+			</aura:if>
+		</aura:set>
+	</lightning:card>
+
+
+
+</aura:component>

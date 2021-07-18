@@ -1,0 +1,42 @@
+<aura:component implements="flexipage:availableForAllPageTypes"  controller="ImportCdexChecks">
+    
+    <aura:attribute name="retMap" type="List"/>
+    <aura:attribute name="folderName" type="string"/>
+    <aura:attribute name="showResults" type="boolean"/>
+    <aura:attribute name="isError" type="boolean"/>
+    <aura:attribute name="errorStr" type="string"/>
+    <aura:attribute name="loading" type="boolean"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:card title="Upload Cdex Checks" iconName="utility:overflow">
+        <p class="slds-p-horizontal_small">
+            <ul class="slds-list_dotted">
+                <li>Go to the files tab from the app launcher.</li>
+                <li>Click on Libraries from the the left column.</li>
+                <li>Open the folder : {!v.folderName}_CdexChecks</li>
+                <li>Upload Cdex Checks</li>
+            </ul>
+            <br/>
+            <aura:if isTrue="{!v.showResults}">
+                
+                <aura:if isTrue="{!v.isError}">
+                    <div style="color: Red">
+                        Error Encountered: {!v.errorStr}
+                    </div>
+                    <aura:set attribute="else">
+                        <b>Import Details-<br/></b>
+                        <aura:iteration items="{!v.retMap}" var="cdex" indexVar="key">
+                            Cdex {!cdex.key} Upserted: <b>{!cdex.value}</b><br/>
+                        </aura:iteration>
+                    </aura:set>
+                </aura:if>
+            </aura:if>
+        </p>
+        <aura:set attribute="footer">
+            <lightning:button label="Upload Cdex Check" onclick="{! c.handleClick }" variant="brand"/>
+            
+        </aura:set>
+        <aura:if isTrue="{! v.loading }">
+            <lightning:spinner alternativeText="Loading" />
+        </aura:if>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,40 @@
+<aura:component
+    implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName"
+    access="global">
+    <aura:attribute name="caseRecord" type="Object" />
+    <aura:attribute name="recordLoadError" type="String" />
+    <aura:attribute name="showButton" type="boolean" default="false" />
+    
+    <force:recordData
+        aura:id="recordLoader"
+        recordId="{!v.recordId}"
+        fields="Type"
+        targetFields="{!v.caseRecord}"
+        targetError="{!v.recordLoadError}"
+        recordUpdated="{!c.handleRecordUpdated}"/>
+
+    <aura:if isTrue="{!v.showButton}">
+        <div class="slds-card">
+            <div class="slds-p-around_x-small">
+                <div class="slds-clearfix">
+                    <div class="slds-float_right"
+                    style="
+                        padding-top: 7px;
+                        padding-left: 92%;
+                        z-index: 2;
+                        position: absolute;">
+                        <lightning:button
+                            label="New"
+                            variant="brand"
+                            onclick="{!c.newDivOrder}"/>
+                    </div>
+                </div>
+            <c:DivisionOrderRelatedList
+                recordId="{!v.recordId}"
+                sObjectName="{!v.sObjectName}"
+                aura:Id="relatedList"
+            />
+            </div>
+        </div>
+    </aura:if>
+</aura:component>

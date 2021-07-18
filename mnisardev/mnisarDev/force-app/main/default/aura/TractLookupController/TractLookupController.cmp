@@ -1,0 +1,9 @@
+<aura:component access="global" controller="GridLookupController" implements="force:hasRecordId,force:hasSObjectName">
+    <aura:attribute access="private" type="List" name="selection" default="[]"/>
+    <aura:attribute name="sobjecttype" type="String" default="{!v.sObjectName}"/>
+    <aura:attribute name="recordId" type="Id" />
+
+    <div class="slds-form slds-form_stacked slds-m-around_xx-large">
+        <c:Lookup aura:id="lookup" selection="{!v.selection}" onSearch="{!c.lookupSearch}" label="Search" placeholder="Search Salesforce"/>
+    </div>
+</aura:component>

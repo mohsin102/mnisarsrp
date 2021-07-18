@@ -1,0 +1,38 @@
+<apex:page id="TractTransactionList" StandardController="Tract__c" extensions="TractExtension" lightningStylesheets="true">
+
+
+    <apex:slds />
+    <div id="myTable" style="width:100%" class="slds-scope">
+    <apex:dataTable value="{! oppTractList}" var="ot" rowClasses="odd,even" styleClass="tableClass" width="100%" columns="8">
+        <apex:facet name="caption">
+            Total Related Opportunities: {! oppTractList.size }
+        <br /><br />
+        </apex:facet>
+        <!--<apex:facet name="header">-->
+            <!--Transactions-->
+        <!--</apex:facet>-->
+        <apex:column width="20%">
+            <apex:facet name="header">Opportunity</apex:facet>
+            <apex:outputLink value="{!URLFOR($Action.Opportunity.View,ot.Opportunity__r.Id)}" rendered="{! NOT(ISBLANK(ot.Opportunity__c))}">{! ot.Opportunity__r.Name}</apex:outputLink>
+        </apex:column>
+
+        <apex:column width="20%">
+            <apex:facet name="header">Seller</apex:facet>
+            <apex:outputLink value="{!URLFOR($Action.Account.View,ot.Opportunity__r.AccountId)}" rendered="{!NOT(ISBLANK(ot.Opportunity__r.Account))}">{! ot.Opportunity__r.Account.Name}</apex:outputLink>
+        </apex:column>
+        <apex:column width="20%">
+            <apex:facet name="header">Buyer</apex:facet>
+            <apex:outputLink value="{!URLFOR($Action.Account.View,ot.Opportunity__r.Acquiring_Entity__c)}" rendered="{! NOT(ISBLANK(ot.Opportunity__r.Acquiring_Entity__c))}">{! ot.Opportunity__r.Acquiring_Entity__r.Name}</apex:outputLink>
+        </apex:column>
+        <apex:column value="{! ot.Opportunity__r.StageName }" headerValue="Stage"  width="10%"/>
+        <apex:column value="{! ot.Opportunity__r.Type }" headerValue="Type" width="10%" />
+        <apex:column value="{! ot.Opportunity__r.PSA_Date__c }" headerValue="PSA Date"  width="10%"/>
+        <apex:column value="{! ot.Opportunity__r.CloseDate }" headerValue="Close Date" width="10%" />
+        <apex:column >
+            <apex:facet name="header">Owner</apex:facet>
+            <apex:outputText value="{! ot.Opportunity__r.Owner.Name}" />
+        </apex:column>
+
+    </apex:dataTable>
+    </div>
+</apex:page>

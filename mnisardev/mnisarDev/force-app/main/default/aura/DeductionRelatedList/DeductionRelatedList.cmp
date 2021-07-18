@@ -1,0 +1,41 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" controller="DeductionController">
+    
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="sortedBy" type="String" />
+    <aura:attribute name="sortedDirection" type="String"/>
+    <aura:attribute name="listlength" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!--navigation service-->
+	<lightning:navigation aura:id="navService"/>
+    <div aria-labelledby="newexpenseform">
+        <div class="slds-scrollable" style="height:15rem;">
+        <fieldset class="slds-box slds-theme--default" width="100%">
+            
+             <div class="slds-container--X-large">
+            <lightning:icon iconName="custom:custom102" alternativeText="Deductions" />
+             
+            &nbsp; <b style="font-size: 15px;"> Deductions ({!v.listlength})</b>
+             </div>
+			
+			 <span style="height:5px;" ></span> 
+                
+                <c:srpDataTable
+                                        class="slds-p-around_medium"
+                                        columns="{! v.mycolumns }"
+                                        data="{! v.data }"
+                                        keyField="Id"
+                                        hideCheckboxColumn="true"
+                                        errors="{! v.errors }"
+                                        suppressBottomBar="true"
+                                        showRowNumberColumn="false"
+                                        sortedBy="{!v.sortedBy}"
+                                        sortedDirection = "{!v.sortedDirection}"
+                                        onsort="{!c.handleSort}"/>
+                
+            
+        </fieldset>
+        </div>
+    </div>
+</aura:component>

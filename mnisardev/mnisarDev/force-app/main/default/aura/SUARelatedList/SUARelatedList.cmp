@@ -1,0 +1,38 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName" controller="SubtractUnitAllocationController">
+    
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="Type" type="string" default="Both"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="sortedBy" type="String" />
+    <aura:attribute name="sortedDirection" type="String"/>
+    <aura:attribute name="listlength" type="String" />
+	<aura:attribute name="acctName" type="string" default=""/>	
+    <aura:attribute name="isScrollable" type="boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:method name="callChild" action="{!c.handleComponentEvent}" />
+
+    <div aria-labelledby="newexpenseform">
+        
+        <div class="slds-box slds-theme--default" width="100%">
+            
+			<div  style="height:20rem;"> 
+                
+                <c:srpDataTable
+                                        
+                                        columns="{! v.mycolumns }"
+                                        data="{! v.data }"
+                                        keyField="Id"
+                                        hideCheckboxColumn="true"
+                                        errors="{! v.errors }"
+                                        suppressBottomBar="true"
+                                        showRowNumberColumn="false"
+                                        sortedBy="{!v.sortedBy}"
+                                        sortedDirection = "{!v.sortedDirection}"
+                                        onsort="{!c.handleSort}"
+                                />
+                
+            </div>
+        </div>
+    </div>
+</aura:component>

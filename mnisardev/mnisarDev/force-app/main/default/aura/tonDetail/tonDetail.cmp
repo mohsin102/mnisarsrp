@@ -1,0 +1,41 @@
+<aura:component controller="tpjTONListAura" implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
+	<aura:attribute name="ton" type="Object"/>
+	<aura:attribute name="hasAssociation" type="Boolean" default="false"/>
+
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+	<aura:handler name="createAccount" event="c:modalEvent" action="{!c.handleAddAccount}"/>
+	<aura:handler event="force:refreshView" action="{!c.processUpdate}" />
+
+	<lightning:recordViewForm aura:id="forceRecord" recordId="{!v.recordId}" objectApiName="TargetOwnershipName__c">
+		<lightning:card>
+			<div class="slds-grid slds-grid_align-space slds-box">
+				<div class="slds-col slds-size_1-of-2 slds-p-horizontal_medium">
+					<!-- Auto Number -->
+					<lightning:outputField fieldName="Name" />
+					<lightning:outputField fieldName="ownerName__c" />
+					<lightning:outputField fieldName="account__c" />
+					<aura:if isTrue="{!v.hasAssociation}">
+						<lightning:button class="slds-button slds-button_neutral" onclick="{!c.showModal}" >Account Assn.</lightning:button>
+					</aura:if>
+				</div>
+				<div class="slds-col slds-size_1-of-2 slds-p-horizontal_medium">
+					<!-- Auto Number -->
+					<lightning:outputField fieldName="jobId__c" />
+                    <lightning:outputField fieldName="landGridTract__c" />
+					<lightning:outputField fieldName="address__c" />
+					<lightning:outputField fieldName="final__c" />
+				</div>
+			</div>
+		</lightning:card>
+	</lightning:recordViewForm>
+	<div aura:id="tpjTONAssociationModal" ></div>
+	<!--<div class="slds-grid">
+		<div class = "slds-col slds-size_1-of-2">
+			<lightning:outputField 
+		</div>
+		<div class = "slds-col slds-size_1-of-2">
+		</div>
+	</div>-->
+
+	
+</aura:component>

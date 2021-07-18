@@ -1,0 +1,53 @@
+<aura:component
+                implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName"
+                access="global"
+                controller="DivisionOrderRelatedListAura">
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="sObjectName" type="string" />
+    <aura:attribute name="data" type="Object" />
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="sortBy" type="String" />
+    <aura:attribute name="sortDirection" type="String" />
+    <aura:attribute name="defaultSortDirection" type="String" default="asc" />
+    <aura:attribute name="height" type="Integer" />
+    <aura:attribute name="width" type="Integer" />
+    <aura:attribute name="listlength" type="String" />
+    
+    <lightning:workspaceAPI aura:id="workspace" />
+    <lightning:navigation aura:id="navService" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <ltng:require scripts="{!$Resource.jsSRPUtility}" afterScriptsLoaded="{!c.jsLoaded}" />
+    <lightning:card>
+        <div aura:id="DivOrderRelatedList">
+            
+            <div class="slds-clearfix slds-var-m-left_medium">
+                <lightning:icon
+                                iconName="standard:visit_templates"
+                                alternativeText="Division Orders"
+                                style="width: 25px; height: 25px;"
+                                />
+                &nbsp;
+                <b style="font-size: 15px">Division Orders ({!v.listlength})</b>
+            </div>
+            
+            <div aura:id="tableDiv" class="slds-m-around_x-small">
+                <span style="height: 15px"></span>
+                <ui:scrollerWrapper aura:id="scrollerdiv" class="scrollerSize">
+                    <lightning:datatable
+                                         data="{!v.data}"
+                                         columns="{!v.columns}"
+                                         keyField="id"
+                                         hideCheckboxColumn="true"
+                                         sortedBy="{!v.sortBy}"
+                                         sortedDirection="{!v.sortDirection}"
+                                         onsort="{!c.handleSort}"
+                                         onrowaction="{!c.handleRowAction}"
+                                         resize-column-disabled=""
+                                         />
+                </ui:scrollerWrapper>
+            </div>
+            
+        </div>
+    </lightning:card>
+</aura:component>

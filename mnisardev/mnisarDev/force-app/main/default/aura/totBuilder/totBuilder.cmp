@@ -1,0 +1,85 @@
+<aura:component controller="totBuilderAura" implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
+    <!-- attributes -->
+	<aura:attribute name="recordId" type="String"/>
+	<aura:attribute name="sObjectName" type="String"/>
+    <aura:attribute name="data" type="Object"/>
+	<aura:attribute name="totData" type="Object"/>
+	<aura:attribute name="newTotData" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+	<aura:attribute name="totReadOnlyColumns" type="List"/>
+	<aura:attribute name="readOnlyColumns" type="List"/>
+	<aura:attribute name="totColumns" type="List"/>
+    <aura:attribute name="errors" type="Object" default="[]"/>
+    <aura:attribute name="draftValues" type="Object" default="[]"/>
+	<aura:attribute name="totDraftValues" type="Object" default="[]"/>
+	<aura:attribute name="torSortedBy" type="String"/>
+	<aura:attribute name="torSortedDirection" type="String"/>
+	<aura:attribute name="totSortedBy" type="String"/>
+	<aura:attribute name="totSortedDirection" type="String"/>
+	<aura:attribute name="tableWidth" type="Integer"/>
+	<aura:attribute name="usedTOTGroups" type="List"/>
+	<aura:attribute name="totsSelected" type="Boolean" default="false"/>
+	<aura:attribute name="selectedTOTIds" type="List"/>
+	<aura:attribute name="tableHeight" type="Integer" default="1000"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+	<aura:attribute name="autoScroll" type="Boolean" default="false"/>
+	<aura:attribute name="unassignedTORTitle" type="Aura.Component[]">
+        <h1 class="slds-text-heading_large">
+            Unassigned TOR Records:
+        </h1>
+    </aura:attribute>
+	
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+	<aura:handler event="force:refreshView" action="{!c.init}" />
+	<aura:handler name="render" value="{!this}" action="{!c.scrollDown}"/>
+
+	<lightning:card>	
+		
+		<div class="slds-scrollable">
+			<div style="{!'width:'+v.tableWidth + 'px'}">
+				<div class="slds-p-around_medium">
+					<h1 class="slds-text-heading_large"><b>Target Ownership Tract (TOT) Builder</b></h1>
+				</div>
+				<lightning:card title="{!v.unassignedTORTitle}" >
+					<c:srpDataTable
+						columns="{! v.columns }"
+						data="{! v.data }"
+						keyField="id"
+						errors="{! v.errors }"
+						draftValues="{! v.draftValues }"
+						oncellchange="{! c.updateDataValues }"
+						hideCheckboxColumn="true"
+						suppressBottomBar="true"
+						showRowNumberColumn="false"
+						minColumnWidth="25"
+						maxColumnWidth="300"
+						sortedBy="{!v.torSortedBy}"
+						sortedDirection = "{!v.torSortedDirection}"
+						onsort="{!c.updateTORSorting}"
+					/>
+					<lightning:button variant="brand" label="Create TOR Groups" title="Create TOTs" onclick="{! c.handleCreateTots }" class="buttonMargin" />
+				</lightning:card>
+				<aura:if isTrue="{!v.isWaiting}">
+					<div>
+						<lightning:spinner alternativeText="Loading" size="large" />
+					</div>
+					<aura:set attribute="else">
+						<aura:if isTrue="{!v.newTotData}">
+							<div aura:id = "newTOTArea">
+								<lightning:card>
+									<div class="totGroups">
+										<aura:iteration items="{!v.newTotData}" var="totGroup" indexVar="i">
+											<c:totGroup aura:id = "totDataComponent" torData="{!totGroup.torLines2}" totData="{!totGroup.tot}" torColumns="{!v.readOnlyColumns}" totGroupNumber = "{!totGroup.totGroupNumber}" hasUnsavedChanges = "{!totGroup.hasUnsavedChanges}"/>
+										</aura:iteration>
+									</div>
+									<lightning:button variant="brand" label="Save TOTs" title="Save TOTs" onclick="{! c.handleSaveTots }" class = "buttonMargin"/>
+								</lightning:card>
+							</div>
+						</aura:if>
+					</aura:set>
+				</aura:if>
+			</div>
+		</div>
+	</lightning:card>
+</aura:component>

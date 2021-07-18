@@ -1,0 +1,101 @@
+<aura:component controller="titleWorkTrackingCardAura">
+	<aura:attribute name="titleTrackingRecord" type="Object"/>
+	<aura:attribute name="activeSections" type="List"/>
+    <aura:attribute name="activeSectionsMessage" type="String" default="" />
+	<aura:attribute name="percentComplete" type="Integer" default="0"/>
+	<aura:attribute name="landmanStatus" type="String" default="Not Created"/>
+	<aura:attribute name="integrationReviewStatus" type="String" default="Not Created"/>
+	<aura:attribute name="attorneyReviewStatus" type="String" default="Not Created"/>
+	<aura:attribute name="titleWorkStatus" type="String" default = "Not Started"/>
+	
+	<aura:attribute name="initialTitleWorkStatusButtonIcon" type="String" default="utility:success"/>
+	<aura:attribute name="landmanStatusButtonIcon" type="String" default="utility:success"/>
+	<aura:attribute name="integrationReviewStatusButtonIcon" type="String" default="utility:success"/>
+	<aura:attribute name="attorneyReviewStatusButtonIcon" type="String" default="utility:success"/>
+	<aura:attribute name="finalTitleWorkStatusButtonIcon" type="String" default="utility:success"/>
+	
+	<aura:attribute name="initialTitleWorkStatusListClass" type="String" default="slds-progress__item" />
+	<aura:attribute name="landmanStatusListClass" type="String" default="slds-progress__item" />
+	<aura:attribute name="integrationReviewStatusListClass" type="String" default="slds-progress__item" />
+	<aura:attribute name="attorneyReviewStatusListClass" type="String" default="slds-progress__item" />
+	<aura:attribute name="finalTitleWorkStatusListClass" type="String" default="slds-progress__item" />
+	
+	<aura:attribute name="initialTitleWorkStatusButtonClass" type="String" default="slds-button slds-progress__marker"/>
+	<aura:attribute name="landmanStatusButtonClass" type="String" default="slds-button slds-progress__marker"/>
+	<aura:attribute name="integrationReviewStatusButtonClass" type="String" default="slds-button slds-progress__marker"/>
+	<aura:attribute name="attorneyReviewStatusButtonClass" type="String" default="slds-button slds-progress__marker"/>
+	<aura:attribute name="finalTitleWorkStatusButtonClass" type="String" default="slds-button slds-progress__marker"/>
+	
+	<aura:attribute name="initialTitleWorkStatusButtonIconClass" type="String" default="hidden"/>
+	<aura:attribute name="landmanStatusButtonIconClass" type="String" default="hidden"/>
+	<aura:attribute name="integrationReviewStatusButtonIconClass" type="String" default="hidden"/>
+	<aura:attribute name="attorneyReviewStatusButtonIconClass" type="String" default="hidden"/>
+	<aura:attribute name="finalTitleWorkStatusButtonIconClass" type="String" default="hidden"/>
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:handler event="force:refreshView" action="{!c.doInit}" />
+
+	<lightning:quickActionAPI aura:id="quickActionAPI" />
+	<lightning:navigation aura:id="navService"/>
+
+		
+	<div class="slds-align_center">
+		<div class="slds-progress">
+			<ol class="slds-progress__list">
+				<!--<li class="{!v.initialTitleWorkStatusListClass}" aura:id="initialTitleWorkStatusMarker">
+					<button class="{!v.initialTitleWorkStatusButtonClass}" title="{!'Title Tracking - ' + v.titleWorkStatus}">
+						<lightning:buttonIcon aura:id="initialTitleWorkStatusButton" iconName="{!v.initialTitleWorkStatusButtonIcon}" variant="container" class="{!v.initialTitleWorkStatusButtonIconClass}"/>
+					</button>
+				</li>-->
+				<li class="{!v.landmanStatusListClass}">
+					<button class="{!v.landmanStatusButtonClass}" title="{!'Landman Work Job - ' + v.landmanStatus}">
+						<lightning:buttonIcon aura:id="landmanStatusButton" iconName="{!v.landmanStatusButtonIcon}" variant="container" class="{!v.landmanStatusButtonIconClass}"/>
+					</button>
+				</li>
+				<li class="{!v.integrationReviewStatusListClass}">
+					<button class="{!v.integrationReviewStatusButtonClass}" title="{!'Integration Review Work Job - ' + v.integrationReviewStatus}">
+						<lightning:buttonIcon aura:id="integrationReviewStatusButton" iconName="{!v.integrationReviewStatusButtonIcon}" variant="container" class="{!v.integrationReviewStatusButtonIconClass}"/>
+					</button>
+				</li>
+				<li class="{!v.attorneyReviewStatusListClass}">
+					<button class="{!v.attorneyReviewStatusButtonClass}" title="{!'Attorney Review Work Job - ' + v.attorneyReviewStatus}">
+						<lightning:buttonIcon aura:id="attorneyReviewStatusButton" iconName="{!v.attorneyReviewStatusButtonIcon}" variant="container" class="{!v.attorneyReviewStatusButtonIconClass}"/>
+					</button>
+				</li>
+				<li class="{!v.finalTitleWorkStatusListClass}">
+					<button class="{!v.finalTitleWorkStatusButtonClass}" title="{!'Title Tracking - ' + v.titleWorkStatus}">
+						<lightning:buttonIcon aura:id="finalTitleWorkStatusButton" iconName="{!v.finalTitleWorkStatusButtonIcon}" variant="container" class="{!v.finalTitleWorkStatusButtonIconClass}"/>
+					</button>
+				</li>				
+			</ol>
+			<div class="slds-progress-bar slds-progress-bar_x-small" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" role="progressbar">
+				<span class="slds-progress-bar__value" style="{!'width:' + v.percentComplete + '%'}">
+				</span>
+			</div>
+		</div>
+	</div>	
+    <aura:if isTrue="{!not(empty(v.titleTrackingRecord.titleWorkJobs))}"> 
+		<div aura:id="tableDiv" id="srpDataTableDiv">
+			<!--{!v.titleTrackingRecord.titleWorkJobs[0].titleWorkJob.Id}-->
+			<!--<lightning:accordion allowMultipleSectionsOpen="true"  activeSectionName="{! v.activeSections }" >-->
+				<aura:iteration items="{!v.titleTrackingRecord.titleWorkJobs}" var="titleWorkJob" indexVar="i">
+					<div class=" slds-p-around_medium">
+						<!--{!titleWorkJob.titleWorkJob.Name}
+						{!titleWorkJob.titleWorkJob.type__c == 'Landman' ? (v.titleTrackingRecord.hasIntegrationReview? 'false' : 'true') : (titleWorkJob.titleWorkJob.type__c == 'Integration Review'? (v.titleTrackingRecord.hasAttorneyReview? 'false' : 'true'):'false')} -->
+						
+						<!--<lightning:accordionSection name="{!titleWorkJob.titleWorkJob.Id}" label="{!titleWorkJob.titleWorkJob.Name}">-->
+							<c:titleWorkJobCard titleWorkJobRecord="{!titleWorkJob}" titleWorkTrackerId="{!v.titleTrackingRecord.titleWorkTracker.Id}" titleWorkTrackerName="{!v.titleTrackingRecord.titleWorkTracker.Name}" 
+								showReviewButton="{!titleWorkJob.titleWorkJob.type__c == 'Landman' ? (v.titleTrackingRecord.hasIntegrationReview? false : true) : (titleWorkJob.titleWorkJob.type__c == 'Integration Review'? (v.titleTrackingRecord.hasAttorneyReview? false : true):false)}"/>
+						<!--</lightning:accordionSection>-->
+					</div>
+				</aura:iteration>
+			<!--</lightning:accordion>-->
+		</div>
+		<aura:set attribute="else">
+			No Title Work Jobs have been created for this tracker.
+		</aura:set>
+	</aura:if>
+					
+			
+		
+</aura:component>

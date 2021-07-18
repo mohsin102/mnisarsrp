@@ -1,0 +1,17 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId">
+
+	
+	<aura:attribute name="twjRecord" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+	<force:recordData aura:id="recordLoader"
+		recordId="{!v.recordId}"
+		fields="Name,Id,landGridTract__c "
+		targetFields="{!v.twjRecord}"
+		targetError="{!v.recordLoadError}"
+		recordUpdated="{!c.handleRecordUpdated}"
+
+    />
+
+
+	
+</aura:component>

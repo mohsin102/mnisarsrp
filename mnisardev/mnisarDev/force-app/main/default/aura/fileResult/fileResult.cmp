@@ -1,0 +1,23 @@
+<aura:component>
+	<aura:attribute name="record" type="Object"/>
+	
+	<div onclick="{!c.previewFile}" class="slds-size_12-of-12 slds-grid">
+		<div class="slds-show_inline-block slds-float_left slds-align-middle thumbailImg medium">
+			<lightning:icon iconName="{!'doctype:'+v.record.fileTypeImage}" alternativeText="{!v.record.cv.FileType}" title="{!v.record.cv.Title}" />
+		</div>
+		<div class="slds-show_inline-block slds-float_left slds-p-left--x-small slds-truncate slds-m-right_x-small">
+			<div>
+				<lightning:formattedText value="{!v.record.cv.Title}"/>
+			</div>
+			<div>
+				<lightning:formattedDateTime value="{!v.record.cv.ContentModifiedDate}"/>
+				&nbsp;&bull;&nbsp;
+				<lightning:formattedText value="{!v.record.friendlyFileSize}"/>
+				&nbsp;&bull;&nbsp;
+				<lightning:formattedText value="{!v.record.cv.FileExtension}"/>
+			</div>
+		</div>
+	</div>
+	
+	
+</aura:component>

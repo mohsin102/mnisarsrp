@@ -1,0 +1,9 @@
+<aura:component>
+	<aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+	<aura:attribute name="buttonLabel" type="String" default="Export"/>
+	<aura:attribute name="fileName" type="String" default="export"/>
+	
+	<lightning:button label="{!v.buttonLabel}" onclick="{!c.exportData}"/>
+	
+</aura:component>

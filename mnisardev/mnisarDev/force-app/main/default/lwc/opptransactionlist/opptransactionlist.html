@@ -1,0 +1,21 @@
+<template>
+    <lightning-card class="slds-text-heading_small slds-card_boundary" title={title} icon-name='' >
+  <!--if:true={hasTracts}-->
+        <div class={tableClass}>
+            <div class="lwc-dt-row" style={tableStyle}>
+                    <c-srp-data-table
+                            key-field="Id"
+                            data={tractData}
+                            hide-checkbox-column
+                            onsort={updateColumnSorting}
+                            sorted-by={sortCol}
+                            onsave={handleSave}
+                            draft-values={draftValues}
+                            sorted-direction={sortDir}
+                            columns={columns}
+                            is-loading={tableLoadingState}>
+                    </c-srp-data-table>
+            </div>
+        </div>
+    </lightning-card>
+</template>

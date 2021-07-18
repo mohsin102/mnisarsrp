@@ -1,0 +1,158 @@
+<aura:component controller="RoyaltyLineItemController"> 
+    <aura:attribute name="propertyName" type="String"/>
+    <aura:attribute name="payorName" type="String"/>
+    <aura:attribute name="payorAccName" type="String"/>
+    <aura:attribute name="searchString" type="String"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="data1" type="Object"/>
+    <aura:attribute name="rliData" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="rliColumns" type="List"/>
+    <aura:attribute name="sortedBy" type="String"/>
+    <aura:attribute name="sortedDirection" type="String"/>
+    <aura:attribute name="rcid" type="String"/>
+    <aura:attribute name="rliIds" type="Set"/>
+    <aura:attribute name="selectedWell" type="String" />
+    <aura:attribute name="selection" type="List" />
+    <aura:attribute name="isAssociated" type="boolean" />
+    <aura:attribute name="nonWellItem" type="boolean" default="false"/>
+    <aura:attribute name="pageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="10"/>
+	<aura:attribute name="totalPages" type="Integer" default="0"/>
+	<aura:attribute name="isLastPage" type="Boolean" default="false"/>
+	<aura:attribute name="pageData" type="Object"/>
+	<aura:attribute name="totalLineItems" type="Integer" default="0"/>
+    <aura:attribute name="height" type="String"/>
+    <aura:attribute name="revenueProperty" type="Object"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <lightning:navigation aura:id="navService"/>
+    <aura:registerEvent name="mdlEvent" type="c:modalEvent"/>
+    <!--layout-->
+    <div>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open  slds-modal_large">
+            <div class="slds-modal__container" >
+                <aura:if isTrue='{!v.isAssociated}'>
+                    <header class="slds-modal__header">
+                        <!--<lightning:button iconName="utility:close" class="slds-button slds-button_icon slds-modal__close closeIcon slds" title="Close" onclick="{!c.handleCancel}">
+      </lightning:button>-->
+                        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Royalty Line Items</h2>
+                    </header>
+                    
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class="slds-align_absolute-center"><b>Revenue Property: </b>&nbsp; <lightning:button variant="base" label="{!v.revenueProperty.propertyName__c}" onclick="{!c.openRecord}"/></div>   
+                        <c:srpDataTable
+                                        class="slds-p-around_medium"
+                                        columns="{! v.rliColumns }"
+                                        data="{! v.rliData }"
+                                        keyField="Id"
+                                        hideCheckboxColumn="true"
+                                        errors="{! v.errors }"
+                                        suppressBottomBar="true"
+                                        showRowNumberColumn="false"
+                                        sortedBy="{!v.sortedBy}"
+                                        sortedDirection = "{!v.sortedDirection}"
+                                        onsort="{!c.updateSorting}"/>
+                        
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button class="slds-button slds-button_neutral" onclick="{!c.handleCancel}">Cancel</lightning:button>
+                    </footer>
+                    <aura:set attribute="else">
+                        <header class="slds-modal__header">
+                            <!--<lightning:button iconName="utility:close" class="slds-button slds-button_icon slds-modal__close closeIcon slds" title="Close" onclick="{!c.handleCancel}">
+      </lightning:button>-->
+                            <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Associate Property Name to Well Name in Salesforce database</h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_2-of-12">
+                                </div>
+                                <div class="slds-col slds-size_8-of-12">
+                                    
+                                    <div class="slds-grid">
+                                        <div class="slds-col slds-size_1-of-2 slds-p-around_medium">
+                                            <b>Propety Name: </b> &nbsp; {!v.propertyName}<br/>
+                                                <b>Payor (from source file): </b> &nbsp; {!v.payorName}<br/>
+                                                <b>Payor (account): </b> &nbsp; {!v.payorAccName}<br/>
+                                            <b>Revenue Property: </b>&nbsp; <lightning:button variant="base" label="{!v.revenueProperty.propertyName__c}" onclick="{!c.openRecord}"/><br/>
+                                            <div onkeyup="{! c.handleKeyUp }">
+                                                <lightning:input
+                                                                 class="iconRight"
+                                                                 placeholder="Search for Well Name"
+                                                                 aura:id="enter-search"
+                                                                 name="enter-search"
+                                                                 value="{!v.searchString}"
+                                                                 type="search"
+                                                                 disabled="{! v.nonWellItem}"/>
+                                            </div>
+                                            <div class="slds-grid">
+                                                <div class="slds-col slds-size_1-of-2 slds-p-around_medium">
+                                                <br/>
+                                                <ui:inputCheckbox labelClass="slds-p-horizontal--small slds-float_right" aura:id="checkbox" label="Non Well Line Item" value="{!v.nonWellItem}"/>
+                                                <br/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <aura:if isTrue="{! !v.nonWellItem}">
+                                    Selected Wells :<br/>
+                                    <aura:iteration items="{!v.selection}" var="item">
+                                        {!item.Name} &nbsp;
+                                        <!-- <button type="button" onclick="{!c.handleRemove}" id='{!item.Id}'>{!item.Name}
+                                       
+                                            <div style="float: right">
+                                                <lightning:buttonIcon iconName="utility:close" variant="bare" alternativeText="Remove" />
+                                            </div>
+                                        </button> -->
+                                    </aura:iteration>
+                                        
+                                    <div style="{!v.height}" > 
+                                    <c:srpDataTable
+                                                    class="slds-p-around_medium"
+                                                    columns="{! v.columns }"
+                                                    data="{! v.pageData }"
+                                                    keyField="Id"
+                                                    errors="{! v.errors }"
+                                                    suppressBottomBar="true"
+                                                    showRowNumberColumn="false"
+                                                    minColumnWidth="25"
+                                                    maxColumnWidth="300"
+                                                    hideCheckboxColumn="true"
+                                                    sortedBy="{!v.sortedBy}"
+                                                    sortedDirection = "{!v.sortedDirection}"
+                                                    onsort="{!c.updateSorting}"
+                                                    onrowaction="{!c.displayModal}"/>
+                                        </div>
+                                            
+                                        
+                                                   <div> 
+                                                       <br/>
+                                                    <div class="slds-clearfix">
+                                                        <p class="slds-page-header__title">Page {!v.pageNumber} of {!v.totalPages} | Total Wells {!v.totalLineItems }</p>
+                                                        <div class="slds-float_right">            
+                                                            <lightning:button label="Prev" iconName="utility:chevronleft" iconPosition="left"
+                                                                                onclick="{!c.handlePrev}" disabled="{! v.pageNumber == 1}"/>
+                                                            <lightning:button label="Next" iconName="utility:chevronright" iconPosition="right"
+                                                                                disabled="{! v.isLastPage}" onclick="{!c.handleNext}"/>
+                                                        </div>
+                                                        
+                                                    </div> 
+                                                       </div>
+                                                </aura:if>
+                                </div>
+                                <div class="slds-col slds-size_2-of-12">
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <lightning:button class="slds-button slds-button_neutral" onclick="{!c.handleCancel}">Cancel</lightning:button>
+                            <button class="slds-button slds-button_brand" onclick="{!c.handleSave}" Disabled="{!v.associateButtonInactive}">Associate</button>
+                        </footer>
+                    </aura:set>
+                </aura:if>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+</aura:component>

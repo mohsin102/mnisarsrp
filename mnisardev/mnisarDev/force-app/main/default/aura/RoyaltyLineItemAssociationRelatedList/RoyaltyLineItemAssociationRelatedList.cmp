@@ -1,0 +1,50 @@
+<aura:component controller="RoyaltyLineItemController" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
+    
+	<aura:attribute name="recordId" type="String"/>
+	<aura:attribute name="payorName" type="String"/>
+	<aura:attribute name="payorAccName" type="String"/>
+	<aura:attribute name="sObjectName" type="String"/>
+    <aura:attribute name="data" type="Object"/>
+	<aura:attribute name="columns" type="List"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+	<aura:attribute name="sortedBy" type="String"/>
+	<aura:attribute name="sortedDirection" type="String"/>
+	<aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="selectedRLIId" type="String"/>
+	<aura:attribute name="pageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="10"/>
+	<aura:attribute name="totalPages" type="Integer" default="0"/>
+	<aura:attribute name="isLastPage" type="Boolean" default="false"/>
+	<aura:attribute name="pageData" type="Object"/>
+	<aura:attribute name="totalLineItems" type="Integer" default="0"/>
+
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:handler name="mdlEvent" event="c:modalEvent" action="{!c.handleComponentEvent}"/>
+    <aura:attribute name="lineItemTitle" type="Aura.Component[]">
+        <h2 class="slds-text-heading_small">
+            <p class="slds-m-bottom_medium">Instructions: Click on a Well name to search for a Salesforce Well Name.</p>
+        </h2>    </aura:attribute>
+ 
+    <lightning:card>	
+				<lightning:card title="{!v.lineItemTitle}" >
+					<c:srpDataTable
+						columns="{! v.columns }"
+						data="{! v.data }"
+						keyField="tonId"
+						errors="{! v.errors }"
+						draftValues="{! v.draftValues }"
+						oncellchange="{! c.updateDataValues }"
+						hideCheckboxColumn="true"
+						suppressBottomBar="true"
+						showRowNumberColumn="false"
+						minColumnWidth="25"
+						sortedBy="{!v.sortedBy}"
+						sortedDirection = "{!v.sortedDirection}"
+						onsort="{!c.updateSorting}"
+						onrowaction="{!c.displayModal}"/>
+				</lightning:card>
+				
+	</lightning:card>
+	<div aura:id="royaltyWellAssociationModal" ></div>
+</aura:component>

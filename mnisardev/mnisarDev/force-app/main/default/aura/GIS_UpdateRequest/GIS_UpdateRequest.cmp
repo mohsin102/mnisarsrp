@@ -1,0 +1,12 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <aura:attribute name="unitId" type="string"/>
+    <lightning:recordEditForm aura:id="recordEditForm"
+                           objectApiName="GIS_Update_Request__c"
+                              onsuccess="{!c.openCreatedRecord}">
+        <lightning:messages />
+        <lightning:inputField fieldName="Comments__c" />
+        <lightning:inputField fieldName="Unit__c" value="{!v.unitId}"/>
+        <lightning:button class="slds-m-top_small slds-float_right" type="submit" label="Create new" variant="brand"/>
+    </lightning:recordEditForm>
+</aura:component>

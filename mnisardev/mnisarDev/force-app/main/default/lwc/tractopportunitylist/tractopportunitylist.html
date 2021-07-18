@@ -1,0 +1,18 @@
+<template>
+        <lightning-card class="slds-text-heading_small slds-card_boundary" title={title} icon-name='' if:true={hasOpps}>
+            <div class="lwc-dt-row">
+                    <lightning-datatable
+                            key-field="Id"
+                            data={oppData}
+                            hide-checkbox-column
+                            onsort={updateColumnSorting}
+                            sorted-by={sortCol}
+                            sorted-direction={sortDir}
+                            onsave={handleSave}
+                            draft-values={draftValues}
+                            columns={columns}
+                            is-loading={tableLoadingState}>
+                    </lightning-datatable>
+            </div>
+        </lightning-card>
+</template>

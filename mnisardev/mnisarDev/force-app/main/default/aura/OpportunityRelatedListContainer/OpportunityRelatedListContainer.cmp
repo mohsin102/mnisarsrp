@@ -1,0 +1,35 @@
+<aura:component
+    implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName"
+    access="global">
+    <aura:attribute name="showRelatedTracts" type="boolean" default="true" />
+    <aura:attribute name="sObjectName" type="String" />
+    <aura:attribute name="showButton" type="boolean" default="true" />
+    
+    <aura:handler
+        name="modalEvent"
+        event="c:modalEvent"
+        action="{!c.handleCloseModal}"/>  <!--Is this needed???-->
+    
+    <div>
+        <div class="slds-clearfix">
+            <aura:if isTrue="{!v.showButton}">
+                <div
+                    class="slds-float_right"
+                    style="
+                        padding-top: 7px;
+                        padding-left: 55%;
+                        z-index: 2;
+                        position: absolute;">
+                    <lightning:button
+                        label="Manage Opportunities"
+                        onclick="{!c.showManageOpportunities}"/>
+                </div>
+            </aura:if>
+        </div>
+        <c:OpportunityRelatedListAuraCmp
+            recordId="{!v.recordId}"
+            sObjectName="{!v.sObjectName}"
+            aura:id="relatedList"/>
+    </div>
+    {!v.body}
+</aura:component>

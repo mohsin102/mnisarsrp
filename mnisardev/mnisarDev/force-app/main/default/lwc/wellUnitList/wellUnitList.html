@@ -1,0 +1,131 @@
+<template>
+    <lightning-card class="slds-text-heading_small" >
+  
+        <!-- Loading Spinner-->
+        <template if:false={loaded}>
+            <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+        </template>
+  
+        <!-- Accordion containing Permits, Horizontals, Verticals -->
+        <lightning-accordion allow-multiple-sections-open
+                             onsectiontoggle={handleSectionToggle}
+                             active-section-name={activeSections}>
+  
+            
+            <!-- Permit table - needs refactoring -->
+            <lightning-accordion-section name="Permits" label={accordionLabel.permit}  >
+                <div class="lwc-dt-row">
+                  <!-- Permit pager - needs refactoring -->
+            <div class="slds-align--absolute-center" if:true={paging.showPermitPager} >
+              <lightning-button-icon icon-name="utility:chevronleft"
+                                     onclick={pageDownPermit}
+                                     alternative-text="Zoom in"  class="slds-button slds-button_icon slds-m-left_xx-small slds-p-around_x-small" disabled={paging.disablePermitsLeft}></lightning-button-icon>
+  
+              <p>&nbsp;&nbsp;Page {paging.permitsPage} of {paging.permitsPages}&nbsp;&nbsp;</p>
+  
+              <lightning-button-icon icon-name="utility:chevronright" if:true={paging.showPermitRight}
+                                     onclick={pageUpPermit}
+                                     alternative-text="Zoom out" class="slds-button slds-button_icon slds-m-left_xx-small slds-p-around_x-small" disabled={paging.disablePermitsRight}></lightning-button-icon>
+          </div>
+                    <lightning-datatable
+                            key-field="Id"
+                            data={table.permitsPaged}
+                            hide-checkbox-column
+                            columns={columns.permit}
+                            onsort={updateColumnSortingPermits}
+                            sorted-by={sortCol}
+                            sorted-direction={sortDir}
+                            is-loading={tableLoadingState}>
+                    </lightning-datatable>
+                </div>
+            </lightning-accordion-section>
+  
+            
+  
+            <lightning-accordion-section name="DUC" label={accordionLabel.duc}  >
+              <div class="lwc-dt-row">
+                <div class="slds-align--absolute-center" if:true={paging.showDUCPager} >
+                  <lightning-button-icon icon-name="utility:chevronleft"
+                                         onclick={pageDownDUC}
+                                         alternative-text="Zoom in"  class="slds-button slds-button_icon slds-m-left_xx-small slds-p-around_x-small" disabled={paging.disableDUCLeft}></lightning-button-icon>
+      
+                  <p>&nbsp;&nbsp;Page {paging.DUCPage} of {paging.DUCPages}&nbsp;&nbsp;</p>
+      
+                  <lightning-button-icon icon-name="utility:chevronright" if:true={paging.showDUCRight}
+                                         onclick={pageUpDUC}
+                                         alternative-text="Zoom out" class="slds-button slds-button_icon slds-m-left_xx-small slds-p-around_x-small" disabled={paging.disableDUCRight}></lightning-button-icon>
+              </div>
+  
+                  <lightning-datatable
+                          key-field="Id"
+                          data={table.DUCPaged}
+                          hide-checkbox-column
+                          columns={columns.duc}
+                          onsort={updateColumnSortingDUCs}
+                          sorted-by={sortCol}
+                          sorted-direction={sortDir}
+                          is-loading={tableLoadingState}>
+                  </lightning-datatable>
+              </div>
+          </lightning-accordion-section>
+  
+            <lightning-accordion-section name="Horizontals" label={accordionLabel.hz}>
+                <div class="lwc-dt-row">
+                    <div class="slds-align--absolute-center" if:true={paging.showHzPager} >
+                        <!-- HZ Pager -->
+                        <lightning-button-icon icon-name="utility:chevronleft"
+                                               onclick={pageDownHz}
+                                               alternative-text="Zoom in"  class="slds-button slds-button_icon slds-m-left_xx-small slds-p-around_x-small" disabled={paging.disableHzLeft}></lightning-button-icon>
+  
+                        <p>&nbsp;&nbsp;Page {paging.hzWellsPage} of {paging.hzPages}&nbsp;&nbsp;</p>
+  
+                        <lightning-button-icon icon-name="utility:chevronright" if:true={paging.showHzRight}
+                                               onclick={pageUpHz}
+                                               alternative-text="Zoom out" class="slds-button slds-button_icon slds-m-left_xx-small slds-p-around_x-small" disabled={paging.disableHzRight}></lightning-button-icon>
+                    </div>
+  
+                    <!-- HZ Table -->
+                    <lightning-datatable
+                            key-field="Id"
+                            data={table.hzWellsPaged}
+                            hide-checkbox-column
+                            onsort={updateColumnSortingHz}
+                            sorted-by={sortCol}
+                            sorted-direction={sortDir}
+                            columns={columns.well}
+                            is-loading={tableLoadingState}>
+                    </lightning-datatable>
+                </div>
+            </lightning-accordion-section>
+  
+            <lightning-accordion-section name="Verticals" label={accordionLabel.vert}>
+                <div class="lwc-dt-row">
+                    <!-- VT Pager -->
+                    <div class="slds-align--absolute-center" if:true={paging.showVtPager} >
+                        <lightning-button-icon icon-name="utility:chevronleft"
+                                               onclick={pageDownVt}
+                                               alternative-text="Zoom in"  class="slds-button slds-button_icon slds-m-left_xx-small slds-p-around_x-small" disabled={paging.disableVtLeft}></lightning-button-icon>
+  
+                        <p>&nbsp;&nbsp;Page {paging.vertWellsPage} of {paging.vertPages}&nbsp;&nbsp;</p>
+  
+                        <lightning-button-icon icon-name="utility:chevronright" if:true={paging.showVtRight}
+                                               onclick={pageUpVt}
+                                               alternative-text="Zoom out" class="slds-button slds-button_icon slds-m-left_xx-small slds-p-around_x-small" disabled={paging.disableVtRight}></lightning-button-icon>
+                    </div>
+                    <!-- VT Table -->
+                    <lightning-datatable
+                            key-field="Id"
+                            data={table.vertWellsPaged}
+                            hide-checkbox-column
+                            onsort={updateColumnSortingVt}
+                            sorted-by={sortCol}
+                            sorted-direction={sortDir}
+                            columns={columns.well}
+                            is-loading={tableLoadingState}>
+                    </lightning-datatable>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion>
+  
+    </lightning-card>
+  </template>

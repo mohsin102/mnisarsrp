@@ -1,0 +1,102 @@
+<apex:page standardController="AIM__Entity__c" extensions="AIM.AIMDocsExtensionController">
+  <apex:includeScript value="/soap/ajax/22.0/connection.js"/>
+  <apex:includeScript value="/soap/ajax/22.0/apex.js"/>
+  <apex:includeScript value="{!$Resource.AIM__AimDocs}" />
+
+  <script>
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+
+    do_aimdocs({
+      aim_docs_url: "{!aimDocsEndpoint}",
+      sfdc_endpoint: '{!$Api.Partner_Server_URL_240}',
+      session_id: '{!$Api.Session_ID}',
+      org_id: '{!$Organization.Id}',
+      user_id: '{!$User.Id}',
+
+      // optional - set to false if you want to leave the created attachments
+      delete_attachment: true,
+
+      // id of parent record that will be merged into the template
+      parent_object: 'AIM__Entity__c',
+
+      // id of parent record that will be merged into the template
+      // note slightly different format and plural name than was used before
+      parent_ids: [ '{!AIM__Entity__c.Id}' ],
+
+      // optional - fields to merge from parent. makes it faster,
+      //field_list: ["Name", "AnnualRevenue", "NumberofLocations__c"],
+
+      // optional - id of record that the pdf will be attached to. if line
+      // removed, will default to parent id
+      target_id: '{!AIM__Entity__c.Id}',
+
+      // id of template that will be used
+      template_id: '015f4000002zCx8',
+
+      // optional - name to use for resulting pdf
+      attachment_name: "{!AIM__Entity__c.Name} Fundraising Pipeline",
+
+      // optional - single = 1 pdf per parent, multi = 1 pdf with
+      // with all records appended to it. default is single.
+      merge_mode: 'single',
+
+      // optional - sync = open pdf in new window, async = you don't want to
+      // open it now. default is async.
+      delivery_mode: 'sync',
+
+      // optional - pdf is default, other option is "docx"
+      save_format: 'pdf',
+
+      // optional - add any children here, or delete if no children       
+      children: [
+        { 
+        "object": "AIM__Fundraising__c", 
+        "relationship_field": "AIM__Entity__c", 
+        "field_list": ["AIM__Account_Name__c", "AIM__Commitment__c", "AIM__Last_Interaction_Date__c", "AIM__Anticipated_Close_Date__c" ], 
+        "bookmark": "IC", 
+        "query_filter": "AIM__Stage__c = 'Initial Contact'" 
+        }, 
+        { 
+        "object": "AIM__Fundraising__c", 
+        "relationship_field": "AIM__Entity__c", 
+        "field_list": ["AIM__Account_Name__c", "AIM__Commitment__c", "AIM__Last_Interaction_Date__c", "AIM__Anticipated_Close_Date__c" ], 
+        "bookmark": "PPM", 
+        "query_filter": "AIM__Stage__c = 'PPM Sent'" 
+
+        }, 
+        { 
+        "object": "AIM__Fundraising__c", 
+        "relationship_field": "AIM__Entity__c", 
+        "field_list": ["AIM__Account_Name__c", "AIM__Commitment__c", "AIM__Last_Interaction_Date__c", "AIM__Anticipated_Close_Date__c" ], 
+        "bookmark": "Indiscus", 
+        "query_filter": "AIM__Stage__c = 'In Discussions'" 
+
+        }, 
+        { 
+        "object": "AIM__Fundraising__c", 
+        "relationship_field": "AIM__Entity__c", 
+        "field_list": ["AIM__Account_Name__c", "AIM__Commitment__c", "AIM__Last_Interaction_Date__c", "AIM__Anticipated_Close_Date__c" ], 
+        "bookmark": "waiting", 
+        "query_filter": "AIM__Stage__c = 'Waiting'" 
+
+        }, 
+        { 
+        "object": "AIM__Fundraising__c", 
+        "relationship_field": "AIM__Entity__c", 
+        "field_list": ["AIM__Account_Name__c", "AIM__Commitment__c", "AIM__Last_Interaction_Date__c", "AIM__Anticipated_Close_Date__c" ], 
+        "bookmark": "Invested", 
+        "query_filter": "AIM__Stage__c = 'Invested'" 
+
+        }, 
+        { 
+        "object": "AIM__Fundraising__c", 
+        "relationship_field": "AIM__Entity__c", 
+        "field_list": ["AIM__Account_Name__c", "AIM__Commitment__c", "AIM__Last_Interaction_Date__c", "AIM__Anticipated_Close_Date__c" ], 
+        "bookmark": "Completed", 
+        "query_filter": "AIM__Stage__c = 'Commitment Won'" 
+
+        } 
+      ] // end of children
+    });
+  </script>
+</apex:page>

@@ -1,0 +1,52 @@
+.THIS .fontMedium{
+    font-weight:400;
+}
+
+.THIS .reconTable th {
+    font-size:smaller;
+}
+
+.THIS .reconTable td {
+    font-size:x-small;
+}
+
+.THIS .reconTable th.slds-cell-fixed {
+    display:none;
+}
+
+.THIS .slds-button_icon-bare{
+    display: none;
+}
+
+.THIS .iconBlue svg {
+    color: #0070D2;
+}
+
+.THIS .iconGreen svg {
+    color: #04844B;
+}
+
+.THIS .iconGray svg {
+    color:rgb(221, 219, 218);
+}
+
+
+.THIS .headerButton {
+    font-size:x-small;
+    border:none;
+    line-height:15px;
+    text-align:left;
+}
+
+.THIS .leftColumn {
+    padding-right:0px;
+}
+
+.THIS .rightColumn {
+    padding-left: 0px;
+}
+
+.THIS .centerColumn {
+    padding-left: 0px;
+    padding-right: 0px;
+}

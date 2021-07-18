@@ -1,0 +1,111 @@
+<aura:component controller="titleWorkTrackingCardAura">
+	<aura:attribute name="titleWorkJobRecord" type="Object"/>
+	<aura:attribute name="titleWorkTrackerId" type="String" default=""/>
+	<aura:attribute name="titleWorkTrackerName" type="String" default=""/>
+	<aura:attribute name="showReviewButton" type="Boolean" default="true"/>
+	<aura:attribute name="statusMessage" type="String" default=""/>
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:handler event="force:refreshView" action="{!c.doInit}" />
+
+	<lightning:quickActionAPI aura:id="quickActionAPI" />
+	<lightning:navigation aura:id="navService"/>
+
+		<lightning:card class="slds-card_boundary">
+			<aura:set attribute="title">
+				<lightning:icon iconName="custom:custom19" size="small"/>
+				&nbsp;{! v.titleWorkJobRecord.titleWorkJob.type__c }&nbsp;Title&nbsp;Work&nbsp;Job&nbsp;-&nbsp;{!v.titleWorkJobRecord.titleWorkJob.Name}&nbsp;&nbsp;
+				<!--<aura:if isTrue="{!v.titleWorkJobRecord.titleWorkJob.status__c !='Complete'}">
+					<lightning:icon iconName="action:defer" size="x-small"/>
+					<aura:set attribute="else">
+						<lightning:icon iconName="action:approval" size="x-small"/>
+					</aura:set>
+				</aura:if>-->
+				<div class="slds-float_right">
+					<lightning:buttonGroup>
+						<lightning:button label="Edit" onclick="{! c.openJobModal }" title="Edit" />
+						<lightning:button label="Start Job" onclick="{! c.startJob }" title="Start Job" disabled="{!v.titleWorkJobRecord.titleWorkJob.status__c =='Not Started'?false:true}" />
+						<lightning:button label="Start Reviewing" onclick="{! c.createTitleWorkJob }" title="Start Reviewing" disabled="{!!v.showReviewButton? true: v.titleWorkJobRecord.titleWorkJob.status__c !='Complete'?true:false }" />
+						<lightning:button label="Start Integration" onclick="{! c.createTitleIntegrationJob }" title="Start Integration" disabled="{!v.titleWorkJobRecord.titleWorkJob.status__c =='Complete'?false:true}" />
+						<lightning:button label = "Mark Complete" onclick="{! c.completeTitleWorkJob }" title="Mark Complete" disabled="{!v.titleWorkJobRecord.titleWorkJob.status__c =='Complete'?true:false}" />
+					</lightning:buttonGroup>
+				</div>
+			</aura:set>
+			<div class="slds-grid slds-wrap">
+				<!-- 1st Row -->
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:right">Status:&nbsp;&nbsp;</p>
+				</div>
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:left">{!v.titleWorkJobRecord.titleWorkJob.status__c}</p>
+				</div>
+				<div class="slds-col slds-size_2-of-4">
+					<p style="text-align:center">{!v.statusMessage}</p>
+				</div>
+				<!--<div class="slds-col slds-size_1-of-4"/>-->
+				<!--2nd Row-->
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:right">SRP Owner:&nbsp;&nbsp;</p>
+				</div>
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:left">{!v.titleWorkJobRecord.titleWorkJob.Owner.Name}</p>
+				</div>
+				<div class="slds-col slds-size_2-of-4"/>
+				<!-- 3rd Row -->
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:right">Start Date:&nbsp;&nbsp;</p>
+				</div>
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:left"><lightning:formattedDateTime value="{!v.titleWorkJobRecord.titleWorkJob.startDate__c}" year="2-digit" month="2-digit" day="2-digit" timeZone="UTC"/></p>
+				</div>
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:right">TRACTS.CO: &nbsp;</p>
+				</div>
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:left"><lightning:formattedUrl value="{!v.titleWorkJobRecord.titleWorkJob.tractsCO__c}" target="_blank" /></p>
+				</div>
+				<!-- 4th Row -->
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:right">Completion Date: &nbsp;</p>
+				</div>
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:left"><lightning:formattedDateTime value="{!v.titleWorkJobRecord.titleWorkJob.completionDate__c}" year="2-digit" month="2-digit" day="2-digit" timeZone="UTC"/></p>
+				</div>
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:right">Egnyte Link: &nbsp;</p>
+				</div>
+				<div class="slds-col slds-size_1-of-4">
+					<p style="text-align:left"><lightning:formattedUrl value="{!v.titleWorkJobRecord.titleWorkJob.egnyteLink__c}" target="_blank" /></p>
+				</div>
+				
+			</div>
+			
+			<aura:if isTrue="{!v.titleWorkJobRecord.titleWorkJob.status__c =='Complete'}">
+				<!--<div class="slds-col slds-size_1-of-1 slds-align_absolute-center">
+					<div class="slds-text-heading_medium bold">{!v.titleWorkJobRecord.titleWorkJob.srpOwner__r.FirstName}'s work is complete</div>
+				</div>-->
+				<div class="slds-col slds-size_1-of-1 slds-align_absolute-center">
+						<!--<lightning:button variant="neutral" label="Go to Job" title="Work on Title Job" onclick="{! c.goToJob }"  />
+						<aura:if isTrue="{!v.titleWorkJobRecord.titleIntegrations.length == 0}">
+							<lightning:button variant="neutral" label="Start Integration" title="Start New Title Integration Job" onclick="{! c.createTitleIntegrationJob }"  />
+						</aura:if>
+						<aura:if isTrue="{!v.showReviewButton}">
+							<lightning:button variant="neutral" label="Start Reviewing" title="Create a Review Title Work Job" onclick="{! c.createTitleWorkJob }"  />
+						</aura:if>-->
+				</div>
+				<aura:if isTrue="{!v.titleWorkJobRecord.titleIntegrations.length > 0}">
+					<div class="slds-text-heading_medium bold slds-p-left_medium slds-p-right_medium">
+						Integrations
+						<!--<lightning:button variant="brand" label="New Title Integration Job" title="New Title Integration" onclick="{! c.createTitleIntegrationJob }" class="slds-float_right normalFont" />-->
+					</div>
+					<aura:iteration items="{!v.titleWorkJobRecord.titleIntegrations}" var="titleIntegrationJob" indexVar="i">
+						<div class=" slds-p-around_medium">
+							<c:titleIntegrationJobCard tijRecord="{!titleIntegrationJob}" />
+						</div>
+					</aura:iteration>
+				</aura:if>
+			</aura:if>
+			
+		</lightning:card>
+		<div aura:id="modalArea" ></div>
+</aura:component>

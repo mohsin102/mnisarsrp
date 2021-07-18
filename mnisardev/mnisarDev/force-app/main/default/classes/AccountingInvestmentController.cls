@@ -2,7 +2,7 @@ public class AccountingInvestmentController {
  // test July 12, 2021
 	
 	// change to in branch from git interface 
-    // changes from VS Code - 17 Test  July  ----------------------
+    // changes from VS Code - 17 Test  July ( to dummyB) ----------------------
     @AuraEnabled
     public static  List<AccountingTransaction__c> getAccountingTransaction(Id recordId){
         List<AccountingTransaction__c> accountingTransactionList = new List<AccountingTransaction__c>();

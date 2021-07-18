@@ -1,0 +1,513 @@
+<aura:component controller="totBuilderAura">
+	<aura:attribute name="editable" type="Boolean" default="true"/>
+	<aura:attribute name="totColumns" type="List"/>
+	<aura:attribute name="tableWidth" type="Integer"/>
+	<aura:attribute name="torColumns" type="List"/>
+	<aura:attribute name="torData" type="Object"/>
+	<aura:attribute name="totData" type="Object"/>
+	<aura:attribute name="viewTotData" type="Object"/>
+	<aura:attribute name="torDraftValues" type="Object" default="[]"/>
+	<aura:attribute name="totDraftValues" type="Object" default="[]"/>
+	<aura:attribute name="torErrors" type="Object" default="[]"/>
+	<aura:attribute name="totErrors" type="Object" default="[]"/>
+	<aura:attribute name="totGroupNumber" type="Integer"/>
+	<aura:attribute name="hasUnsavedChanges" type="Boolean"/>
+	<aura:attribute type="String" name="sortIcon" default="utility:chevrondown"/>
+	<aura:attribute name="totNumberSelection" type="String" default="First"/>
+	<aura:attribute name="torSortedBy" type="String"/>
+	<aura:attribute name="torSortedDirection" type="String"/>
+	<aura:attribute name="selectedTOTId" type="List"/>
+	<aura:attribute name="parent" type="Aura.Component" required="true"/>
+	<!--attributes to determine visibility of override fields on TOT record.-->
+	<aura:attribute name="areaManual" type="Boolean" default="false"/>
+	<aura:attribute name="quarterCallManual" type="Boolean" default="false"/>
+	<aura:attribute name="depthManual" type="Boolean" default="false"/>
+	<aura:attribute name="executiveManual" type="Boolean" default="false"/>
+	<aura:attribute name="bonusManual" type="Boolean" default="false"/>
+	<aura:attribute name="royaltyManual" type="Boolean" default="false"/>
+	<aura:attribute name="wiManual" type="Boolean" default="false"/>
+	<aura:attribute name="nriManual" type="Boolean" default="false"/>
+	<aura:attribute name="lorManual" type="Boolean" default="false"/>
+	<aura:attribute name="oiManual" type="Boolean" default="false"/>
+	<aura:attribute name="grossAcManual" type="Boolean" default="false"/>
+	<aura:attribute name="leaseLORManual" type="Boolean" default="false"/>
+	<aura:attribute name="leaseManual" type="Boolean" default="false"/>
+	<aura:attribute name="bookPageManual" type="Boolean" default="false"/>
+	<aura:attribute name="countyManual" type="Boolean" default="false"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="false"/>
+	<aura:attribute name="torGroupTitle" type="Aura.Component[]">
+        <h1 class="slds-text-heading_large">
+            TOR Group {!v.totGroupNumber}
+        </h1>
+    </aura:attribute>
+
+
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+	<lightning:card title="{!v.torGroupTitle}" class="totCard" >
+		<div class="labelPadding">
+			<h1 class="slds-text-heading_medium">Selected TOR Records:</h1>
+		</div>
+			<c:srpDataTable
+				columns="{! v.torColumns }"
+				
+				data="{!v.torData }"
+				keyField="id"
+				errors="{! v.torErrors }"
+				draftValues="{! v.torDraftValues }"
+				hideCheckboxColumn="true"
+				suppressBottomBar="true"
+				showRowNumberColumn="false"
+				minColumnWidth="25"
+				maxColumnWidth="300"
+				sortedBy="{!v.torSortedBy}"
+				sortedDirection = "{!v.torSortedDirection}"
+				onsort="{!c.updateTORSorting}"
+			/>
+		<div class="labelPadding">
+			<h1 class="slds-text-heading_small">New TOT Record:</h1>
+		</div>		
+		<div>
+			<table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_fixed-layout">
+				<thead>
+					<tr>
+						<th scope="col" style="width:32px;padding:0;border:0">
+								
+						</th>
+						<th scope="col" style="width:125px;padding:0;border:0">
+								
+						</th>
+						<th scope="col" style="width:150px;">
+							<div class="slds-truncate"></div>
+						</th>
+						<th scope="col" style="width:250px;">
+								
+						</th>
+						<th scope="col" style="width:75px;">
+								
+						</th>
+						<!--<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="areaSelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="{!v.totData[0].areaOperator__c}" label="First" class="totSelectLabel">
+									<lightning:menuItem value="Sum" label="Sum" disabled="true" />
+									<lightning:menuItem value="Concatenate" label="Concatenate" />
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].areaOperator__c}
+								</aura:set>
+							</aura:if>
+								
+						</th>-->
+						<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="quarterCallSelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="{!v.totData[0].quarterCallOperator__c}" label="First" class="totSelectLabel">
+									<lightning:menuItem value="Sum" label="Sum" disabled="true" />
+									<lightning:menuItem value="Concatenate" label="Concatenate" />
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].quarterCallOperator__c}
+								</aura:set>
+							</aura:if>
+								
+						</th>
+						<th scope="col" style="width:200px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="depthSelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="First" label="First">
+									<lightning:menuItem value="Sum" label="Sum"  disabled="true"/>
+									<lightning:menuItem value="Concatenate" label="Concatenate" />
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].depthOperator__c}
+								</aura:set>
+							</aura:if>
+						</th>
+						<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="executiveSelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="First" label="First">
+									<lightning:menuItem value="Sum" label="Sum" />
+									<lightning:menuItem value="Concatenate" label="Concatenate"  disabled="true" />
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].executiveOperator__c}
+								</aura:set>
+							</aura:if>
+						</th>
+						<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="bonusSelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="First" label="First">
+									<lightning:menuItem value="Sum" label="Sum" />
+									<lightning:menuItem value="Concatenate" label="Concatenate"  disabled="true"/>
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].bonusOperator__c}
+								</aura:set>
+							</aura:if>
+
+						</th>
+						<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="royaltySelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="First" label="First">
+									<lightning:menuItem value="Sum" label="Sum" />
+									<lightning:menuItem value="Concatenate" label="Concatenate" disabled="true" />
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].royaltyOperator__c}
+								</aura:set>
+							</aura:if>
+						</th>
+						<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="wiSelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="First" label="First">
+									<lightning:menuItem value="Sum" label="Sum" />
+									<lightning:menuItem value="Concatenate" label="Concatenate" disabled="true" />
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].wiOperator__c}
+								</aura:set>
+							</aura:if>
+						</th>
+						<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="nriSelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="First" label="First">
+									<lightning:menuItem value="Sum" label="Sum" />
+									<lightning:menuItem value="Concatenate" label="Concatenate" disabled="true" />
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].nriOperator__c}
+								</aura:set>
+							</aura:if>
+						</th>
+						<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="lorSelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="First" label="First">
+									<lightning:menuItem value="Sum" label="Sum" />
+									<lightning:menuItem value="Concatenate" label="Concatenate" disabled="true" />
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].lorOperator__c}
+								</aura:set>
+							</aura:if>
+						</th>
+						<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="oiSelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="First" label="First">
+									<lightning:menuItem value="Sum" label="Sum" />
+									<lightning:menuItem value="Concatenate" label="Concatenate" disabled="true" />
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].oiOperator__c}
+								</aura:set>
+							</aura:if>
+						</th>
+						<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="grossAcSelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="First" label="First">
+									<lightning:menuItem value="Sum" label="Sum" />
+									<lightning:menuItem value="Concatenate" label="Concatenate"  disabled="true"/>
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].grossAcOperator__c}
+								</aura:set>
+							</aura:if>
+						</th>
+						<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="leaseLORSelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="First" label="First">
+									<lightning:menuItem value="Sum" label="Sum" />
+									<lightning:menuItem value="Concatenate" label="Concatenate" disabled="true" />
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].leaseLOROperator__c}
+								</aura:set>
+							</aura:if>
+						</th>
+						<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="leaseSelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="First" label="First">
+									<lightning:menuItem value="Sum" label="Sum" disabled="true" />
+									<lightning:menuItem value="Concatenate" label="Concatenate" />
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].leaseOperator__c}
+								</aura:set>
+							</aura:if>
+						</th>
+						<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="bookPageFrmSelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="First" label="First">
+									<lightning:menuItem value="Sum" label="Sum" disabled="true" />
+									<lightning:menuItem value="Concatenate" label="Concatenate" />
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].bookPageOperator__c}
+								</aura:set>
+							</aura:if>
+						</th>
+						<th scope="col" style="width:100px;">
+							<aura:if isTrue="{!v.editable}">
+								<lightning:buttonMenu variant="container" aura:id="countySelect" alternativeText="Show menu" onselect="{! c.handleSelect }" value="First" label="First">
+									<lightning:menuItem value="Sum" label="Sum" disabled="true" />
+									<lightning:menuItem value="Concatenate" label="Concatenate" />
+									<lightning:menuItem value="First" label="First"  />
+									<lightning:menuItem value="Manual" label="Manual" />
+								</lightning:buttonMenu>
+								<aura:set attribute="else">
+									{!v.totData[0].countyOperator__c}
+								</aura:set>
+							</aura:if>
+						</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div style="height:100px;">
+			<table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_fixed-layout">
+				<thead>
+					<tr >
+						<th scope="col" style="width:32px">
+						</th>
+						<th scope="col" style="width:125px;padding:0;border:0">
+							<div class="slds-truncate" title="Select">TOR Group</div>
+						</th>
+						<th scope="col" style="width:150px;">
+							<div class="slds-truncate" title="Select">	
+								<aura:if isTrue="{!!v.editable}">
+									TOT Name
+								</aura:if>	
+							</div>
+						</th>
+						<th scope="col" style="width:250px;">
+							<div class="slds-truncate" title="Select">Name</div>
+						</th>
+						<th scope="col" style="width:75px;">
+							<div class="slds-truncate" title="Select">Inst</div>
+						</th>
+						<th scope="col" style="width:100px;">
+							<div class="slds-truncate" title="Select">Quarter Call</div>
+						</th>
+						<th scope="col" style="width:200px;">
+							<div class="slds-truncate" title="Select">Depth</div>
+						</th>
+						<th scope="col" style="width:100px;">
+							<div class="slds-truncate" title="Select">Executive</div>
+						</th>
+						<th scope="col" style="width:100px;">
+							<div class="slds-truncate" title="Select">Bonus</div>
+						</th>
+						<th scope="col" style="width:100px;">
+							<div class="slds-truncate" title="Select">Royalty</div>
+						</th>
+						<th scope="col" style="width:100px;">
+							<div class="slds-truncate" title="Select">WI</div>
+						</th>
+						<th scope="col" style="width:100px;">
+							<div class="slds-truncate" title="Select">NRI</div>
+						</th>
+						<th scope="col" style="width:100px;">
+							<div class="slds-truncate" title="Select">LOR</div>
+						</th>
+						<th scope="col" style="width:100px;">
+							<div class="slds-truncate" title="Select">OI</div>
+						</th>
+						<th scope="col" style="width:100px;">
+							<div class="slds-truncate" title="Select">Gross Ac</div>
+						</th>
+						<th scope="col" style="width:100px;">
+							<div class="slds-truncate" title="Select">Lease LOR</div>
+						</th>
+						<th scope="col" style="width:100px;">
+							<div class="slds-truncate" title="Select">Lease</div>
+						</th>
+						<th scope="col" style="width:100px;">
+							<div class="slds-truncate" title="Select">Book/Page</div>
+						</th>
+						<th scope="col" style="width:100px;">
+							<div class="slds-truncate" title="Select">County</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td/>
+						<td class="totCellRight">
+							<lightning:formattedNumber value="{!v.totData[0].torGroupNum__c}"/>
+						</td>
+						<td>
+							<aura:if isTrue="{!!v.editable}">
+								<lightning:formattedUrl value="{!v.totData[0].link__c}" label="{!v.totData[0].Name}" target="_blank"  tooltip="Open Record in a New Tab" class="totCell"/>
+							</aura:if>	
+						</td>
+						<td>
+							<aura:if isTrue="{!v.editable}">
+								<lightning:formattedText value="{!v.torData[0].tonName__c}" title="{!v.torData[0].instrumentType__c}" class="totCell"/>
+								<aura:set attribute="else">
+									<lightning:formattedText value="{!v.totData[0].tonName__c}" title="{!v.totData[0].tonName__c}" class="totCell"/>
+								</aura:set>
+							</aura:if>
+							
+						</td>
+						<td>
+							<aura:if isTrue="{!v.editable}">
+								<lightning:formattedText value="{!v.torData[0].instrumentType__c}" title="{!v.torData[0].instrumentType__c}" class="totCell"/>
+								<aura:set attribute="else">
+									<lightning:formattedText value="{!v.totData[0].instrumentType__c}" title="{!v.totData[0].instrumentType__c}" class="totCell"/>
+								</aura:set>
+							</aura:if>
+						</td>
+						<!--<td>
+							<aura:if isTrue="{!v.areaManual}">
+								<lightning:input value="{!v.totData[0].area__c}" label="Manual Entry" class="totCell"/>
+								<aura:set attribute="else">
+									<lightning:formattedText value="{!v.totData[0].area__c}" title="{!v.totData[0].area__c}" class="totCell"/>
+								</aura:set>
+							</aura:if>
+						</td>-->
+						<td>
+							<aura:if isTrue="{!v.quarterCallManual}">
+								<lightning:input value="{!v.totData[0].quarterCall__c}" label="Manual Entry" class="totCell"/>
+								<aura:set attribute="else">
+									<lightning:formattedText value="{!v.totData[0].quarterCall__c}" title="{!v.totData[0].quarterCallNote}" class="totCell"/>
+								</aura:set>
+							</aura:if>
+						</td>
+						<td>
+							<aura:if isTrue="{!v.depthManual}">
+								<lightning:input value="{!v.totData[0].depth__c}" label="Manual Entry" class="totCell"/>
+								<aura:set attribute="else">
+									<lightning:formattedText value="{!v.totData[0].depth__c}" title="{!v.totData[0].depth__c}" class="totCell" />
+								</aura:set>
+							</aura:if>
+						</td>
+						<td>
+							<aura:if isTrue="{!v.executiveManual}">
+								<lightning:input value="{!v.totData[0].executive__c}" label="Manual Entry" class="totCell"  type="number" step="0.0000000001"/>
+								<aura:set attribute="else">
+									<lightning:formattedNumber value="{!v.totData[0].executive__c}" title="{!v.totData[0].executive__c}" maximumFractionDigits="10"/>
+								</aura:set>
+							</aura:if>		
+						</td>
+						<td>
+							<aura:if isTrue="{!v.bonusManual}">
+								<lightning:input value="{!v.totData[0].bonus__c}" label="Manual Entry" class="totCell"  type="number" step="0.0000000001"/>
+								<aura:set attribute="else">
+									<lightning:formattedNumber value="{!v.totData[0].bonus__c}" title="{!v.totData[0].executive__c}" maximumFractionDigits="10"/>
+								</aura:set>
+							</aura:if>
+						</td>
+						<td>
+							<aura:if isTrue="{!v.royaltyManual}">
+								<lightning:input value="{!v.totData[0].royalty__c}" label="Manual Entry" class="totCell"  type="number" step="0.0000000001"/>
+								<aura:set attribute="else">
+									<lightning:formattedNumber value="{!v.totData[0].royalty__c}" title="{!v.totData[0].executive__c}" maximumFractionDigits="10"/>
+								</aura:set>
+							</aura:if>
+						</td>
+						<td>
+							<aura:if isTrue="{!v.wiManual}">
+								<lightning:input value="{!v.totData[0].wi__c}" label="Manual Entry" class="totCell"  type="number" step="0.0000000001"/>
+								<aura:set attribute="else">
+									<lightning:formattedNumber value="{!v.totData[0].wi__c}" title="{!v.totData[0].executive__c}" maximumFractionDigits="10"/>
+								</aura:set>
+							</aura:if>
+						</td>
+						<td>
+							<aura:if isTrue="{!v.nriManual}">
+								<lightning:input value="{!v.totData[0].nri__c}" label="Manual Entry" class="totCell"  type="number" step="0.0000000001"/>
+								<aura:set attribute="else">
+									<lightning:formattedNumber value="{!v.totData[0].nri__c}" title="{!v.totData[0].executive__c}" maximumFractionDigits="10"/>
+								</aura:set>
+							</aura:if>
+						</td>
+						<td>
+							<aura:if isTrue="{!v.lorManual}">
+								<lightning:input value="{!v.totData[0].lor__c}" label="Manual Entry" class="totCell"  type="number" step="0.0000000001"/>
+								<aura:set attribute="else">
+									<lightning:formattedNumber value="{!v.totData[0].lor__c}" title="{!v.totData[0].executive__c}" maximumFractionDigits="10"/>
+								</aura:set>
+							</aura:if>
+						</td>
+						<td>
+							<aura:if isTrue="{!v.oiManual}">
+								<lightning:input value="{!v.totData[0].oi__c}" label="Manual Entry" class="totCell"  type="number" step="0.0000000001"/>
+								<aura:set attribute="else">
+									<lightning:formattedNumber value="{!v.totData[0].oi__c}" title="{!v.totData[0].executive__c}" maximumFractionDigits="10"/>
+								</aura:set>
+							</aura:if>
+						</td>
+						<td>
+							<aura:if isTrue="{!v.grossAcManual}">
+								<lightning:input value="{!v.totData[0].grossAc__c}" label="Manual Entry" class="totCell"  type="number" step="0.0000000001"/>
+								<aura:set attribute="else">
+									<lightning:formattedNumber value="{!v.totData[0].grossAc__c}" title="{!v.totData[0].executive__c}" maximumFractionDigits="10"/>
+								</aura:set>
+							</aura:if>
+						</td>
+						<td>
+							<aura:if isTrue="{!v.leaseLORManual}">
+								<lightning:input value="{!v.totData[0].leaseLOR__c}" label="Manual Entry" class="totCell"  type="number" step="0.0000000001"/>
+								<aura:set attribute="else">
+									<lightning:formattedNumber value="{!v.totData[0].leaseLOR__c}" title="{!v.totData[0].executive__c}" maximumFractionDigits="10"/>
+								</aura:set>
+							</aura:if>
+						</td>
+						<td>
+							<aura:if isTrue="{!v.leaseManual}">
+								<lightning:input value="{!v.totData[0].lease__c}" label="Manual Entry" class="totCell"/>
+								<aura:set attribute="else">
+									<lightning:formattedText value="{!v.totData[0].lease__c}" title="{!v.totData[0].bookPageTOT__c}" class="totCell"/>
+								</aura:set>
+							</aura:if>
+						</td>
+						<td>
+							<aura:if isTrue="{!v.bookPageManual}">
+								<lightning:input value="{!v.totData[0].bookPageTOT__c}" label="Manual Entry" class="totCell"/>
+								<aura:set attribute="else">
+									<lightning:formattedText value="{!v.totData[0].bookPageTOT__c}" title="{!v.totData[0].bookPageTOT__c}" class="totCell"/>
+								</aura:set>
+							</aura:if>
+						</td>
+						<td>
+							<aura:if isTrue="{!v.countyManual}">
+								<lightning:input value="{!v.totData[0].county__c}" label="Manual Entry" class="totCell"/>
+								<aura:set attribute="else">
+									<lightning:formattedText value="{!v.totData[0].county__c}" title="{!v.totData[0].county__c}" class="totCell"/>
+								</aura:set>
+							</aura:if>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<aura:if isTrue="{!!v.editable}">
+			<lightning:button disabled="{!v.totData[0].locked__c}" variant="brand" label="Undo TOT" title="Undo TOT" onclick="{! c.handleDeleteTot }" class = "buttonMargin" value="{!v.totData[0].Id}"/>
+		</aura:if>			
+	</lightning:card>
+</aura:component>

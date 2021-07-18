@@ -1,0 +1,117 @@
+<aura:component controller="tpjTONListAura">
+
+	<!--attributes-->
+	<aura:attribute name="searchString" type="String"/>
+	<aura:attribute name="data" type="Object"/>
+	<aura:attribute name="columns" type="List"/>
+	<aura:attribute name="isWaiting" type="Boolean" default="true"/>
+	<aura:attribute name="sortedBy" type="String"/>
+	<aura:attribute name="sortedDirection" type="String"/>
+	<aura:attribute name="searchCounter" type="Integer"/>
+	<aura:attribute name="selectedAccountId" type="String"/>
+	<aura:attribute name="tonId" type="String"/>
+	<aura:attribute name="ton" type="Object"/>
+	<aura:attribute name="pageReference" type="Object"/>
+	<aura:attribute name="canAssociate" type="Boolean" default="false"/>
+	<aura:attribute name="instructionClass" type="String" default="fontGrey"/>
+	<aura:attribute name="canUnlink" type="Boolean" default="false"/>
+	<aura:attribute name="associateButtonInactive" type="Boolean" default="true"/>
+	<!--handlers-->
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+	<aura:handler name="change" value="{!v.searchString}" action="{!c.clearSearchString}"/>
+	
+	<!--navigation service-->
+	<lightning:navigation aura:id="navService"/>
+
+	<aura:registerEvent name="createAccount" type="c:modalEvent"/> 
+
+	<!--layout-->
+	<div>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open  slds-modal_large">
+			<div class="slds-modal__container">
+				<header class="slds-modal__header">
+					<!--<lightning:button iconName="utility:close" class="slds-button slds-button_icon slds-modal__close closeIcon slds" title="Close" onclick="{!c.handleCancel}">
+				  </lightning:button>-->
+				  <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Associate TON to Account Name for {!v.ton.ownerName__c}</h2>
+				</header>
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+					<div class="slds-grid">
+						<div class="slds-col slds-size_2-of-12">
+						</div>
+						<div class="slds-col slds-size_8-of-12">
+							<p class="{!v.instructionClass + ' slds-p-around_medium'}">To associate a Title Ownership Name (TON) to a Salesforce Account Name, type the TON name or other criteria into the search box and select
+								the Salesforce Account Name and Billing Address that matches the TON name.  Click Associate to link the two records and move to the
+								TOT Builder screen to build TOTs.
+							</p>
+							<p class="slds-p-around_medium largeFont">
+								TON NAME: {!v.ton.ownerName__c}<br/>
+								TON ADDRESS: {!v.ton.address__c}<br/>
+							</p>
+							<p class="slds-p-around_medium smallerFont">
+								LAND GRID TRACT: {!v.ton.jobId__r.LandGridTract__r.Name}
+							</p>
+							<aura:if isTrue="{!v.canAssociate}">
+								<!--if canAssociate display modal content-->
+								<div class="slds-grid">
+									<div class="slds-col slds-size_1-of-2 slds-p-around_medium">
+										<div onkeyup="{! c.handleKeyUp }">
+											<lightning:input
+												class="iconRight"
+												placeholder="Search for Account Name"
+												aura:id="enter-search"
+												name="enter-search"
+												value="{!v.searchString}"
+												type="search"
+											/>
+										</div>
+									</div>
+								</div>
+								<c:srpDataTable
+									class="slds-p-around_medium"
+									columns="{! v.columns }"
+									data="{! v.data }"
+									keyField="Id"
+									errors="{! v.errors }"
+									draftValues="{! v.draftValues }"
+									oncellchange="{! c.updateDataValues }"
+									hideCheckboxColumn="true"
+									suppressBottomBar="true"
+									showRowNumberColumn="false"
+									minColumnWidth="25"
+									maxColumnWidth="300"
+									sortedBy="{!v.sortedBy}"
+									sortedDirection = "{!v.sortedDirection}"
+									onsort="{!c.updateSorting}"/>
+								<aura:set attribute="else">
+								<!--if canAssociate is false, display error message-->	
+									<p class="slds-p-around_medium xlargeFont">
+										This TON has already been associated with a Salesforce
+										Account record.  Please proceed to the TOT Builder, 
+										return to the TON List or unlink the records (if no Reconciliation records have been saved).
+									</p>
+									<p class="slds-p-around_medium">
+										<lightning:button class="slds-button slds-button_neutral" onclick="{!c.handleUnlink}" disabled="{!!v.canUnlink}" >Unlink</lightning:button>
+									</p>
+								</aura:set>
+							</aura:if>
+
+
+
+							
+					
+						</div>
+						<div class="slds-col slds-size_2-of-12">
+						</div>
+					</div>
+				</div>
+				<footer class="slds-modal__footer">
+					<lightning:button class="slds-button slds-button_neutral" onclick="{!c.handleCancel}">Cancel</lightning:button>
+					<aura:if isTrue="{!v.canAssociate}">
+						<button class="slds-button slds-button_brand" onclick="{!c.handleSave}" Disabled="{!v.associateButtonInactive}">Associate</button>
+					</aura:if>
+				</footer>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</div>
+</aura:component>

@@ -1,0 +1,43 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" controller="WellInterestAllocationListController">
+    
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="subtractList" type="list"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="sortBy" type="String" />
+    <aura:attribute name="sortDirection" type="String" />
+    <aura:attribute name="subtractListlength" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+	<aura:attribute name="noRelatedObjects" type="Aura.Component[]">
+        <h2 class="slds-text-heading_medium">
+            <p class="slds-m-bottom_medium">No related objects found.</p>
+        </h2>
+    </aura:attribute>
+	
+	<aura:attribute name="cardTitle" type="Aura.Component[]">
+        <lightning:icon iconName="custom:custom96" alternativeText="opportunity" style="width:35px;height:28px;"/>
+            &nbsp; <b style="font-size: 15px;"> Subtracts ({!v.subtractListlength})</b>
+			<div class="slds-float_right">  
+				<lightning:button label="New" onclick="{!c.createNewSubtract}"/>
+			</div>
+    </aura:attribute>
+
+    <lightning:card title="{!v.cardTitle}">	 
+		{!v.data.length}
+		<aura:if isTrue="{!v.subtractList.length>0}">       
+			<div aura:id="tableDiv" id="srpDataTableDiv">
+				<c:srpDataTable
+                                     data="{!v.subtractList}" columns="{!v.mycolumns}"
+                                     keyField="id" hideCheckboxColumn="true" sortedBy="{!v.sortBy}" 
+                                     sortedDirection="{!v.sortDirection}" 
+                                     onsort="{!c.handleSort}" 
+                                     onrowaction="{!c.handleRowAction}"
+                                     />
+			</div>
+			<aura:set attribute="else">
+				{!v.noRelatedObjects}
+			</aura:set>
+		</aura:if>
+	</lightning:card>    
+</aura:component>

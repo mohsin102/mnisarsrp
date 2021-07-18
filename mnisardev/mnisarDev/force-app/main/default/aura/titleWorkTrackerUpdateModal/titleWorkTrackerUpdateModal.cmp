@@ -1,0 +1,51 @@
+<aura:component controller="newTitleWorkTrackerModalAura" implements="lightning:actionOverride,force:hasRecordId,force:hasSObjectName">
+	<aura:attribute name="recordId" type="String" default=""/>
+	<aura:attribute name="completeOnly" type="Boolean" default ="false"/>
+	<aura:attribute name="status" type="String"/>
+	<aura:attribute name="trackerName" type="String"/>
+	<aura:attribute name="sObjectName" type="String" />
+	<aura:attribute name="type" type="String" default="Edit"/>
+	<aura:attribute name="completionDate" type="Date"/>
+	<aura:attribute name="startDate" type="Date"/>
+	<aura:attribute name="selectedOwner" type="List" default="[]" />
+	<aura:attribute name="ownerId" type="String"/>
+	<aura:attribute name="redirectToRecordPage" type="Boolean" default="true"/>
+	
+	<!--navigation service-->
+	<lightning:navigation aura:id="navService"/>
+
+    <div>
+		<lightning:recordEditForm recordId = "{!v.recordId}" objectApiName="TitleWorkTracker__c" aura:id="titleWorkTrackerForm" onsuccess="{!c.handleSuccess}" onload="{!c.handleLoad}" onsubmit="{!c.handleSubmit}">
+			<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open  slds-modal_small">
+				<div class="slds-modal__container">
+					<header class="slds-modal__header">
+						<!--<lightning:button iconName="utility:close" class="slds-button slds-button_icon slds-modal__close closeIcon slds" title="Close" onclick="{!c.handleCancel}">
+						</lightning:button>-->
+						<h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">
+							{!v.type}&nbsp;{!v.trackerName}
+						</h2>
+
+
+					</header>
+					<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+					
+							<lightning:messages />
+							<aura:if isTrue="{!!v.completeOnly}">
+								<lightning:outputField fieldName="Name" />
+								<lightning:outputField fieldName="landGridTract__c" />
+								<lightning:inputField fieldName="startDate__c" value="{!v.startDate}"/>
+								<c:Lookup aura:id="userLookup" selection="{!v.selectedOwner}" onSearch="{!c.userLookupSearch}" label="Owner" placeholder="Search Users" isMultiEntry="false" required="true"/>
+								<!--<lightning:inputField fieldName="OwnerId"/>-->
+								<lightning:inputField fieldName="projectAOI__c"/>
+							</aura:if>
+							<lightning:inputField fieldName="status__c" value="{!v.status}"/>
+							<lightning:inputField fieldName="completionDate__c" value="{!v.completionDate}"/>
+							<lightning:button class="slds-m-top_small" type="cancel" label="Cancel" onclick="{!c.handleCancel}" />
+							<lightning:button class="slds-m-top_small" type="submit" variant="brand" label="Save" />
+					</div>
+				</div>
+			</section>
+			<div class="slds-backdrop slds-fade-in-open" aura:id="modalBack"></div>
+		</lightning:recordEditForm>
+	</div>
+</aura:component>
