@@ -4,6 +4,7 @@ public class AccountingInvestmentController {
 	// change to in branch from git interface 
     // changes from VS Code - July 17 2021 MohsinN ----------------------
     // changes from VS Code doing demo on July 20
+      // changes from VS Code doing demo on July 21
     @AuraEnabled
     public static  List<AccountingTransaction__c> getAccountingTransaction(Id recordId){
         List<AccountingTransaction__c> accountingTransactionList = new List<AccountingTransaction__c>();
